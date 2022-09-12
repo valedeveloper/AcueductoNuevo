@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8ABC05C8-33E6-4B11-B75A-6E082F148A4D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AqueaductoApp</RootNamespace>
+    <AssemblyName>AqueaductoApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.BarCode, Version=22.8.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.BarCode.22.8.0\lib\net47\Aspose.BarCode.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.1.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CapaDatos\DataAcueducto.cs">
+      <DependentUpon>DataAcueducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CapaDatos\DataAcueducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAcueducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CapaModelos\ClsConvertToArray.cs" />
+    <Compile Include="CapaModelos\Encript.cs" />
+    <Compile Include="CapaModelos\PictureRound.cs" />
+    <Compile Include="CapaVistas\FrmAgregarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarFactura.Designer.cs">
+      <DependentUpon>FrmAgregarFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarPredio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarPredio.Designer.cs">
+      <DependentUpon>FrmAgregarPredio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarConsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarConsumo.Designer.cs">
+      <DependentUpon>FrmAgregarConsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarUsuario.Designer.cs">
+      <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarConsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarConsumo.Designer.cs">
+      <DependentUpon>FrmModificarConsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmImprimirFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmImprimirFactura.Designer.cs">
+      <DependentUpon>FrmImprimirFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarPredio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarPredio.Designer.cs">
+      <DependentUpon>FrmModificarPredio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarPropietario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarPropietario.Designer.cs">
+      <DependentUpon>FrmModificarPropietario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmModificarUsuario.Designer.cs">
+      <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarPropietario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmAgregarPropietario.Designer.cs">
+      <DependentUpon>FrmAgregarPropietario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuAdmin.Designer.cs">
+      <DependentUpon>menuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuDigitador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuDigitador.Designer.cs">
+      <DependentUpon>menuDigitador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuFacturador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuFacturador.Designer.cs">
+      <DependentUpon>menuFacturador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CapaVistas\FrmAgregarConsumo.resx">
+      <DependentUpon>FrmAgregarConsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmAgregarFactura.resx">
+      <DependentUpon>FrmAgregarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmAgregarUsuario.resx">
+      <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmImprimirFactura.resx">
+      <DependentUpon>FrmImprimirFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmModificarConsumo.resx">
+      <DependentUpon>FrmModificarConsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmModificarPredio.resx">
+      <DependentUpon>FrmModificarPredio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmModificarPropietario.resx">
+      <DependentUpon>FrmModificarPropietario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmModificarUsuario.resx">
+      <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmAgregarPropietario.resx">
+      <DependentUpon>FrmAgregarPropietario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuAdmin.resx">
+      <DependentUpon>menuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuDigitador.resx">
+      <DependentUpon>menuDigitador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuFacturador.resx">
+      <DependentUpon>menuFacturador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="CapaDatos\DataAcueducto.xsc">
+      <DependentUpon>DataAcueducto.xsd</DependentUpon>
+    </None>
+    <None Include="CapaDatos\DataAcueducto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataAcueducto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CapaDatos\DataAcueducto.xss">
+      <DependentUpon>DataAcueducto.xsd</DependentUpon>
+    </None>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
