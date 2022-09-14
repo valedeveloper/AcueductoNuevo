@@ -23,6 +23,8 @@ namespace AqueaductoApp
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+
+
             if (string.IsNullOrEmpty(this.txtUsuario.Text))
             {
                 MessageBox.Show("Ingresar el Usuario");
@@ -36,57 +38,75 @@ namespace AqueaductoApp
                 }
                 else
                 {
-
-                    //Conexión Desde casa
-                    CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-
-                    string pass;
-
-                    try { rol = (int)tU.verRol(this.txtUsuario.Text, pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text)); }
-
-                    catch (InvalidCastException exeption)
-                    {
-
-                        rol = 0;
-                        MessageBox.Show("Error");
-                    }
-
-                    if (rol == 1)
-                    {
-                        this.Hide();
-                        menuAdmin admi = new menuAdmin();
-                        admi.Show();
-
-                    }
-                    else
-                    {
-                        if (rol == 2)
+                   
+                        try
                         {
-                            menuDigitador digitador = new menuDigitador();
-                            this.Hide();
-                            digitador.Show();
 
-                        }
-                        else
-                        {
-                            if (rol == 3)
+
+                            //Conexión Desde casa
+                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+
+                            string pass;
+
+                            rol = (int)tU.verRol(this.txtUsuario.Text, pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text));
+                            if (rol == 1)
                             {
-                                menuFacturador facturador = new menuFacturador();
                                 this.Hide();
-                                facturador.Show();
+                                menuAdmin admi = new menuAdmin();
+                                admi.Show();
 
                             }
                             else
                             {
-                                MessageBox.Show("Usuario no encontrado");
-                                Login login = new Login();
-                                login.Show();
+                                if (rol == 2)
+                                {
+                                    menuDigitador digitador = new menuDigitador();
+                                    this.Hide();
+                                    digitador.Show();
 
+                                }
+                                else
+                                {
+                                    menuFacturador facturador = new menuFacturador();
+                                    this.Hide();
+                                    facturador.Show();
+                                }
                             }
+
                         }
-                    }
+                        catch
+                        {
+                        //CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter userExist = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                        //int cedula = (int)userExist.validarExistencia(this.txtUsuario.Text, this.txtPassword.Text);
+                        //if (cedula == 0)
+                        //{
+                        //    labelErrorUsuario.Text = "No se encuentra en el Sistema";
+                        //    labelErrorUsuario.Visible = true;
+                        //}
+                        MessageBox.Show("nADA");
+
+                        }
+                        
+                    
+                   
+
+
                 }
+
+
+
+
+
+
+
+
+
+
+
+
             }
+
+                    
         }
 
 
@@ -131,6 +151,21 @@ namespace AqueaductoApp
                 this.txtPassword.Text = "Contraseña";
                 this.txtPassword.UseSystemPasswordChar = false;
             }
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUser_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -15,7 +15,9 @@ namespace AqueaductoApp.CapaVistas
         int estado;
         int id;
         int posicion;
-
+        string catastro;
+        string estadoPropi;
+        string estadoStri;
         public FrmModificarPredio()
         {
             InitializeComponent();
@@ -53,17 +55,27 @@ namespace AqueaductoApp.CapaVistas
                             }
                             else
                             {
+                                try
+                                {
+                                    int cedula = int.Parse(this.txtCedula.Text);
+                                    //Casa
+                                    CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter TPR = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
+                                    TPR.ModificarPredio(this.txtCatastro.Text, this.comboEstrato.Text, this.comboBarrio.Text, estado, id);
 
-                                int cedula = int.Parse(this.txtCedula.Text);
-                                //Casa
-                                CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter TPR = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
-                                TPR.ModificarPredio(this.txtCatastro.Text, this.comboEstrato.Text, this.comboBarrio.Text, estado, id);
+                                    //Recargar DataGrid
+                                    CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter Tp = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
+                                    CapaDatos.DataSet1.PREDIOSDataTable tp = Tp.GetData();
+                                    GridPredio.DataSource = tp;
 
-
-                                //Mensaje de Modificado Predio, limpia los campos. 
-                                MessageBox.Show("Predio modificado", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.txtCatastro.Text = "";
-
+                                    //Mensaje de Modificado Predio, limpia los campos. 
+                                    MessageBox.Show("Predio modificado", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    this.txtCatastro.Text = "";
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("El número de catastro no se puede cambiar,  ya que existe propietario con este predio");
+                                    this.txtCatastro.Text = catastro; 
+                                }
                             }
                         }
                     }
@@ -78,10 +90,17 @@ namespace AqueaductoApp.CapaVistas
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+
+            //Mensaje Recarga
             if (MessageBox.Show("¿Desea cancelar el proceso?", "Notificación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 this.txtCedula.Text = "";
                 this.txtCatastro.Text = "";
+                //Recargar DataGrid
+                CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter Tp = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
+                CapaDatos.DataSet1.PREDIOSDataTable tp = Tp.GetData();
+                GridPredio.DataSource = tp;
 
             }
         }
@@ -99,7 +118,7 @@ namespace AqueaductoApp.CapaVistas
             posicion = GridPredio.CurrentRow.Index;
 
             id = int.Parse(GridPredio.CurrentRow.Cells[0].Value.ToString());
-            string catastro = GridPredio.CurrentRow.Cells[1].Value.ToString();
+            catastro = GridPredio.CurrentRow.Cells[1].Value.ToString();
             this.txtCatastro.Text = catastro;
             string barrio = GridPredio.CurrentRow.Cells[4].Value.ToString();
             this.comboBarrio.Text = barrio;
@@ -107,17 +126,26 @@ namespace AqueaductoApp.CapaVistas
             this.comboEstrato.Text = estrato;
             string cedula = GridPredio.CurrentRow.Cells[2].Value.ToString();
             this.txtCedula.Text = cedula;
-            string estado = GridPredio.CurrentRow.Cells[5].Value.ToString();
-            this.comboEstado.Text = estado;
 
+            estadoPropi = GridPredio.CurrentRow.Cells[5].Value.ToString();
+            //Poner el estado en el comboBox
+            if (estadoPropi == "1")
+            {
+                estadoStri = "ACTIVO";
+                int index = comboEstado.FindString(estadoStri);
+                comboEstado.SelectedIndex = index;
+            }
+            else
+            {
+                estadoStri = "INACTIVO";
+                int index = comboEstado.FindString(estadoStri);
+                comboEstado.SelectedIndex = index;
+            }
 
 
         }
 
-        private void FrmModificarPredio_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void comboEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -139,6 +167,47 @@ namespace AqueaductoApp.CapaVistas
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             //No permite que el Usuario escriba en el campo
+            e.Handled = true;
+        }
+
+        private void txtCatastro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    if (char.IsPunctuation(e.KeyChar))
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void comboEstrato_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboBarrio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void comboEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
             e.Handled = true;
         }
     }

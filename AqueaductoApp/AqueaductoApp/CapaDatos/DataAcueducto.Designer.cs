@@ -460,6 +460,8 @@ namespace AqueaductoApp.CapaDatos {
             
             private global::System.Data.DataColumn columnEstado_Usuario;
             
+            private global::System.Data.DataColumn columnDirección_Imagen;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USUARIOSDataTable() {
@@ -575,6 +577,14 @@ namespace AqueaductoApp.CapaDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Dirección_ImagenColumn {
+                get {
+                    return this.columnDirección_Imagen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -610,7 +620,7 @@ namespace AqueaductoApp.CapaDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USUARIOSRow AddUSUARIOSRow(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario) {
+            public USUARIOSRow AddUSUARIOSRow(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario, string Dirección_Imagen) {
                 USUARIOSRow rowUSUARIOSRow = ((USUARIOSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -622,7 +632,8 @@ namespace AqueaductoApp.CapaDatos {
                         Password_Usuario,
                         Photo_Usuario,
                         Id_Rol,
-                        Estado_Usuario};
+                        Estado_Usuario,
+                        Dirección_Imagen};
                 rowUSUARIOSRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUSUARIOSRow);
                 return rowUSUARIOSRow;
@@ -662,6 +673,7 @@ namespace AqueaductoApp.CapaDatos {
                 this.columnPhoto_Usuario = base.Columns["Photo_Usuario"];
                 this.columnId_Rol = base.Columns["Id_Rol"];
                 this.columnEstado_Usuario = base.Columns["Estado_Usuario"];
+                this.columnDirección_Imagen = base.Columns["Dirección_Imagen"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -687,6 +699,8 @@ namespace AqueaductoApp.CapaDatos {
                 base.Columns.Add(this.columnId_Rol);
                 this.columnEstado_Usuario = new global::System.Data.DataColumn("Estado_Usuario", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado_Usuario);
+                this.columnDirección_Imagen = new global::System.Data.DataColumn("Dirección_Imagen", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDirección_Imagen);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Usuario}, true));
                 this.columnId_Usuario.AutoIncrement = true;
@@ -707,9 +721,9 @@ namespace AqueaductoApp.CapaDatos {
                 this.columnCelular_Usuario.MaxLength = 50;
                 this.columnPassword_Usuario.AllowDBNull = false;
                 this.columnPassword_Usuario.MaxLength = 50;
-                this.columnPhoto_Usuario.AllowDBNull = false;
                 this.columnId_Rol.AllowDBNull = false;
                 this.columnEstado_Usuario.AllowDBNull = false;
+                this.columnDirección_Imagen.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -851,6 +865,8 @@ namespace AqueaductoApp.CapaDatos {
             
             private global::System.Data.DataColumn columnMetros_Cubicos;
             
+            private global::System.Data.DataColumn columnMes_Consumo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CONSUMOSDataTable() {
@@ -918,6 +934,14 @@ namespace AqueaductoApp.CapaDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Mes_ConsumoColumn {
+                get {
+                    return this.columnMes_Consumo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -953,13 +977,14 @@ namespace AqueaductoApp.CapaDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CONSUMOSRow AddCONSUMOSRow(PREDIOSRow parentPREDIOSRowByFK_CONSUMOS_PREDIOS, System.DateTime Fecha_Consumo, int Metros_Cubicos) {
+            public CONSUMOSRow AddCONSUMOSRow(PREDIOSRow parentPREDIOSRowByFK_CONSUMOS_PREDIOS, System.DateTime Fecha_Consumo, int Metros_Cubicos, System.DateTime Mes_Consumo) {
                 CONSUMOSRow rowCONSUMOSRow = ((CONSUMOSRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         Fecha_Consumo,
-                        Metros_Cubicos};
+                        Metros_Cubicos,
+                        Mes_Consumo};
                 if ((parentPREDIOSRowByFK_CONSUMOS_PREDIOS != null)) {
                     columnValuesArray[1] = parentPREDIOSRowByFK_CONSUMOS_PREDIOS[1];
                 }
@@ -996,6 +1021,7 @@ namespace AqueaductoApp.CapaDatos {
                 this.columnNumero_Catastro = base.Columns["Numero_Catastro"];
                 this.columnFecha_Consumo = base.Columns["Fecha_Consumo"];
                 this.columnMetros_Cubicos = base.Columns["Metros_Cubicos"];
+                this.columnMes_Consumo = base.Columns["Mes_Consumo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1009,6 +1035,8 @@ namespace AqueaductoApp.CapaDatos {
                 base.Columns.Add(this.columnFecha_Consumo);
                 this.columnMetros_Cubicos = new global::System.Data.DataColumn("Metros_Cubicos", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMetros_Cubicos);
+                this.columnMes_Consumo = new global::System.Data.DataColumn("Mes_Consumo", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMes_Consumo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Consumo}, true));
                 this.columnId_Consumo.AutoIncrement = true;
@@ -1021,6 +1049,7 @@ namespace AqueaductoApp.CapaDatos {
                 this.columnNumero_Catastro.MaxLength = 50;
                 this.columnFecha_Consumo.AllowDBNull = false;
                 this.columnMetros_Cubicos.AllowDBNull = false;
+                this.columnMes_Consumo.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2395,7 +2424,12 @@ namespace AqueaductoApp.CapaDatos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public byte[] Photo_Usuario {
                 get {
-                    return ((byte[])(this[this.tableUSUARIOS.Photo_UsuarioColumn]));
+                    try {
+                        return ((byte[])(this[this.tableUSUARIOS.Photo_UsuarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Photo_Usuario\' de la tabla \'USUARIOS\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableUSUARIOS.Photo_UsuarioColumn] = value;
@@ -2422,6 +2456,46 @@ namespace AqueaductoApp.CapaDatos {
                 set {
                     this[this.tableUSUARIOS.Estado_UsuarioColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Dirección_Imagen {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSUARIOS.Dirección_ImagenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Dirección_Imagen\' de la tabla \'USUARIOS\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSUARIOS.Dirección_ImagenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPhoto_UsuarioNull() {
+                return this.IsNull(this.tableUSUARIOS.Photo_UsuarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPhoto_UsuarioNull() {
+                this[this.tableUSUARIOS.Photo_UsuarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDirección_ImagenNull() {
+                return this.IsNull(this.tableUSUARIOS.Dirección_ImagenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDirección_ImagenNull() {
+                this[this.tableUSUARIOS.Dirección_ImagenColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2480,6 +2554,17 @@ namespace AqueaductoApp.CapaDatos {
                 }
                 set {
                     this[this.tableCONSUMOS.Metros_CubicosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Mes_Consumo {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCONSUMOS.Mes_ConsumoColumn]));
+                }
+                set {
+                    this[this.tableCONSUMOS.Mes_ConsumoColumn] = value;
                 }
             }
             
@@ -3418,10 +3503,11 @@ namespace AqueaductoApp.CapaDatos.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("Photo_Usuario", "Photo_Usuario");
             tableMapping.ColumnMappings.Add("Id_Rol", "Id_Rol");
             tableMapping.ColumnMappings.Add("Estado_Usuario", "Estado_Usuario");
+            tableMapping.ColumnMappings.Add("Dirección_Imagen", "Dirección_Imagen");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [USUARIOS] WHERE (([Id_Usuario] = @Original_Id_Usuario) AND ([Cedula_Usuario] = @Original_Cedula_Usuario) AND ([Nombre_Usuario] = @Original_Nombre_Usuario) AND ([Apellido_Usuario] = @Original_Apellido_Usuario) AND ([Correo_Usuario] = @Original_Correo_Usuario) AND ([Celular_Usuario] = @Original_Celular_Usuario) AND ([Password_Usuario] = @Original_Password_Usuario) AND ([Id_Rol] = @Original_Id_Rol) AND ([Estado_Usuario] = @Original_Estado_Usuario))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [USUARIOS] WHERE (([Id_Usuario] = @Original_Id_Usuario) AND ([Cedula_Usuario] = @Original_Cedula_Usuario) AND ([Nombre_Usuario] = @Original_Nombre_Usuario) AND ([Apellido_Usuario] = @Original_Apellido_Usuario) AND ([Correo_Usuario] = @Original_Correo_Usuario) AND ([Celular_Usuario] = @Original_Celular_Usuario) AND ([Password_Usuario] = @Original_Password_Usuario) AND ([Id_Rol] = @Original_Id_Rol) AND ([Estado_Usuario] = @Original_Estado_Usuario) AND ((@IsNull_Dirección_Imagen = 1 AND [Dirección_Imagen] IS NULL) OR ([Dirección_Imagen] = @Original_Dirección_Imagen)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_Usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3432,10 +3518,12 @@ namespace AqueaductoApp.CapaDatos.DataSet1TableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_Rol", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Rol", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Dirección_Imagen", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Dirección_Imagen", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [USUARIOS] ([Cedula_Usuario], [Nombre_Usuario], [Apellido_Usuario], [Correo_Usuario], [Celular_Usuario], [Password_Usuario], [Photo_Usuario], [Id_Rol], [Estado_Usuario]) VALUES (@Cedula_Usuario, @Nombre_Usuario, @Apellido_Usuario, @Correo_Usuario, @Celular_Usuario, @Password_Usuario, @Photo_Usuario, @Id_Rol, @Estado_Usuario);
-SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario FROM USUARIOS WHERE (Id_Usuario = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [USUARIOS] ([Cedula_Usuario], [Nombre_Usuario], [Apellido_Usuario], [Correo_Usuario], [Celular_Usuario], [Password_Usuario], [Photo_Usuario], [Id_Rol], [Estado_Usuario], [Dirección_Imagen]) VALUES (@Cedula_Usuario, @Nombre_Usuario, @Apellido_Usuario, @Correo_Usuario, @Celular_Usuario, @Password_Usuario, @Photo_Usuario, @Id_Rol, @Estado_Usuario, @Dirección_Imagen);
+SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario, Dirección_Imagen FROM USUARIOS WHERE (Id_Usuario = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3446,10 +3534,11 @@ SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usua
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo_Usuario", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Rol", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Dirección_Imagen", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [USUARIOS] SET [Cedula_Usuario] = @Cedula_Usuario, [Nombre_Usuario] = @Nombre_Usuario, [Apellido_Usuario] = @Apellido_Usuario, [Correo_Usuario] = @Correo_Usuario, [Celular_Usuario] = @Celular_Usuario, [Password_Usuario] = @Password_Usuario, [Photo_Usuario] = @Photo_Usuario, [Id_Rol] = @Id_Rol, [Estado_Usuario] = @Estado_Usuario WHERE (([Id_Usuario] = @Original_Id_Usuario) AND ([Cedula_Usuario] = @Original_Cedula_Usuario) AND ([Nombre_Usuario] = @Original_Nombre_Usuario) AND ([Apellido_Usuario] = @Original_Apellido_Usuario) AND ([Correo_Usuario] = @Original_Correo_Usuario) AND ([Celular_Usuario] = @Original_Celular_Usuario) AND ([Password_Usuario] = @Original_Password_Usuario) AND ([Id_Rol] = @Original_Id_Rol) AND ([Estado_Usuario] = @Original_Estado_Usuario));
-SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario FROM USUARIOS WHERE (Id_Usuario = @Id_Usuario)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [USUARIOS] SET [Cedula_Usuario] = @Cedula_Usuario, [Nombre_Usuario] = @Nombre_Usuario, [Apellido_Usuario] = @Apellido_Usuario, [Correo_Usuario] = @Correo_Usuario, [Celular_Usuario] = @Celular_Usuario, [Password_Usuario] = @Password_Usuario, [Photo_Usuario] = @Photo_Usuario, [Id_Rol] = @Id_Rol, [Estado_Usuario] = @Estado_Usuario, [Dirección_Imagen] = @Dirección_Imagen WHERE (([Id_Usuario] = @Original_Id_Usuario) AND ([Cedula_Usuario] = @Original_Cedula_Usuario) AND ([Nombre_Usuario] = @Original_Nombre_Usuario) AND ([Apellido_Usuario] = @Original_Apellido_Usuario) AND ([Correo_Usuario] = @Original_Correo_Usuario) AND ([Celular_Usuario] = @Original_Celular_Usuario) AND ([Password_Usuario] = @Original_Password_Usuario) AND ([Id_Rol] = @Original_Id_Rol) AND ([Estado_Usuario] = @Original_Estado_Usuario) AND ((@IsNull_Dirección_Imagen = 1 AND [Dirección_Imagen] IS NULL) OR ([Dirección_Imagen] = @Original_Dirección_Imagen)));
+SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario, Dirección_Imagen FROM USUARIOS WHERE (Id_Usuario = @Id_Usuario)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3460,6 +3549,7 @@ SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usua
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo_Usuario", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Rol", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Dirección_Imagen", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_Usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3469,6 +3559,8 @@ SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usua
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id_Rol", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Rol", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Dirección_Imagen", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Dirección_Imagen", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -3482,15 +3574,15 @@ SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usua
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "select * from USUARIOS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO [USUARIOS] ([Cedula_Usuario], [Nombre_Usuario], [Apellido_Usuario], [Correo_Usuario], [Celular_Usuario], [Password_Usuario], [Photo_Usuario], [Id_Rol], [Estado_Usuario]) VALUES (@Cedula_Usuario, @Nombre_Usuario, @Apellido_Usuario, @Correo_Usuario, @Celular_Usuario, @Password_Usuario, @Photo_Usuario, @Id_Rol, @Estado_Usuario);
-SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario FROM USUARIOS WHERE (Id_Usuario = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandText = @"INSERT INTO [USUARIOS] ([Cedula_Usuario], [Nombre_Usuario], [Apellido_Usuario], [Correo_Usuario], [Celular_Usuario], [Password_Usuario], [Photo_Usuario], [Id_Rol], [Estado_Usuario],[Dirección_Imagen]) VALUES (@Cedula_Usuario, @Nombre_Usuario, @Apellido_Usuario, @Correo_Usuario, @Celular_Usuario, @Password_Usuario, @Photo_Usuario, @Id_Rol, @Estado_Usuario,@Dirección_Imagen);
+SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario,Dirección_Imagen FROM USUARIOS WHERE (Id_Usuario = SCOPE_IDENTITY())";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3501,11 +3593,12 @@ SELECT Id_Usuario, Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usua
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo_Usuario", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Photo_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Dirección_Imagen", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"UPDATE USUARIOS
 SET Cedula_Usuario=@Cedula_Usuario, Nombre_Usuario=@Nombre_Usuario,Apellido_Usuario=@Apellido_Usuario,Correo_Usuario=@Correo_Usuario,Celular_Usuario=@Celular_Usuario,Password_Usuario=@Password_Usuario,Photo_Usuario=@Photo_Usuario,
-Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
+Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario, Dirección_Imagen=@Dirección_Imagen WHERE (Id_Usuario= @Id_Usuario)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3516,14 +3609,28 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo_Usuario", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Photo_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Dirección_Imagen", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Dirección_Imagen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "dbo.verRol";
+            this._commandCollection[3].CommandText = "dbo.validarCedulaUser";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "dbo.validarExistencia";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Password_Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "dbo.verRol";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password_Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3583,7 +3690,7 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id_Usuario, string Original_Cedula_Usuario, string Original_Nombre_Usuario, string Original_Apellido_Usuario, string Original_Correo_Usuario, string Original_Celular_Usuario, string Original_Password_Usuario, int Original_Id_Rol, int Original_Estado_Usuario) {
+        public virtual int Delete(int Original_Id_Usuario, string Original_Cedula_Usuario, string Original_Nombre_Usuario, string Original_Apellido_Usuario, string Original_Correo_Usuario, string Original_Celular_Usuario, string Original_Password_Usuario, int Original_Id_Rol, int Original_Estado_Usuario, string Original_Dirección_Imagen) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id_Usuario));
             if ((Original_Cedula_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Cedula_Usuario");
@@ -3623,6 +3730,14 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
             }
             this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_Id_Rol));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Estado_Usuario));
+            if ((Original_Dirección_Imagen == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Dirección_Imagen));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3643,7 +3758,7 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario) {
+        public virtual int Insert(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario, string Dirección_Imagen) {
             if ((Cedula_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Cedula_Usuario");
             }
@@ -3681,13 +3796,19 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Password_Usuario));
             }
             if ((Photo_Usuario == null)) {
-                throw new global::System.ArgumentNullException("Photo_Usuario");
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((byte[])(Photo_Usuario));
             }
             this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Id_Rol));
             this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Estado_Usuario));
+            if ((Dirección_Imagen == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Dirección_Imagen));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3718,6 +3839,7 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                     byte[] Photo_Usuario, 
                     int Id_Rol, 
                     int Estado_Usuario, 
+                    string Dirección_Imagen, 
                     int Original_Id_Usuario, 
                     string Original_Cedula_Usuario, 
                     string Original_Nombre_Usuario, 
@@ -3727,6 +3849,7 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                     string Original_Password_Usuario, 
                     int Original_Id_Rol, 
                     int Original_Estado_Usuario, 
+                    string Original_Dirección_Imagen, 
                     int Id_Usuario) {
             if ((Cedula_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Cedula_Usuario");
@@ -3765,53 +3888,67 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Password_Usuario));
             }
             if ((Photo_Usuario == null)) {
-                throw new global::System.ArgumentNullException("Photo_Usuario");
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((byte[])(Photo_Usuario));
             }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Id_Rol));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Estado_Usuario));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Id_Usuario));
+            if ((Dirección_Imagen == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Dirección_Imagen));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Id_Usuario));
             if ((Original_Cedula_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Cedula_Usuario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Cedula_Usuario));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Cedula_Usuario));
             }
             if ((Original_Nombre_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Nombre_Usuario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Nombre_Usuario));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Nombre_Usuario));
             }
             if ((Original_Apellido_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Apellido_Usuario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Apellido_Usuario));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Apellido_Usuario));
             }
             if ((Original_Correo_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Correo_Usuario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Correo_Usuario));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Correo_Usuario));
             }
             if ((Original_Celular_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Celular_Usuario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Celular_Usuario));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Celular_Usuario));
             }
             if ((Original_Password_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Password_Usuario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Password_Usuario));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Password_Usuario));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_Id_Rol));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Estado_Usuario));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Id_Usuario));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Id_Rol));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Estado_Usuario));
+            if ((Original_Dirección_Imagen == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Dirección_Imagen));
+            }
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Id_Usuario));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3842,6 +3979,7 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                     byte[] Photo_Usuario, 
                     int Id_Rol, 
                     int Estado_Usuario, 
+                    string Dirección_Imagen, 
                     int Original_Id_Usuario, 
                     string Original_Cedula_Usuario, 
                     string Original_Nombre_Usuario, 
@@ -3850,15 +3988,16 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                     string Original_Celular_Usuario, 
                     string Original_Password_Usuario, 
                     int Original_Id_Rol, 
-                    int Original_Estado_Usuario) {
-            return this.Update(Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario, Original_Id_Usuario, Original_Cedula_Usuario, Original_Nombre_Usuario, Original_Apellido_Usuario, Original_Correo_Usuario, Original_Celular_Usuario, Original_Password_Usuario, Original_Id_Rol, Original_Estado_Usuario, Original_Id_Usuario);
+                    int Original_Estado_Usuario, 
+                    string Original_Dirección_Imagen) {
+            return this.Update(Cedula_Usuario, Nombre_Usuario, Apellido_Usuario, Correo_Usuario, Celular_Usuario, Password_Usuario, Photo_Usuario, Id_Rol, Estado_Usuario, Dirección_Imagen, Original_Id_Usuario, Original_Cedula_Usuario, Original_Nombre_Usuario, Original_Apellido_Usuario, Original_Correo_Usuario, Original_Celular_Usuario, Original_Password_Usuario, Original_Id_Rol, Original_Estado_Usuario, Original_Dirección_Imagen, Original_Id_Usuario);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertarUsuario(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario) {
+        public virtual int InsertarUsuario(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario, string Dirección_Imagen) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((Cedula_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Cedula_Usuario");
@@ -3897,13 +4036,19 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                 command.Parameters[5].Value = ((string)(Password_Usuario));
             }
             if ((Photo_Usuario == null)) {
-                throw new global::System.ArgumentNullException("Photo_Usuario");
+                command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[6].Value = ((byte[])(Photo_Usuario));
             }
             command.Parameters[7].Value = ((int)(Id_Rol));
             command.Parameters[8].Value = ((int)(Estado_Usuario));
+            if ((Dirección_Imagen == null)) {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[9].Value = ((string)(Dirección_Imagen));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3925,7 +4070,7 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int ModificarUsuario(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario, int Id_Usuario) {
+        public virtual int ModificarUsuario(string Cedula_Usuario, string Nombre_Usuario, string Apellido_Usuario, string Correo_Usuario, string Celular_Usuario, string Password_Usuario, byte[] Photo_Usuario, int Id_Rol, int Estado_Usuario, string Dirección_Imagen, int Id_Usuario) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Cedula_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Cedula_Usuario");
@@ -3964,14 +4109,20 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
                 command.Parameters[5].Value = ((string)(Password_Usuario));
             }
             if ((Photo_Usuario == null)) {
-                throw new global::System.ArgumentNullException("Photo_Usuario");
+                command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[6].Value = ((byte[])(Photo_Usuario));
             }
             command.Parameters[7].Value = ((int)(Id_Rol));
             command.Parameters[8].Value = ((int)(Estado_Usuario));
-            command.Parameters[9].Value = ((int)(Id_Usuario));
+            if ((Dirección_Imagen == null)) {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[9].Value = ((string)(Dirección_Imagen));
+            }
+            command.Parameters[10].Value = ((int)(Id_Usuario));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3992,8 +4143,82 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object verRol(string Nombre_Usuario, string Password_Usuario) {
+        public virtual object validarCedulaUser(string Cedula_Usuario) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((Cedula_Usuario == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Cedula_Usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object validarExistencia(string Nombre_Usuario, string Password_Usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((Nombre_Usuario == null)) {
+                throw new global::System.ArgumentNullException("Nombre_Usuario");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Nombre_Usuario));
+            }
+            if ((Password_Usuario == null)) {
+                throw new global::System.ArgumentNullException("Password_Usuario");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Password_Usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object verRol(string Nombre_Usuario, string Password_Usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((Nombre_Usuario == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -4168,11 +4393,12 @@ Id_Rol=@Id_Rol,Estado_Usuario=@Estado_Usuario WHERE (Id_Usuario= @Id_Usuario)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Metros_Cubicos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Metros_Cubicos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [CONSUMOS] ([Numero_Catastro], [Fecha_Consumo], [Metros_Cubicos]) VALUES (@Numero_Catastro, @Fecha_Consumo, @Metros_Cubicos);
-SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS WHERE (Id_Consumo = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [CONSUMOS] ([Numero_Catastro], [Fecha_Consumo], [Mes_Consumo], [Metros_Cubicos]) VALUES (@Numero_Catastro, @Fecha_Consumo, @Mes_Consumo, @Metros_Cubicos);
+SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Mes_Consumo, Metros_Cubicos FROM CONSUMOS WHERE (Id_Consumo = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Consumo", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Consumo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mes_Consumo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Consumo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Metros_Cubicos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Metros_Cubicos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -4199,33 +4425,41 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        CONSUMOS.*\r\nFROM            CONSUMOS";
+            this._commandCollection[0].CommandText = "SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        CONSUMOS.*\r\nFROM            CONSUMOS where @Numero_Catastro=Numero_" +
-                "Catastro";
+            this._commandCollection[1].CommandText = "SELECT Fecha_Consumo, Id_Consumo, Metros_Cubicos, Numero_Catastro FROM CONSUMOS W" +
+                "HERE (Numero_Catastro = @Numero_Catastro)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"INSERT INTO [CONSUMOS] ([Numero_Catastro], [Fecha_Consumo], [Metros_Cubicos]) VALUES (@Numero_Catastro, @Fecha_Consumo, @Metros_Cubicos);
-SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS WHERE (Id_Consumo = SCOPE_IDENTITY())";
+            this._commandCollection[2].CommandText = @"INSERT INTO [CONSUMOS] ([Numero_Catastro], [Fecha_Consumo], [Mes_Consumo], [Metros_Cubicos]) VALUES (@Numero_Catastro, @Fecha_Consumo, @Mes_Consumo, @Metros_Cubicos);
+SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Mes_Consumo, Metros_Cubicos FROM CONSUMOS WHERE (Id_Consumo = SCOPE_IDENTITY())";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Consumo", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Consumo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mes_Consumo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Consumo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Metros_Cubicos", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Metros_Cubicos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE CONSUMOS\r\nSET Fecha_Consumo=@Fecha_Consumo,Metros_Cubicos=@Metros_Cubicos " +
-                "WHERE (Id_Consumo=@Id_Consumo)";
+            this._commandCollection[3].CommandText = "UPDATE CONSUMOS\r\nSET Fecha_Consumo=@Fecha_Consumo,Metros_Cubicos=@Metros_Cubicos," +
+                " Mes_Consumo=@Mes_Consumo WHERE (Id_Consumo=@Id_Consumo)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Consumo", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Consumo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Metros_Cubicos", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Metros_Cubicos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mes_Consumo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Consumo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Consumo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Consumo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "dbo.validarFechaConsumo";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4351,7 +4585,7 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Numero_Catastro, System.DateTime Fecha_Consumo, int Metros_Cubicos) {
+        public virtual int Insert(string Numero_Catastro, System.DateTime Fecha_Consumo, int Mes_Consumo, int Metros_Cubicos) {
             if ((Numero_Catastro == null)) {
                 throw new global::System.ArgumentNullException("Numero_Catastro");
             }
@@ -4359,7 +4593,8 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Numero_Catastro));
             }
             this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(Fecha_Consumo));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Metros_Cubicos));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Mes_Consumo));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Metros_Cubicos));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4427,7 +4662,7 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertarConsumo(string Numero_Catastro, string Fecha_Consumo, int Metros_Cubicos) {
+        public virtual int InsertarConsumo(string Numero_Catastro, string Fecha_Consumo, int Mes_Consumo, int Metros_Cubicos) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Numero_Catastro == null)) {
                 throw new global::System.ArgumentNullException("Numero_Catastro");
@@ -4441,7 +4676,8 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
             else {
                 command.Parameters[1].Value = ((string)(Fecha_Consumo));
             }
-            command.Parameters[2].Value = ((int)(Metros_Cubicos));
+            command.Parameters[2].Value = ((int)(Mes_Consumo));
+            command.Parameters[3].Value = ((int)(Metros_Cubicos));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4463,7 +4699,7 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int ModificarConsumo(string Fecha_Consumo, int Metros_Cubicos, int Id_Consumo) {
+        public virtual int ModificarConsumo(string Fecha_Consumo, int Metros_Cubicos, int Mes_Consumo, int Id_Consumo) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((Fecha_Consumo == null)) {
                 throw new global::System.ArgumentNullException("Fecha_Consumo");
@@ -4472,7 +4708,8 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
                 command.Parameters[0].Value = ((string)(Fecha_Consumo));
             }
             command.Parameters[1].Value = ((int)(Metros_Cubicos));
-            command.Parameters[2].Value = ((int)(Id_Consumo));
+            command.Parameters[2].Value = ((int)(Mes_Consumo));
+            command.Parameters[3].Value = ((int)(Id_Consumo));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4488,6 +4725,40 @@ SELECT Id_Consumo, Numero_Catastro, Fecha_Consumo, Metros_Cubicos FROM CONSUMOS 
                 }
             }
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object validarFechaConsumo(string Numero_Catastro) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((Numero_Catastro == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Numero_Catastro));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     
@@ -4667,7 +4938,7 @@ SELECT Id_Predio, Numero_Catastro, Cedula_Propietario, Estrato_Predio, Barrio_Pr
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        PREDIOS.*\r\nFROM            PREDIOS";
@@ -4693,6 +4964,11 @@ SELECT Id_Predio, Numero_Catastro, Cedula_Propietario, Estrato_Predio, Barrio_Pr
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Barrio_Predio", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Barrio_Predio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Predio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Predio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Predio", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id_Predio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT COUNT(*) FROM PREDIOS where Numero_Catastro=@Numero_Catastro";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5011,6 +5287,40 @@ SELECT Id_Predio, Numero_Catastro, Cedula_Propietario, Estrato_Predio, Barrio_Pr
             }
             return returnValue;
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> validarExistenciaCatastro(string Numero_Catastro) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((Numero_Catastro == null)) {
+                throw new global::System.ArgumentNullException("Numero_Catastro");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Numero_Catastro));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
     }
     
     /// <summary>
@@ -5194,7 +5504,7 @@ SELECT Id_Propietario, Cedula_Propietario, Nombre_Propietario, Apellido_Propieta
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        PROPIETARIOS.*\r\nFROM            PROPIETARIOS";
@@ -5248,6 +5558,11 @@ WHERE (Id_Propietario=@Id_Propietario)";
                 "ietario";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Propietario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Propietario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "select COUNT(*) FROM PROPIETARIOS WHERE Cedula_Propietario=@Cedula_Propietario";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula_Propietario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula_Propietario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5742,6 +6057,40 @@ WHERE (Id_Propietario=@Id_Propietario)";
             }
             else {
                 return ((string)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object validarCedulaPropietario(string Cedula_Propietario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            if ((Cedula_Propietario == null)) {
+                throw new global::System.ArgumentNullException("Cedula_Propietario");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Cedula_Propietario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
             }
         }
     }

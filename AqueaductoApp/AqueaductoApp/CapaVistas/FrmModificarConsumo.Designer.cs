@@ -88,6 +88,7 @@ namespace AqueaductoApp.CapaVistas
             this.txtCatastro.ReadOnly = true;
             this.txtCatastro.Size = new System.Drawing.Size(104, 20);
             this.txtCatastro.TabIndex = 39;
+            this.txtCatastro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCatastro_KeyPress);
             // 
             // txtConsumo
             // 
@@ -96,6 +97,7 @@ namespace AqueaductoApp.CapaVistas
             this.txtConsumo.Name = "txtConsumo";
             this.txtConsumo.Size = new System.Drawing.Size(104, 20);
             this.txtConsumo.TabIndex = 38;
+            this.txtConsumo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsumo_KeyPress);
             // 
             // labelFechaConsumo
             // 
@@ -117,7 +119,7 @@ namespace AqueaductoApp.CapaVistas
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(214)))), ((int)(((byte)(223)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.HotPink;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -157,6 +159,7 @@ namespace AqueaductoApp.CapaVistas
             this.GridConsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridConsumo.Location = new System.Drawing.Point(100, 158);
             this.GridConsumo.Name = "GridConsumo";
+            this.GridConsumo.ReadOnly = true;
             this.GridConsumo.RowTemplate.Height = 25;
             this.GridConsumo.Size = new System.Drawing.Size(377, 130);
             this.GridConsumo.TabIndex = 40;
@@ -169,6 +172,7 @@ namespace AqueaductoApp.CapaVistas
             this.dateTimePicker1.Size = new System.Drawing.Size(222, 20);
             this.dateTimePicker1.TabIndex = 68;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateTimePicker1_KeyPress);
             // 
             // FrmModificarConsumo
             // 

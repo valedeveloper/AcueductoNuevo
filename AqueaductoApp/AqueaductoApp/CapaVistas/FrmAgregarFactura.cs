@@ -187,13 +187,6 @@ namespace AqueaductoApp.CapaVistas
                     }
                 }
             }
-
-
-
-
-
-
-
         }
 
         private void btnAgregarFact_Click(object sender, EventArgs e)

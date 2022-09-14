@@ -19,6 +19,7 @@ namespace AqueaductoApp.CapaVistas
 
         int id;
         string catastro;
+        int mes;
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.txtCatastro.Text))
@@ -44,7 +45,7 @@ namespace AqueaductoApp.CapaVistas
                         int consumo = int.Parse(this.txtConsumo.Text);
 
                         CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter cT = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
-                        cT.ModificarConsumo(this.labelFecha.Text, consumo, id);
+                        cT.ModificarConsumo(this.labelFecha.Text, consumo,mes, id);
 
 
                         //Después de ser modificado
@@ -71,9 +72,10 @@ namespace AqueaductoApp.CapaVistas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter Tp = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
-            CapaDatos.DataSet1.CONSUMOSDataTable tp = Tp.GetData();
-            GridConsumo.DataSource = tp;
+            //Falla en la carga CONSUMO
+            CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter consumoTable = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
+            CapaDatos.DataSet1.CONSUMOSDataTable ta = consumoTable.GetData();
+            GridConsumo.DataSource = ta;
         }
 
         private void FrmModificarLectura_Load(object sender, EventArgs e)
@@ -90,6 +92,7 @@ namespace AqueaductoApp.CapaVistas
             this.labelFecha.Text = fecha;
             string consumo = GridConsumo.CurrentRow.Cells[3].Value.ToString();
             this.txtConsumo.Text = consumo;
+            mes =(int)GridConsumo.CurrentRow.Cells[4].Value;
 
         }
 
@@ -113,6 +116,63 @@ namespace AqueaductoApp.CapaVistas
 
 
 
+        }
+
+        private void txtCatastro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    if (char.IsPunctuation(e.KeyChar))
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void txtConsumo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    if (char.IsPunctuation(e.KeyChar))
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
+
+        private void dateTimePicker1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

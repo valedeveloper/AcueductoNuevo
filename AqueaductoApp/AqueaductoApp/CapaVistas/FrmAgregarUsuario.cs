@@ -19,6 +19,7 @@ namespace AqueaductoApp.CapaVistas
 
         int rol;
         int estado;
+        byte[] photo;
         public FrmAgregarUsuario()
         {
             InitializeComponent();
@@ -57,19 +58,9 @@ namespace AqueaductoApp.CapaVistas
                 txtName.Text = files.First(); //select the first o
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-
-
         private void combotxtRol_SelectedIndexChanged(object sender, EventArgs e)
 
         {
-
 
             if (this.combotxtRol.Text == "ADMIN")
             {
@@ -96,11 +87,7 @@ namespace AqueaductoApp.CapaVistas
 
         }
 
-        private Color FromArgb(int v1, int v2, int v3)
-        {
-            throw new NotImplementedException();
-        }
-
+      
         private void button2_Click_1(object sender, EventArgs e)
         {
 
@@ -118,8 +105,6 @@ namespace AqueaductoApp.CapaVistas
                 this.pictureUser.Image = null;
 
             }
-
-
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
@@ -183,6 +168,19 @@ namespace AqueaductoApp.CapaVistas
                     cadenaArchivo = txtFile.Text;
                     this.pictureUser.Image = Image.FromFile(this.txtFile.Text);
 
+
+                    //leer una imagen => un objeto de clase Bynari=> Binary a bit (Usamos el tableAdapterUsuario INSERT) =
+                    //****** LEER FILE******
+                    FileStream stream = new FileStream(this.txtFile.Text, FileMode.Open, FileAccess.Read);
+                    /// Leer Archivo stream y convertilo en binario
+                    /// 
+                    BinaryReader read = new BinaryReader(stream);
+
+                    ///**** Guarda los binary en un archivo de bites
+                    ///
+                    photo = read.ReadBytes((int)stream.Length);
+
+
                 }
             }
         }
@@ -207,12 +205,10 @@ namespace AqueaductoApp.CapaVistas
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter userCedula = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+            int user = (int)userCedula.validarCedulaUser(this.txtCedula.Text);
 
-
-           ////int user = (int)userCedula.validarCedula(this.txtCedula.Text);
-
-           // if (user == null)
-           // {
+            if (user==0)
+            {
 
                 if (string.IsNullOrEmpty(this.txtName.Text))
                 {
@@ -257,42 +253,27 @@ namespace AqueaductoApp.CapaVistas
                                     }
                                     else
                                     {
-                                        if (string.IsNullOrEmpty(this.txtFile.Text))
+                                        if(this.txtFile.Text=="")
                                         {
-                                            MessageBox.Show("Agrege una Imagen", "Notificación");
-                                            txtFile.Focus();
+                                            MessageBox.Show("Insertar una Imagen", "Notificación");
                                         }
                                         else
                                         {
-
-                                            //la logica para agragar usuario
-                                            //leer una imagen => un objeto de clase Bynari=> Binary a bit (Usamos el tableAdapterUsuario INSERT) =
-                                            //****** LEER FILE******
-                                            FileStream stream = new FileStream(this.txtFile.Text, FileMode.Open, FileAccess.Read);
-                                            /// Leer Archivo stream y convertilo en binario
-                                            /// 
-                                            BinaryReader read = new BinaryReader(stream);
-
-                                            ///**** Guarda los binary en un archivo de bites
-                                            ///
-                                            byte[] photo = read.ReadBytes((int)stream.Length);
-
-                                            //int a rol
 
                                             //encriptamos la contraseña
                                             string pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text);
 
 
-                                        //ahora insertemos el usuario a la base de datos
+                                            //ahora insertemos el usuario a la base de datos
+                                            //la logica para agragar usuario
 
-                                        //Conexión Desde casa
-                                        CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-                                        tU.InsertarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo, rol, estado);
+                                            //Conexión Desde casa
+                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                                            tU.InsertarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo, rol, estado, this.txtFile.Text);
 
 
-
-                                        //Mensaje de Salida para que el usuario sepa que está agregado el Usuario 
-                                        MessageBox.Show("Usuario Agregado", "Notiicación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            //Mensaje de Salida para que el usuario sepa que está agregado el Usuario 
+                                            MessageBox.Show("Usuario Agregado", "Notiicación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             this.txtCedula.Text = "";
                                             this.txtName.Text = "";
                                             this.txtLastName.Text = "";
@@ -302,20 +283,22 @@ namespace AqueaductoApp.CapaVistas
                                             this.txtFile.Text = "";
                                             this.pictureUser.Image = null;
                                         }
+                                     
+                                     }
 
-                                    }
+                                    
                                 }
                             }
                         }
                     }
                 }
 
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Esta cédula ya existe");
-            //    this.txtCedula.Focus();
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Este usuario ya existe, por favor ingrese otra cédula");
+                this.txtCedula.Focus();
+            }
 
         }
     }

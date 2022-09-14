@@ -127,6 +127,7 @@ namespace AqueaductoApp
             this.panel1.Padding = new System.Windows.Forms.Padding(3);
             this.panel1.Size = new System.Drawing.Size(264, 421);
             this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
             // panel3
             // 
@@ -146,17 +147,19 @@ namespace AqueaductoApp
             // 
             // picturePass
             // 
-            this.picturePass.Location = new System.Drawing.Point(15, 240);
+            this.picturePass.Image = ((System.Drawing.Image)(resources.GetObject("picturePass.Image")));
+            this.picturePass.Location = new System.Drawing.Point(9, 240);
             this.picturePass.Name = "picturePass";
             this.picturePass.Size = new System.Drawing.Size(26, 26);
-            this.picturePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picturePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picturePass.TabIndex = 9;
             this.picturePass.TabStop = false;
             // 
             // pictureUser
             // 
+            this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
             this.pictureUser.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureUser.InitialImage")));
-            this.pictureUser.Location = new System.Drawing.Point(15, 184);
+            this.pictureUser.Location = new System.Drawing.Point(13, 184);
             this.pictureUser.Name = "pictureUser";
             this.pictureUser.Size = new System.Drawing.Size(26, 26);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -206,7 +209,6 @@ namespace AqueaductoApp
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.PictureBox picturePass;
-        private System.Windows.Forms.PictureBox pictureUser;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         #region Windows Form Designer generated code
@@ -217,5 +219,7 @@ namespace AqueaductoApp
         /// </summary>
         /// 
         #endregion
+
+        private System.Windows.Forms.PictureBox pictureUser;
     }
 }

@@ -66,8 +66,11 @@
       <DependentUpon>DataAcueducto.xsd</DependentUpon>
     </Compile>
     <Compile Include="CapaModelos\ClsConvertToArray.cs" />
+    <Compile Include="CapaModelos\ClsConvertToImage.cs" />
     <Compile Include="CapaModelos\Encript.cs" />
-    <Compile Include="CapaModelos\PictureRound.cs" />
+    <Compile Include="CapaModelos\PictureRound.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CapaVistas\FrmAgregarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaVistas\FrmAgregarFactura.resx">
       <DependentUpon>FrmAgregarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmAgregarPredio.resx">
+      <DependentUpon>FrmAgregarPredio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaVistas\FrmAgregarUsuario.resx">
       <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>

@@ -24,3 +24,4 @@ C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\obj\Debug\Aque
 C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.CapaVistas.FrmModificarConsumo.resources
 C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.CapaVistas.FrmImprimirFactura.resources
 C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.CapaVistas.FrmAgregarFactura.resources
+C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.CapaVistas.FrmagregarPredio.resources

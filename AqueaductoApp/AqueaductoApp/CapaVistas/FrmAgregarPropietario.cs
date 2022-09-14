@@ -142,64 +142,76 @@ namespace AqueaductoApp.CapaVistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter existenciaPropietario = new CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter();
+            int propietarioExist = (int)existenciaPropietario.validarCedulaPropietario(this.txtCedula.Text);
 
-            if (string.IsNullOrEmpty(this.txtCedula.Text))
+            if(propietarioExist==0)
             {
-                MessageBox.Show("Digite la cédula del propietario", "Notificación");
-                this.txtCedula.Focus();
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(this.txtName.Text))
+
+                if (string.IsNullOrEmpty(this.txtCedula.Text))
                 {
-                    MessageBox.Show("Digite el nombre del propietario", "Notificación");
-                    this.txtName.Focus();
+                    MessageBox.Show("Digite la cédula del propietario", "Notificación");
+                    this.txtCedula.Focus();
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(this.txtLastName.Text))
+                    if (string.IsNullOrEmpty(this.txtName.Text))
                     {
-                        MessageBox.Show("Digite el apellido del propietario");
-                        this.txtLastName.Focus();
+                        MessageBox.Show("Digite el nombre del propietario", "Notificación");
+                        this.txtName.Focus();
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(this.txtCorreo.Text))
+                        if (string.IsNullOrEmpty(this.txtLastName.Text))
                         {
-                            MessageBox.Show("Digite el correo del propietario");
-                            this.txtCorreo.Focus();
+                            MessageBox.Show("Digite el apellido del propietario");
+                            this.txtLastName.Focus();
                         }
                         else
                         {
-
-                            if (string.IsNullOrEmpty(this.txtTelefono.Text))
+                            if (string.IsNullOrEmpty(this.txtCorreo.Text))
                             {
-                                MessageBox.Show("Digite el teléfono del propietario");
-                                this.txtTelefono.Focus();
+                                MessageBox.Show("Digite el correo del propietario");
+                                this.txtCorreo.Focus();
                             }
                             else
                             {
-                                ////Conexión Casa
-                                CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter TP = new CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter();
-                                TP.InsertarPropietario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtTelefono.Text, this.txtCorreo.Text, estado);
+
+                                if (string.IsNullOrEmpty(this.txtTelefono.Text))
+                                {
+                                    MessageBox.Show("Digite el teléfono del propietario");
+                                    this.txtTelefono.Focus();
+                                }
+                                else
+                                {
+                                    ////Conexión Casa
+                                    CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter TP = new CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter();
+                                    TP.InsertarPropietario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtTelefono.Text, this.txtCorreo.Text, estado);
 
 
 
-
-                                MessageBox.Show("Propietario Agregado", "Notiicación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.txtCedula.Text = "";
-                                this.txtName.Text = "";
-                                this.txtLastName.Text = "";
-                                this.txtCorreo.Text = "";
-                                this.txtTelefono.Text = "";
+                                    //Mensaje despuès de agregar porpietario
+                                    MessageBox.Show("Propietario Agregado", "Notiicación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    this.txtCedula.Text = "";
+                                    this.txtName.Text = "";
+                                    this.txtLastName.Text = "";
+                                    this.txtCorreo.Text = "";
+                                    this.txtTelefono.Text = "";
+                                }
                             }
                         }
+
                     }
 
+
                 }
-
-
             }
+            else
+            {
+                MessageBox.Show("Este propietario ya existe, por favor ingrese otra cédula");
+                this.txtCedula.Focus();
+            }
+
 
 
 
@@ -284,6 +296,30 @@ namespace AqueaductoApp.CapaVistas
             e.Handled = true;
         }
 
-     
+        private void txtCedula_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    if (char.IsPunctuation(e.KeyChar))
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+        }
     }
 } 

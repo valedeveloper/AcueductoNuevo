@@ -20,23 +20,20 @@ namespace AqueaductoApp.CapaVistas
         int rol;
         int estado;
         public int id;
-
+        string direccionImg;
         public int posicion;
+        byte[] photo;
+        byte[] photo2;
+        string pass;
+        string password;
+        string cedula;
+        string estadoStri;
+        string estadoB;
 
 
         public FrmModificarUsuario()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmModificarUsuario_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -45,11 +42,11 @@ namespace AqueaductoApp.CapaVistas
             CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
             CapaDatos.DataSet1.USUARIOSDataTable ta = tU.GetData();
             GridUser.DataSource = ta;
-
-
         }
         public Image byteArrayToImage(byte[] bytesArr)
         {
+           
+            
             using (MemoryStream memstr = new MemoryStream(bytesArr))
             {
                 Image img = Image.FromStream(memstr);
@@ -63,10 +60,12 @@ namespace AqueaductoApp.CapaVistas
 
             //leer la primera posicion del la celda del grid llamado gridUser***///
             posicion = GridUser.CurrentRow.Index;
-            byte[] Img = (byte[])GridUser.CurrentRow.Cells[7].Value;
-            Image newImage = byteArrayToImage(Img);
+            id = int.Parse(GridUser.CurrentRow.Cells[0].Value.ToString());
+            photo2 = (byte[])GridUser.CurrentRow.Cells[7].Value;
+            //Para colocar imagen en el circulo
+            Image newImage = byteArrayToImage(photo2);
             pictureUser.Image = newImage;
-            string cedula = GridUser.CurrentRow.Cells[1].Value.ToString();
+             cedula = GridUser.CurrentRow.Cells[1].Value.ToString();
             this.txtCedula.Text = cedula;
             string name = GridUser.CurrentRow.Cells[2].Value.ToString();
             this.txtName.Text = name;
@@ -76,11 +75,57 @@ namespace AqueaductoApp.CapaVistas
             this.txtCorreo.Text = correo;
             string telefono = GridUser.CurrentRow.Cells[5].Value.ToString();
             this.txtTelefono.Text = telefono;
-            string rol = GridUser.CurrentRow.Cells[8].Value.ToString();
-            string password = "";
-            this.txtPassword.Text = password;
-            string estado = GridUser.CurrentRow.Cells[9].Value.ToString();
-            id = int.Parse(GridUser.CurrentRow.Cells[0].Value.ToString());
+          
+            password = GridUser.CurrentRow.Cells[6].Value.ToString();
+            this.txtPassword.Text = "Cambiar contraseña si así lo desea, de lo contrario, NO.";
+          
+             direccionImg = GridUser.CurrentRow.Cells[10].Value.ToString();
+            this.txtFile.Text = direccionImg;
+            
+
+            int rolBase =int.Parse(GridUser.CurrentRow.Cells[8].Value.ToString());
+            string rolString;
+
+            if (rolBase== 1)
+            {
+                rolString = "ADMIN";
+                int index = comboRol.FindString(rolString);
+                comboRol.SelectedIndex = index;
+            }
+            else
+            {
+                if(rolBase == 2)
+                {
+                    rolString = "DIGITADOR";
+                    int index = comboRol.FindString(rolString);
+                    comboRol.SelectedIndex = index;
+                }
+                else
+                {
+                    rolString = "FACTURADOR";
+                    int index = comboRol.FindString(rolString);
+                    comboRol.SelectedIndex = index;
+                }
+               
+            }
+
+
+
+            estadoB = GridUser.CurrentRow.Cells[9].Value.ToString();
+            string estadoStri;
+            //Poner el estado en el comboBox
+            if (estadoB == "1")
+            {
+                estadoStri = "ACTIVO";
+                int index = comboEstado.FindString(estadoStri);
+                comboEstado.SelectedIndex = index;
+            }
+            else
+            {
+                estadoStri = "INACTIVO";
+                int index = comboEstado.FindString(estadoStri);
+                comboEstado.SelectedIndex = index;
+            }
         }
 
 
@@ -95,119 +140,159 @@ namespace AqueaductoApp.CapaVistas
                     this.txtFile.Text = "";
                     txtFile.Text = dialog.FileName;
                     pictureUser.Image = Image.FromFile(this.txtFile.Text);
+                    FileStream stream = new FileStream(this.txtFile.Text, FileMode.Open, FileAccess.Read);
+                    /// Leer Archivo stream y convertilo en binario
+                    /// 
+                    BinaryReader read = new BinaryReader(stream);
+
+                    ///**** Guarda los binary en un archivo de bites
+                    ///
+                     photo = read.ReadBytes((int)stream.Length);
                 }
+               
             }
 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("¿Desea cancelar el proceso?", "Notificación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                this.txtCedula.Text = "";
                 this.txtName.Text = "";
                 this.txtLastName.Text = "";
                 this.txtCorreo.Text = "";
                 this.txtTelefono.Text = "";
                 this.txtPassword.Text = "";
-                this.combotxtRol.Items.Clear();
                 this.txtFile.Text = "";
+                this.pictureUser.Image = null;
+                this.labelID.Text = null;
+
+                //RecargarDatGrid
+                CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                CapaDatos.DataSet1.USUARIOSDataTable ta = tU.GetData();
+                GridUser.DataSource = ta;
+
 
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.txtName.Text))
+            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter userCedula = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+            int user = (int)userCedula.validarCedulaUser(this.txtCedula.Text);
+            if(this.txtCedula.Text==cedula || user==0  )
             {
-                MessageBox.Show("Digite su Nombre", "Notificación");
-                txtName.Focus();
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(this.txtLastName.Text))
+                if (string.IsNullOrEmpty(this.txtName.Text))
                 {
-                    MessageBox.Show("Digite su Apellido", "Notificación");
-                    txtLastName.Focus();
+                    MessageBox.Show("Digite su Nombre", "Notificación");
+                    txtName.Focus();
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(this.txtTelefono.Text))
+                    if (string.IsNullOrEmpty(this.txtLastName.Text))
                     {
-                        MessageBox.Show("Digite su Teléfono", "Notificación");
-                        txtTelefono.Focus();
+                        MessageBox.Show("Digite su Apellido", "Notificación");
+                        txtLastName.Focus();
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(this.combotxtRol.Text))
+                        if (string.IsNullOrEmpty(this.txtTelefono.Text))
                         {
-                            MessageBox.Show("Digite el Rol");
-                            combotxtRol.Focus();
+                            MessageBox.Show("Digite su Teléfono", "Notificación");
+                            txtTelefono.Focus();
                         }
-
                         else
                         {
-                            if (string.IsNullOrEmpty(this.txtCorreo.Text))
+                            if (string.IsNullOrEmpty(this.comboRol.Text))
                             {
-                                MessageBox.Show("Digite su Correo");
-                                txtCorreo.Focus();
+                                MessageBox.Show("Digite el Rol");
+                                comboRol.Focus();
                             }
+
                             else
                             {
-                                if (string.IsNullOrEmpty(this.txtPassword.Text))
+                                if (string.IsNullOrEmpty(this.txtCorreo.Text))
                                 {
-                                    MessageBox.Show("Digite su Constraseña");
-                                    txtPassword.Focus();
+                                    MessageBox.Show("Digite su Correo");
+                                    txtCorreo.Focus();
                                 }
                                 else
                                 {
-                                    if (string.IsNullOrEmpty(this.txtFile.Text))
-                                    {
-                                        MessageBox.Show("Coloque una Foto Nueva");
-                                        txtPassword.Focus();
 
+                                    if (this.txtFile.Text == direccionImg)
+                                    {
+                                        if (this.txtPassword.Text != "Cambiar contraseña si así lo desea, de lo contrario, NO.")
+                                        {
+                                            //Encripto de nuevo la contraseña
+                                            pass = Encript.GetSHA256(this.txtPassword.Text);
+
+
+                                            //Query
+                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo2, rol, estado, this.txtFile.Text, id);
+
+                                        }
+                                        else
+                                        {
+                                            pass = password;
+                                            //Query
+                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo2, rol, estado, this.txtFile.Text, id);
+                                        }
                                     }
                                     else
                                     {
-                                        FileStream stream = new FileStream(this.txtFile.Text, FileMode.Open, FileAccess.Read);
-                                        /// Leer Archivo stream y convertilo en binario
-                                        /// 
-                                        BinaryReader read = new BinaryReader(stream);
+                                        if (this.txtPassword.Text != "Cambiar contraseña si así lo desea, de lo contrario, NO.")
+                                        {
+                                            pass = Encript.GetSHA256(this.txtPassword.Text);
+                                            //Conexión Casa
+                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo, rol, estado, this.txtFile.Text, id);
 
-                                        ///**** Guarda los binary en un archivo de bites
-                                        ///
-                                        byte[] photo = read.ReadBytes((int)stream.Length);
+                                        }
+                                        else
+                                        {
+                                            pass = password;
+                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo, rol, estado, this.txtFile.Text, id);
 
-
-
-                                        //encriptamos la contraseña
-                                        string pass = Encript.GetSHA256(this.txtPassword.Text);
-
-                                        //Conexión Casa
-                                       CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-                                        tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo, rol, estado, id);
-
-
-                                        //Mensaje de Salida para que el usuario sepa que está modificado el Usuario 
-                                        MessageBox.Show("Usuario modificado", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        this.txtCedula.Text = "";
-                                        this.txtName.Text = "";
-                                        this.txtLastName.Text = "";
-                                        this.txtCorreo.Text = "";
-                                        this.txtTelefono.Text = "";
-                                        this.txtPassword.Text = "";
-                                        this.txtFile.Text = "";
-                                        this.pictureUser.Image = null;
-                                        this.labelID.Text = null;
-
-
+                                        }
 
                                     }
+
+                                    //Recargar DataGrid
+                                    CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter TU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                                    CapaDatos.DataSet1.USUARIOSDataTable ta = TU.GetData();
+                                    GridUser.DataSource = ta;
+
+
+                                    //Mensaje de Salida para que el usuario sepa que está modificado el Usuario 
+                                    MessageBox.Show("Usuario modificado", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    this.txtCedula.Text = "";
+                                    this.txtName.Text = "";
+                                    this.txtLastName.Text = "";
+                                    this.txtCorreo.Text = "";
+                                    this.txtTelefono.Text = "";
+                                    this.txtPassword.Text = "";
+                                    this.txtFile.Text = "";
+                                    this.pictureUser.Image = null;
+                                    this.labelID.Text = null;
                                 }
                             }
                         }
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Este usuario ya existe, por favor ingrese otra cédula");
+                this.txtCedula.Focus();
+            }
+
+
+
 
 
         }
@@ -293,19 +378,19 @@ namespace AqueaductoApp.CapaVistas
 
         private void combotxtRol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (combotxtRol.Text == "ADMINISTRADOR")
+            if (comboRol.Text == "ADMIN")
             {
                 rol = 1;
             }
             else
             {
-                if (combotxtRol.Text == "DIGITADOR")
+                if (comboRol.Text == "DIGITADOR")
                 {
                     rol = 2;
                 }
                 else
                 {
-                    if (combotxtRol.Text == "FACTURADOR")
+                    if (comboRol.Text == "FACTURADOR")
                     {
                         rol = 3;
                     }
@@ -334,11 +419,36 @@ namespace AqueaductoApp.CapaVistas
 
         }
 
-        //private void btnModificar_Click(object sender, EventArgs e)
-        //{   
-        //    CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-        //    tU.update(posicion,this.txtName.Text,this.txtLastName.Text,this.txtCorreo.Text,this.t);
-        //}
+        private void comboEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void combotxtRol_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+       
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if(this.txtPassword.Text=="")
+            {
+                this.txtPassword.Text = "Cambiar contraseña si así lo desea, de lo contrario, NO.";
+                this.txtPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            if (this.txtPassword.Text == "Cambiar contraseña si así lo desea, de lo contrario, NO.")
+            {
+                this.txtPassword.Text = "";
+                this.txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+       
     }
 
     internal class read

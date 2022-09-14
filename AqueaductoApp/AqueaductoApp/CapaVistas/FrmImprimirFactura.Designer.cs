@@ -58,7 +58,7 @@ namespace AqueaductoApp.CapaVistas
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.Location = new System.Drawing.Point(218, 418);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(158, 54);
+            this.iconButton1.Size = new System.Drawing.Size(158, 46);
             this.iconButton1.TabIndex = 7;
             this.iconButton1.Text = "PRINT TO PDF";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

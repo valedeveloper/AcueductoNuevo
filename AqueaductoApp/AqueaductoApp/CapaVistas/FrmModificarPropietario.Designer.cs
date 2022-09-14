@@ -118,6 +118,7 @@ namespace AqueaductoApp.CapaVistas
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(144, 20);
             this.txtLastName.TabIndex = 47;
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName_KeyPress);
             // 
             // txtCorreo
             // 
@@ -134,6 +135,7 @@ namespace AqueaductoApp.CapaVistas
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(144, 20);
             this.txtTelefono.TabIndex = 44;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtName
             // 
@@ -142,13 +144,16 @@ namespace AqueaductoApp.CapaVistas
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(144, 20);
             this.txtName.TabIndex = 43;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // txtCedula
             // 
+            this.txtCedula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
             this.txtCedula.Location = new System.Drawing.Point(179, 83);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(187, 20);
             this.txtCedula.TabIndex = 42;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label1
             // 
@@ -166,6 +171,7 @@ namespace AqueaductoApp.CapaVistas
             this.GridPropietario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridPropietario.Location = new System.Drawing.Point(29, 136);
             this.GridPropietario.Name = "GridPropietario";
+            this.GridPropietario.ReadOnly = true;
             this.GridPropietario.RowTemplate.Height = 25;
             this.GridPropietario.Size = new System.Drawing.Size(523, 138);
             this.GridPropietario.TabIndex = 55;
@@ -173,7 +179,7 @@ namespace AqueaductoApp.CapaVistas
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(214)))), ((int)(((byte)(223)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.HotPink;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -181,7 +187,7 @@ namespace AqueaductoApp.CapaVistas
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar.Location = new System.Drawing.Point(408, 82);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(64, 20);
+            this.btnBuscar.Size = new System.Drawing.Size(83, 20);
             this.btnBuscar.TabIndex = 57;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -217,6 +223,7 @@ namespace AqueaductoApp.CapaVistas
             this.comboEstado.Size = new System.Drawing.Size(144, 21);
             this.comboEstado.TabIndex = 66;
             this.comboEstado.SelectedIndexChanged += new System.EventHandler(this.comboEstado_SelectedIndexChanged);
+            this.comboEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboEstado_KeyPress);
             // 
             // FrmModificarPropietario
             // 

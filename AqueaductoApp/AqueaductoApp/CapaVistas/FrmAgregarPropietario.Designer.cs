@@ -165,6 +165,7 @@ namespace AqueaductoApp.CapaVistas
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(135, 20);
             this.txtCedula.TabIndex = 87;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress_1);
             // 
             // label3
             // 
@@ -181,9 +182,9 @@ namespace AqueaductoApp.CapaVistas
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(373, 316);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.Size = new System.Drawing.Size(93, 13);
             this.label12.TabIndex = 90;
-            this.label12.Text = "Estado Usuario";
+            this.label12.Text = "Estado Propietario";
             // 
             // comboEstado
             // 

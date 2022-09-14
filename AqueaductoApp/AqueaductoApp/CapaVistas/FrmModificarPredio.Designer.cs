@@ -87,10 +87,11 @@ namespace AqueaductoApp.CapaVistas
             // txtCatastro
             // 
             this.txtCatastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
-            this.txtCatastro.Location = new System.Drawing.Point(192, 104);
+            this.txtCatastro.Location = new System.Drawing.Point(278, 103);
             this.txtCatastro.Name = "txtCatastro";
             this.txtCatastro.Size = new System.Drawing.Size(145, 20);
             this.txtCatastro.TabIndex = 1;
+            this.txtCatastro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCatastro_KeyPress);
             // 
             // labelBarrio
             // 
@@ -113,7 +114,7 @@ namespace AqueaductoApp.CapaVistas
             // labelCatastral
             // 
             this.labelCatastral.AutoSize = true;
-            this.labelCatastral.Location = new System.Drawing.Point(54, 107);
+            this.labelCatastral.Location = new System.Drawing.Point(169, 107);
             this.labelCatastral.Name = "labelCatastral";
             this.labelCatastral.Size = new System.Drawing.Size(103, 13);
             this.labelCatastral.TabIndex = 50;
@@ -178,6 +179,7 @@ namespace AqueaductoApp.CapaVistas
             this.comboEstado.Size = new System.Drawing.Size(149, 21);
             this.comboEstado.TabIndex = 68;
             this.comboEstado.SelectedIndexChanged += new System.EventHandler(this.comboEstado_SelectedIndexChanged);
+            this.comboEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboEstado_KeyPress);
             // 
             // comboBarrio
             // 
@@ -195,6 +197,7 @@ namespace AqueaductoApp.CapaVistas
             this.comboBarrio.Name = "comboBarrio";
             this.comboBarrio.Size = new System.Drawing.Size(149, 21);
             this.comboBarrio.TabIndex = 79;
+            this.comboBarrio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBarrio_KeyPress);
             // 
             // comboEstrato
             // 
@@ -210,6 +213,7 @@ namespace AqueaductoApp.CapaVistas
             this.comboEstrato.Name = "comboEstrato";
             this.comboEstrato.Size = new System.Drawing.Size(149, 21);
             this.comboEstrato.TabIndex = 80;
+            this.comboEstrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboEstrato_KeyPress);
             // 
             // txtCedula
             // 
@@ -245,7 +249,6 @@ namespace AqueaductoApp.CapaVistas
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModificarPredio";
             this.Text = "Modificar Predio";
-            this.Load += new System.EventHandler(this.FrmModificarPredio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridPredio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

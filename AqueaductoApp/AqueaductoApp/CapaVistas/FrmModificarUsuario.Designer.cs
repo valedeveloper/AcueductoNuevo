@@ -33,7 +33,6 @@ namespace AqueaductoApp.CapaVistas
             this.btnModificar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.GridUser = new System.Windows.Forms.DataGridView();
-            this.pictureUser = new AqueaductoApp.CapaModelos.PictureRound();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -47,7 +46,7 @@ namespace AqueaductoApp.CapaVistas
             this.txtFile = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.combotxtRol = new System.Windows.Forms.ComboBox();
+            this.comboRol = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@ namespace AqueaductoApp.CapaVistas
             this.label12 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.labelID = new System.Windows.Forms.Label();
+            this.pictureUser = new AqueaductoApp.CapaModelos.PictureRound();
             ((System.ComponentModel.ISupportInitialize)(this.GridUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
@@ -102,26 +102,11 @@ namespace AqueaductoApp.CapaVistas
             this.GridUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridUser.Location = new System.Drawing.Point(19, 138);
             this.GridUser.Name = "GridUser";
+            this.GridUser.ReadOnly = true;
             this.GridUser.RowTemplate.Height = 25;
             this.GridUser.Size = new System.Drawing.Size(523, 138);
             this.GridUser.TabIndex = 42;
             this.GridUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridUser_CellContentClick);
-            // 
-            // pictureUser
-            // 
-            this.pictureUser.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pictureUser.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.pictureUser.BorderColor2 = System.Drawing.Color.HotPink;
-            this.pictureUser.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pictureUser.BorderSize = 2;
-            this.pictureUser.GradientAngle = 50F;
-            this.pictureUser.Location = new System.Drawing.Point(435, 12);
-            this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(98, 98);
-            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureUser.TabIndex = 43;
-            this.pictureUser.TabStop = false;
-            this.pictureUser.Click += new System.EventHandler(this.pictureUser_Click);
             // 
             // label2
             // 
@@ -165,12 +150,14 @@ namespace AqueaductoApp.CapaVistas
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(287, 20);
             this.txtPassword.TabIndex = 8;
-            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Text = "Cambiar contraseña si así lo desea, de lo contrario, NO.";
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(60, 449);
+            this.label7.Location = new System.Drawing.Point(61, 445);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 13);
             this.label7.TabIndex = 59;
@@ -244,20 +231,21 @@ namespace AqueaductoApp.CapaVistas
             this.label10.TabIndex = 50;
             this.label10.Text = "Rol de usuario";
             // 
-            // combotxtRol
+            // comboRol
             // 
-            this.combotxtRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
-            this.combotxtRol.DisplayMember = "dDD";
-            this.combotxtRol.FormattingEnabled = true;
-            this.combotxtRol.Items.AddRange(new object[] {
+            this.comboRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
+            this.comboRol.DisplayMember = "dDD";
+            this.comboRol.FormattingEnabled = true;
+            this.comboRol.Items.AddRange(new object[] {
             "ADMINISTRADOR",
             "DIGITADOR",
             "FACTURADOR"});
-            this.combotxtRol.Location = new System.Drawing.Point(213, 306);
-            this.combotxtRol.Name = "combotxtRol";
-            this.combotxtRol.Size = new System.Drawing.Size(111, 21);
-            this.combotxtRol.TabIndex = 5;
-            this.combotxtRol.SelectedIndexChanged += new System.EventHandler(this.combotxtRol_SelectedIndexChanged);
+            this.comboRol.Location = new System.Drawing.Point(213, 306);
+            this.comboRol.Name = "comboRol";
+            this.comboRol.Size = new System.Drawing.Size(111, 21);
+            this.comboRol.TabIndex = 5;
+            this.comboRol.SelectedIndexChanged += new System.EventHandler(this.combotxtRol_SelectedIndexChanged);
+            this.comboRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.combotxtRol_KeyPress);
             // 
             // txtTelefono
             // 
@@ -298,6 +286,7 @@ namespace AqueaductoApp.CapaVistas
             this.comboEstado.Size = new System.Drawing.Size(139, 21);
             this.comboEstado.TabIndex = 10;
             this.comboEstado.SelectedIndexChanged += new System.EventHandler(this.comboEstado_SelectedIndexChanged);
+            this.comboEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboEstado_KeyPress);
             // 
             // label12
             // 
@@ -310,7 +299,7 @@ namespace AqueaductoApp.CapaVistas
             // 
             // iconButton1
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(214)))), ((int)(((byte)(223)))));
+            this.iconButton1.BackColor = System.Drawing.Color.HotPink;
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
@@ -318,7 +307,7 @@ namespace AqueaductoApp.CapaVistas
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.Location = new System.Drawing.Point(345, 91);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(64, 20);
+            this.iconButton1.Size = new System.Drawing.Size(74, 20);
             this.iconButton1.TabIndex = 2;
             this.iconButton1.Text = "Buscar";
             this.iconButton1.UseVisualStyleBackColor = false;
@@ -331,6 +320,22 @@ namespace AqueaductoApp.CapaVistas
             this.labelID.Name = "labelID";
             this.labelID.Size = new System.Drawing.Size(0, 13);
             this.labelID.TabIndex = 67;
+            // 
+            // pictureUser
+            // 
+            this.pictureUser.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pictureUser.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pictureUser.BorderColor2 = System.Drawing.Color.HotPink;
+            this.pictureUser.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pictureUser.BorderSize = 2;
+            this.pictureUser.GradientAngle = 50F;
+            this.pictureUser.Location = new System.Drawing.Point(435, 12);
+            this.pictureUser.Name = "pictureUser";
+            this.pictureUser.Size = new System.Drawing.Size(98, 98);
+            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureUser.TabIndex = 43;
+            this.pictureUser.TabStop = false;
+            this.pictureUser.Click += new System.EventHandler(this.pictureUser_Click);
             // 
             // FrmModificarUsuario
             // 
@@ -353,7 +358,7 @@ namespace AqueaductoApp.CapaVistas
             this.Controls.Add(this.txtFile);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.combotxtRol);
+            this.Controls.Add(this.comboRol);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtName);
@@ -368,7 +373,6 @@ namespace AqueaductoApp.CapaVistas
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModificarUsuario";
             this.Text = "Modificar Usuario";
-            this.Load += new System.EventHandler(this.FrmModificarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
@@ -396,7 +400,7 @@ namespace AqueaductoApp.CapaVistas
         private System.Windows.Forms.TextBox txtFile;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox combotxtRol;
+        private System.Windows.Forms.ComboBox comboRol;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtName;
