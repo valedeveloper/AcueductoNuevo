@@ -114,9 +114,8 @@ namespace AqueaductoApp.CapaVistas
             this.labelConsecutivo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelConsecutivo.Location = new System.Drawing.Point(329, 133);
             this.labelConsecutivo.Name = "labelConsecutivo";
-            this.labelConsecutivo.Size = new System.Drawing.Size(16, 13);
+            this.labelConsecutivo.Size = new System.Drawing.Size(0, 13);
             this.labelConsecutivo.TabIndex = 86;
-            this.labelConsecutivo.Text = "...";
             this.labelConsecutivo.Visible = false;
             // 
             // label

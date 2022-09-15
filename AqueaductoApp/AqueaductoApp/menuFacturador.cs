@@ -84,5 +84,10 @@ namespace AqueaductoApp
         {
 
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            showSubmenu(panelSubmenuReportes);
+        }
     }
 }

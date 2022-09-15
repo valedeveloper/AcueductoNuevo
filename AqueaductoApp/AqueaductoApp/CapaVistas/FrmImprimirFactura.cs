@@ -24,12 +24,14 @@ namespace AqueaductoApp.CapaVistas
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            
             if(this.labelConsecutivo.Text=="")
             {
                 MessageBox.Show("Ingrese el consecutivo de la Factura");
             }
             else
             {
+             
                 CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturas = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
                 facturas.modificarEstadofact(consecutivo);
             }

@@ -44,4 +44,3 @@ C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\bin\Debug\Crys
 C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\bin\Debug\stdole.dll
 C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
-C:\Users\PC01AQ\Desktop\AqueaductoApp\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.Reportes.FrmReportesUser.resources
