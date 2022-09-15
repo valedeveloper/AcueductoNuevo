@@ -56,8 +56,10 @@ namespace AqueaductoApp.CapaVistas
                                 int cedula = int.Parse(this.txtCedula.Text);
 
                                 //Casa
-                                //CapaDatos.DataSet2TableAdapters.PREDIOSTableAdapter TPR = new CapaDatos.DataSet2TableAdapters.PREDIOSTableAdapter();
-                                //TPR.InsertarPredio(this.txtCatastro.Text, this.txtCedula.Text, this.comboEstrato.Text, this.comboBarrio.Text, estado);
+                                CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter TPR = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
+                                TPR.InsertarPredio(this.txtCatastro.Text, this.txtCedula.Text, this.comboEstrato.Text, this.comboBarrio.Text, estado);
+
+
 
                                 //Recarfar Data Grid
                                 CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter dP = new CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter();

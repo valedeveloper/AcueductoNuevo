@@ -53,6 +53,11 @@ namespace AqueaductoApp
             this.panelTop = new System.Windows.Forms.Panel();
             this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panelDerecho = new System.Windows.Forms.Panel();
+            this.btnReportes = new FontAwesome.Sharp.IconButton();
+            this.panelsubMenuReportes = new System.Windows.Forms.Panel();
+            this.btnReportePropi = new FontAwesome.Sharp.IconButton();
+            this.btnReportUser = new FontAwesome.Sharp.IconButton();
+            this.btnReportePredio = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel.SuspendLayout();
             this.panelSubmenuPredio.SuspendLayout();
@@ -63,6 +68,7 @@ namespace AqueaductoApp
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
+            this.panelsubMenuReportes.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,14 +90,16 @@ namespace AqueaductoApp
             // 
             this.panel.AutoScroll = true;
             this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(31)))), ((int)(((byte)(151)))));
+            this.panel.Controls.Add(this.panelsubMenuReportes);
+            this.panel.Controls.Add(this.btnReportes);
             this.panel.Controls.Add(this.panelSubmenuPredio);
             this.panel.Controls.Add(this.btnPredio);
             this.panel.Controls.Add(this.panelSubmenuCliente);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.ForeColor = System.Drawing.Color.LightGray;
-            this.panel.Location = new System.Drawing.Point(0, 244);
+            this.panel.Location = new System.Drawing.Point(0, 245);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(171, 380);
+            this.panel.Size = new System.Drawing.Size(171, 379);
             this.panel.TabIndex = 3;
             // 
             // panelSubmenuPredio
@@ -102,7 +110,7 @@ namespace AqueaductoApp
             this.panelSubmenuPredio.Controls.Add(this.btnCrearPredio);
             this.panelSubmenuPredio.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubmenuPredio.ForeColor = System.Drawing.Color.LightGray;
-            this.panelSubmenuPredio.Location = new System.Drawing.Point(0, 121);
+            this.panelSubmenuPredio.Location = new System.Drawing.Point(0, 120);
             this.panelSubmenuPredio.Name = "panelSubmenuPredio";
             this.panelSubmenuPredio.Size = new System.Drawing.Size(171, 78);
             this.panelSubmenuPredio.TabIndex = 22;
@@ -166,7 +174,7 @@ namespace AqueaductoApp
             this.btnPredio.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPredio.IconSize = 30;
             this.btnPredio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPredio.Location = new System.Drawing.Point(0, 82);
+            this.btnPredio.Location = new System.Drawing.Point(0, 81);
             this.btnPredio.Name = "btnPredio";
             this.btnPredio.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnPredio.Size = new System.Drawing.Size(171, 39);
@@ -186,7 +194,7 @@ namespace AqueaductoApp
             this.panelSubmenuCliente.ForeColor = System.Drawing.Color.LightGray;
             this.panelSubmenuCliente.Location = new System.Drawing.Point(0, 0);
             this.panelSubmenuCliente.Name = "panelSubmenuCliente";
-            this.panelSubmenuCliente.Size = new System.Drawing.Size(171, 82);
+            this.panelSubmenuCliente.Size = new System.Drawing.Size(171, 81);
             this.panelSubmenuCliente.TabIndex = 1;
             // 
             // btnModificarPropietario
@@ -247,7 +255,7 @@ namespace AqueaductoApp
             this.btnPropietario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPropietario.IconSize = 30;
             this.btnPropietario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPropietario.Location = new System.Drawing.Point(0, 205);
+            this.btnPropietario.Location = new System.Drawing.Point(0, 206);
             this.btnPropietario.Name = "btnPropietario";
             this.btnPropietario.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnPropietario.Size = new System.Drawing.Size(171, 39);
@@ -267,7 +275,7 @@ namespace AqueaductoApp
             this.panelSubmenuUsuario.ForeColor = System.Drawing.Color.LightGray;
             this.panelSubmenuUsuario.Location = new System.Drawing.Point(0, 126);
             this.panelSubmenuUsuario.Name = "panelSubmenuUsuario";
-            this.panelSubmenuUsuario.Size = new System.Drawing.Size(171, 79);
+            this.panelSubmenuUsuario.Size = new System.Drawing.Size(171, 80);
             this.panelSubmenuUsuario.TabIndex = 1;
             // 
             // btnModificarUsuario
@@ -421,6 +429,113 @@ namespace AqueaductoApp
             this.panelDerecho.Size = new System.Drawing.Size(587, 581);
             this.panelDerecho.TabIndex = 3;
             // 
+            // btnReportes
+            // 
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnReportes.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.btnReportes.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReportes.IconSize = 30;
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(0, 198);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
+            this.btnReportes.Size = new System.Drawing.Size(171, 39);
+            this.btnReportes.TabIndex = 23;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // panelsubMenuReportes
+            // 
+            this.panelsubMenuReportes.AutoSize = true;
+            this.panelsubMenuReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(39)))), ((int)(((byte)(205)))));
+            this.panelsubMenuReportes.Controls.Add(this.btnReportePredio);
+            this.panelsubMenuReportes.Controls.Add(this.btnReportePropi);
+            this.panelsubMenuReportes.Controls.Add(this.btnReportUser);
+            this.panelsubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelsubMenuReportes.ForeColor = System.Drawing.Color.LightGray;
+            this.panelsubMenuReportes.Location = new System.Drawing.Point(0, 237);
+            this.panelsubMenuReportes.Name = "panelsubMenuReportes";
+            this.panelsubMenuReportes.Size = new System.Drawing.Size(171, 117);
+            this.panelsubMenuReportes.TabIndex = 24;
+            this.panelsubMenuReportes.Visible = false;
+            // 
+            // btnReportePropi
+            // 
+            this.btnReportePropi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(39)))), ((int)(((byte)(205)))));
+            this.btnReportePropi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportePropi.FlatAppearance.BorderSize = 0;
+            this.btnReportePropi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportePropi.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReportePropi.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
+            this.btnReportePropi.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReportePropi.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReportePropi.IconSize = 30;
+            this.btnReportePropi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportePropi.Location = new System.Drawing.Point(0, 39);
+            this.btnReportePropi.Name = "btnReportePropi";
+            this.btnReportePropi.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReportePropi.Size = new System.Drawing.Size(171, 39);
+            this.btnReportePropi.TabIndex = 19;
+            this.btnReportePropi.Text = "Propietario";
+            this.btnReportePropi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportePropi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportePropi.UseVisualStyleBackColor = false;
+            this.btnReportePropi.Click += new System.EventHandler(this.btnReportePropi_Click);
+            // 
+            // btnReportUser
+            // 
+            this.btnReportUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(39)))), ((int)(((byte)(205)))));
+            this.btnReportUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportUser.FlatAppearance.BorderSize = 0;
+            this.btnReportUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportUser.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReportUser.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnReportUser.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReportUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReportUser.IconSize = 30;
+            this.btnReportUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportUser.Location = new System.Drawing.Point(0, 0);
+            this.btnReportUser.Name = "btnReportUser";
+            this.btnReportUser.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReportUser.Size = new System.Drawing.Size(171, 39);
+            this.btnReportUser.TabIndex = 18;
+            this.btnReportUser.Text = "Usuario";
+            this.btnReportUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportUser.UseVisualStyleBackColor = false;
+            this.btnReportUser.Click += new System.EventHandler(this.btnReportUser_Click);
+            // 
+            // btnReportePredio
+            // 
+            this.btnReportePredio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(39)))), ((int)(((byte)(205)))));
+            this.btnReportePredio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportePredio.FlatAppearance.BorderSize = 0;
+            this.btnReportePredio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportePredio.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReportePredio.IconChar = FontAwesome.Sharp.IconChar.HouseChimney;
+            this.btnReportePredio.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReportePredio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReportePredio.IconSize = 30;
+            this.btnReportePredio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportePredio.Location = new System.Drawing.Point(0, 78);
+            this.btnReportePredio.Name = "btnReportePredio";
+            this.btnReportePredio.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReportePredio.Size = new System.Drawing.Size(171, 39);
+            this.btnReportePredio.TabIndex = 20;
+            this.btnReportePredio.Text = "Predio";
+            this.btnReportePredio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportePredio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportePredio.UseVisualStyleBackColor = false;
+            this.btnReportePredio.Click += new System.EventHandler(this.btnReportePredio_Click);
+            // 
             // menuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,6 +560,7 @@ namespace AqueaductoApp
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
+            this.panelsubMenuReportes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -474,6 +590,11 @@ namespace AqueaductoApp
         private System.Windows.Forms.PictureBox pictureClose;
         private System.Windows.Forms.Label labelRol;
         private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Panel panelsubMenuReportes;
+        private FontAwesome.Sharp.IconButton btnReportePredio;
+        private FontAwesome.Sharp.IconButton btnReportePropi;
+        private FontAwesome.Sharp.IconButton btnReportUser;
+        private FontAwesome.Sharp.IconButton btnReportes;
     }
 }
 

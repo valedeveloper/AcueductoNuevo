@@ -15,7 +15,11 @@ namespace AqueaductoApp
     public partial class Login : Form
 
     {
+
+
+
         int rol;
+        string pass;
         public Login()
         {
             InitializeComponent();
@@ -38,75 +42,60 @@ namespace AqueaductoApp
                 }
                 else
                 {
-                   
-                        try
+                    try
+                    {
+
+                        CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+
                         {
+                            string cedula = tU.traerCedula(this.txtUsuario.Text, pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text)).ToString();
+                            int estado=(int)tU.traerEstado(cedula);
 
-
-                            //Conexión Desde casa
-                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-
-                            string pass;
-
-                            rol = (int)tU.verRol(this.txtUsuario.Text, pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text));
-                            if (rol == 1)
+                            if(estado==1)
                             {
-                                this.Hide();
-                                menuAdmin admi = new menuAdmin();
-                                admi.Show();
-
-                            }
-                            else
-                            {
-                                if (rol == 2)
+                                rol = (int)tU.verRol(this.txtUsuario.Text, pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text));
+                                if (rol == 1)
                                 {
-                                    menuDigitador digitador = new menuDigitador();
                                     this.Hide();
-                                    digitador.Show();
+                                    menuAdmin admi = new menuAdmin();
+                                    admi.Show();
 
                                 }
                                 else
                                 {
-                                    menuFacturador facturador = new menuFacturador();
-                                    this.Hide();
-                                    facturador.Show();
+                                    if (rol == 2)
+                                    {
+                                        menuDigitador digitador = new menuDigitador();
+                                        this.Hide();
+                                        digitador.Show();
+
+                                    }
+                                    else
+                                    {
+                                        menuFacturador facturador = new menuFacturador();
+                                        this.Hide();
+                                        facturador.Show();
+                                    }
                                 }
+
+
                             }
-
+                            else
+                            {
+                                MessageBox.Show("Usted no tiene permisos suficientes","Notificación");
+                            }
                         }
-                        catch
-                        {
-                        //CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter userExist = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-                        //int cedula = (int)userExist.validarExistencia(this.txtUsuario.Text, this.txtPassword.Text);
-                        //if (cedula == 0)
-                        //{
-                        //    labelErrorUsuario.Text = "No se encuentra en el Sistema";
-                        //    labelErrorUsuario.Visible = true;
-                        //}
-                        MessageBox.Show("nADA");
+                    }
+                    catch
+                    {
+                        labelErrorUsuario.Visible = true;
+                    }
+                 
 
-                        }
-                        
-                    
-                   
 
 
                 }
-
-
-
-
-
-
-
-
-
-
-
-
             }
-
-                    
         }
 
 

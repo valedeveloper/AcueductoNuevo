@@ -27,7 +27,7 @@ namespace AqueaductoApp.CapaVistas
         string correo;
         string barrio;
         int id;
-        string estado = "pendiente";
+        string estado = "Pendiente";
         string consec;
         BigInteger consecutivo;
         byte[] ms;
@@ -44,10 +44,9 @@ namespace AqueaductoApp.CapaVistas
             id = int.Parse(GridConsumo.CurrentRow.Cells[0].Value.ToString());
             string FechaConsumo = GridConsumo.CurrentRow.Cells[2].Value.ToString();
             this.FechaConsumo.Text = FechaConsumo;
-            string catastro = GridConsumo.CurrentRow.Cells[1].Value.ToString();
+            this.FechaConsumo.Visible = true;
             min = int.Parse(GridConsumo.CurrentRow.Cells[3].Value.ToString());
             this.txtMetros.Text = min.ToString();
-            this.txtCatastro.Text = catastro;
         }
 
 
@@ -80,9 +79,18 @@ namespace AqueaductoApp.CapaVistas
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter consumos = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
-            CapaDatos.DataSet1.CONSUMOSDataTable consumoDatos = consumos.ObtenerConsumo(this.txtCatastro.Text);
-            GridConsumo.DataSource = consumoDatos;
+
+            if(this.txtCatastro.Text=="")
+            {
+                MessageBox.Show("Ingrese el Número de Castastro");
+            }
+            else
+            {
+                CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter consumos = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
+                CapaDatos.DataSet1.CONSUMOSDataTable consumoDatos = consumos.ObtenerConsumoTable(this.txtCatastro.Text);
+                GridConsumo.DataSource = consumoDatos;
+            }
+
 
         }
 
@@ -156,8 +164,11 @@ namespace AqueaductoApp.CapaVistas
                             consec = mont.ToString() + day.ToString() + year.ToString() + minutes.ToString() + millesec.ToString();
 
                             this.labelConsecutivo.Text = consec;
+                            this.labelConsecutivo.Visible = true;
 
                             int consumoMetro = int.Parse(txtMetros.Text);
+
+
                             //va la logica de negocio
                             if (consumoMetro >= 0 && consumoMetro < 30)
                             {
@@ -191,9 +202,9 @@ namespace AqueaductoApp.CapaVistas
 
         private void btnAgregarFact_Click(object sender, EventArgs e)
         {
-            if (this.labelConsecutivo.Text == "" || this.totalFactura.Text == "")
+            if (this.labelConsecutivo.Text == "" && this.totalFactura.Text == "")
             {
-                MessageBox.Show("Faltam datos necesarios para la Factura", "Notificación");
+                MessageBox.Show("Faltan datos necesarios para la Factura", "Notificación");
             }
             else
             {
@@ -217,10 +228,11 @@ namespace AqueaductoApp.CapaVistas
                         CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturas = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
                         facturas.InsertarFactura(consec, this.txtCatastro.Text, this.FechaConsumo.Text, cedula, namePropietario, celular, correo, strato, barrio, id, int.Parse(this.totalFactura.Text), estado, ms, mQr);
 
-                        //Acción luego de ser creada la factura
 
+
+                        //Acción luego de ser creada la factura
                         MessageBox.Show("Factura Agregada", "Notiicación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.labelConsecutivo.Text = "";
+                        this.labelConsecutivo.Visible = false; ;
                         this.txtCatastro.Text = "";
                         this.txtEstrato.Text = "";
                         this.txtMetros.Text = "";
@@ -253,6 +265,11 @@ namespace AqueaductoApp.CapaVistas
         private void GridConsumo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void FrmAgregarFactura_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

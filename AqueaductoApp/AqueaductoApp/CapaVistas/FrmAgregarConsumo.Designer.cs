@@ -123,11 +123,11 @@ namespace AqueaductoApp.CapaVistas
             this.GridPredio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
             this.GridPredio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.GridPredio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridPredio.Location = new System.Drawing.Point(116, 176);
+            this.GridPredio.Location = new System.Drawing.Point(33, 175);
             this.GridPredio.Name = "GridPredio";
             this.GridPredio.ReadOnly = true;
             this.GridPredio.RowTemplate.Height = 25;
-            this.GridPredio.Size = new System.Drawing.Size(377, 130);
+            this.GridPredio.Size = new System.Drawing.Size(528, 130);
             this.GridPredio.TabIndex = 28;
             this.GridPredio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataPredio_CellContentClick);
             // 

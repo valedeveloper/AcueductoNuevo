@@ -99,7 +99,7 @@ namespace AqueaductoApp.CapaVistas
             this.combotxtRol.DisplayMember = "dDD";
             this.combotxtRol.FormattingEnabled = true;
             this.combotxtRol.Items.AddRange(new object[] {
-            "ADMIN",
+            "ADMINISTRADOR",
             "DIGITADOR",
             "FACTURADOR"});
             this.combotxtRol.Location = new System.Drawing.Point(252, 204);

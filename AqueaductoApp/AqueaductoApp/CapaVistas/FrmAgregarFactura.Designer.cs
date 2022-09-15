@@ -34,13 +34,9 @@ namespace AqueaductoApp.CapaVistas
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.txtCatastro = new System.Windows.Forms.TextBox();
             this.labelIdCatratral = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.GridPredio = new System.Windows.Forms.DataGridView();
             this.btnAgregarFact = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.totalLabel = new System.Windows.Forms.Label();
             this.btnCalcularFac = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.txtEstrato = new System.Windows.Forms.TextBox();
@@ -65,7 +61,7 @@ namespace AqueaductoApp.CapaVistas
             this.labelFactura.AutoSize = true;
             this.labelFactura.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold);
             this.labelFactura.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelFactura.Location = new System.Drawing.Point(48, 64);
+            this.labelFactura.Location = new System.Drawing.Point(48, 35);
             this.labelFactura.Name = "labelFactura";
             this.labelFactura.Size = new System.Drawing.Size(246, 29);
             this.labelFactura.TabIndex = 22;
@@ -77,7 +73,7 @@ namespace AqueaductoApp.CapaVistas
             this.GridConsumo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.GridConsumo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
             this.GridConsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridConsumo.Location = new System.Drawing.Point(48, 394);
+            this.GridConsumo.Location = new System.Drawing.Point(48, 371);
             this.GridConsumo.Name = "GridConsumo";
             this.GridConsumo.RowTemplate.Height = 25;
             this.GridConsumo.Size = new System.Drawing.Size(398, 113);
@@ -87,13 +83,14 @@ namespace AqueaductoApp.CapaVistas
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(214)))), ((int)(((byte)(223)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.HotPink;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnBuscar.IconColor = System.Drawing.Color.Black;
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscar.Location = new System.Drawing.Point(531, 144);
+            this.btnBuscar.Location = new System.Drawing.Point(479, 100);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 21);
             this.btnBuscar.TabIndex = 65;
@@ -104,43 +101,23 @@ namespace AqueaductoApp.CapaVistas
             // txtCatastro
             // 
             this.txtCatastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
-            this.txtCatastro.Location = new System.Drawing.Point(173, 126);
+            this.txtCatastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtCatastro.Location = new System.Drawing.Point(211, 101);
             this.txtCatastro.Name = "txtCatastro";
-            this.txtCatastro.Size = new System.Drawing.Size(121, 23);
+            this.txtCatastro.Size = new System.Drawing.Size(121, 20);
             this.txtCatastro.TabIndex = 64;
             this.txtCatastro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCatastro_KeyPress);
             // 
             // labelIdCatratral
             // 
             this.labelIdCatratral.AutoSize = true;
+            this.labelIdCatratral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.labelIdCatratral.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelIdCatratral.Location = new System.Drawing.Point(48, 129);
+            this.labelIdCatratral.Location = new System.Drawing.Point(86, 104);
             this.labelIdCatratral.Name = "labelIdCatratral";
-            this.labelIdCatratral.Size = new System.Drawing.Size(119, 15);
+            this.labelIdCatratral.Size = new System.Drawing.Size(101, 13);
             this.labelIdCatratral.TabIndex = 63;
             this.labelIdCatratral.Text = "Número de Catastro";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(51, 333);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 15);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Consumo";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(473, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 15);
-            this.label1.TabIndex = 70;
-            this.label1.Text = "Predio";
             // 
             // GridPredio
             // 
@@ -148,7 +125,7 @@ namespace AqueaductoApp.CapaVistas
             this.GridPredio.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.GridPredio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
             this.GridPredio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridPredio.Location = new System.Drawing.Point(48, 171);
+            this.GridPredio.Location = new System.Drawing.Point(48, 127);
             this.GridPredio.Name = "GridPredio";
             this.GridPredio.RowTemplate.Height = 25;
             this.GridPredio.Size = new System.Drawing.Size(590, 141);
@@ -167,9 +144,9 @@ namespace AqueaductoApp.CapaVistas
             this.btnAgregarFact.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnAgregarFact.IconColor = System.Drawing.Color.Black;
             this.btnAgregarFact.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregarFact.Location = new System.Drawing.Point(228, 550);
+            this.btnAgregarFact.Location = new System.Drawing.Point(223, 552);
             this.btnAgregarFact.Name = "btnAgregarFact";
-            this.btnAgregarFact.Size = new System.Drawing.Size(140, 32);
+            this.btnAgregarFact.Size = new System.Drawing.Size(134, 32);
             this.btnAgregarFact.TabIndex = 72;
             this.btnAgregarFact.Text = "Agregar Factura";
             this.btnAgregarFact.UseVisualStyleBackColor = false;
@@ -178,35 +155,13 @@ namespace AqueaductoApp.CapaVistas
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(398, 556);
+            this.label2.Location = new System.Drawing.Point(402, 561);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 21);
+            this.label2.Size = new System.Drawing.Size(49, 20);
             this.label2.TabIndex = 73;
             this.label2.Text = "Total";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.PanSE;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.MintCream;
-            this.label4.Location = new System.Drawing.Point(103, 510);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 21);
-            this.label4.TabIndex = 74;
-            // 
-            // totalLabel
-            // 
-            this.totalLabel.AutoSize = true;
-            this.totalLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.totalLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.totalLabel.Location = new System.Drawing.Point(109, 505);
-            this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(0, 21);
-            this.totalLabel.TabIndex = 75;
             // 
             // btnCalcularFac
             // 
@@ -219,9 +174,9 @@ namespace AqueaductoApp.CapaVistas
             this.btnCalcularFac.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnCalcularFac.IconColor = System.Drawing.Color.Black;
             this.btnCalcularFac.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCalcularFac.Location = new System.Drawing.Point(48, 550);
+            this.btnCalcularFac.Location = new System.Drawing.Point(48, 552);
             this.btnCalcularFac.Name = "btnCalcularFac";
-            this.btnCalcularFac.Size = new System.Drawing.Size(139, 32);
+            this.btnCalcularFac.Size = new System.Drawing.Size(134, 32);
             this.btnCalcularFac.TabIndex = 76;
             this.btnCalcularFac.Text = "Calcular Factura";
             this.btnCalcularFac.UseVisualStyleBackColor = false;
@@ -229,13 +184,14 @@ namespace AqueaductoApp.CapaVistas
             // 
             // iconButton3
             // 
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(214)))), ((int)(((byte)(223)))));
+            this.iconButton3.BackColor = System.Drawing.Color.HotPink;
             this.iconButton3.FlatAppearance.BorderSize = 0;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton3.IconColor = System.Drawing.Color.Black;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(115, 327);
+            this.iconButton3.Location = new System.Drawing.Point(281, 311);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(75, 23);
             this.iconButton3.TabIndex = 77;
@@ -246,94 +202,102 @@ namespace AqueaductoApp.CapaVistas
             // txtEstrato
             // 
             this.txtEstrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
-            this.txtEstrato.Location = new System.Drawing.Point(385, 126);
+            this.txtEstrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtEstrato.Location = new System.Drawing.Point(406, 101);
             this.txtEstrato.Name = "txtEstrato";
             this.txtEstrato.ReadOnly = true;
-            this.txtEstrato.Size = new System.Drawing.Size(41, 23);
+            this.txtEstrato.Size = new System.Drawing.Size(41, 20);
             this.txtEstrato.TabIndex = 78;
             // 
             // txtMetros
             // 
             this.txtMetros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
-            this.txtMetros.Location = new System.Drawing.Point(180, 365);
+            this.txtMetros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtMetros.Location = new System.Drawing.Point(168, 311);
             this.txtMetros.Name = "txtMetros";
             this.txtMetros.ReadOnly = true;
-            this.txtMetros.Size = new System.Drawing.Size(41, 23);
+            this.txtMetros.Size = new System.Drawing.Size(85, 20);
             this.txtMetros.TabIndex = 79;
             this.txtMetros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMetros_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(333, 129);
+            this.label5.Location = new System.Drawing.Point(349, 104);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 15);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 80;
             this.label5.Text = "Estrato";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(56, 368);
+            this.label6.Location = new System.Drawing.Point(50, 314);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 15);
+            this.label6.Size = new System.Drawing.Size(101, 13);
             this.label6.TabIndex = 81;
             this.label6.Text = "Consumo en Metros";
             // 
             // totalFactura
             // 
             this.totalFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
-            this.totalFactura.Location = new System.Drawing.Point(473, 554);
+            this.totalFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.totalFactura.Location = new System.Drawing.Point(474, 558);
             this.totalFactura.Name = "totalFactura";
             this.totalFactura.ReadOnly = true;
-            this.totalFactura.Size = new System.Drawing.Size(165, 23);
+            this.totalFactura.Size = new System.Drawing.Size(165, 26);
             this.totalFactura.TabIndex = 82;
             // 
             // labelConsecutivo
             // 
             this.labelConsecutivo.AutoSize = true;
             this.labelConsecutivo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelConsecutivo.Location = new System.Drawing.Point(576, 78);
+            this.labelConsecutivo.Location = new System.Drawing.Point(557, 46);
             this.labelConsecutivo.Name = "labelConsecutivo";
-            this.labelConsecutivo.Size = new System.Drawing.Size(0, 15);
+            this.labelConsecutivo.Size = new System.Drawing.Size(16, 15);
             this.labelConsecutivo.TabIndex = 84;
+            this.labelConsecutivo.Text = "...";
+            this.labelConsecutivo.Visible = false;
             // 
             // FechaConsumo
             // 
             this.FechaConsumo.AutoSize = true;
-            this.FechaConsumo.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.FechaConsumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.FechaConsumo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.FechaConsumo.Location = new System.Drawing.Point(346, 365);
+            this.FechaConsumo.Location = new System.Drawing.Point(173, 340);
             this.FechaConsumo.Name = "FechaConsumo";
-            this.FechaConsumo.Size = new System.Drawing.Size(0, 21);
+            this.FechaConsumo.Size = new System.Drawing.Size(19, 13);
             this.FechaConsumo.TabIndex = 85;
+            this.FechaConsumo.Text = "....";
+            this.FechaConsumo.Visible = false;
             // 
             // label
             // 
             this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label.Location = new System.Drawing.Point(473, 78);
+            this.label.Location = new System.Drawing.Point(470, 48);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(78, 15);
+            this.label.Size = new System.Drawing.Size(81, 13);
             this.label.TabIndex = 83;
             this.label.Text = "Consecutivo:";
             // 
             // CodigoDeBarras
             // 
-            this.CodigoDeBarras.Location = new System.Drawing.Point(473, 433);
+            this.CodigoDeBarras.Location = new System.Drawing.Point(473, 311);
             this.CodigoDeBarras.Name = "CodigoDeBarras";
-            this.CodigoDeBarras.Size = new System.Drawing.Size(165, 74);
+            this.CodigoDeBarras.Size = new System.Drawing.Size(165, 87);
             this.CodigoDeBarras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.CodigoDeBarras.TabIndex = 86;
             this.CodigoDeBarras.TabStop = false;
             // 
             // pictureQr
             // 
-            this.pictureQr.Location = new System.Drawing.Point(473, 327);
+            this.pictureQr.Location = new System.Drawing.Point(473, 424);
             this.pictureQr.Name = "pictureQr";
             this.pictureQr.Size = new System.Drawing.Size(165, 91);
             this.pictureQr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -343,11 +307,11 @@ namespace AqueaductoApp.CapaVistas
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(244, 370);
+            this.label7.Location = new System.Drawing.Point(50, 339);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 15);
+            this.label7.Size = new System.Drawing.Size(87, 13);
             this.label7.TabIndex = 88;
             this.label7.Text = "Fecha Consumo:";
             // 
@@ -370,13 +334,9 @@ namespace AqueaductoApp.CapaVistas
             this.Controls.Add(this.txtEstrato);
             this.Controls.Add(this.iconButton3);
             this.Controls.Add(this.btnCalcularFac);
-            this.Controls.Add(this.totalLabel);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAgregarFact);
             this.Controls.Add(this.GridPredio);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCatastro);
             this.Controls.Add(this.labelIdCatratral);
@@ -386,6 +346,7 @@ namespace AqueaductoApp.CapaVistas
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAgregarFactura";
             this.Text = "Agregar Factura";
+            this.Load += new System.EventHandler(this.FrmAgregarFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridConsumo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridPredio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CodigoDeBarras)).EndInit();
@@ -402,13 +363,9 @@ namespace AqueaductoApp.CapaVistas
         private FontAwesome.Sharp.IconButton btnBuscar;
         private System.Windows.Forms.TextBox txtCatastro;
         private System.Windows.Forms.Label labelIdCatratral;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView GridPredio;
         private FontAwesome.Sharp.IconButton btnAgregarFact;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label totalLabel;
         private FontAwesome.Sharp.IconButton btnCalcularFac;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.TextBox txtEstrato;

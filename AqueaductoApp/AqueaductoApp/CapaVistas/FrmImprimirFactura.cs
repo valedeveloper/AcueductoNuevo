@@ -17,18 +17,44 @@ namespace AqueaductoApp.CapaVistas
             InitializeComponent();
         }
 
-       
+        string factEstado;
+        string consecutivo;
 
-  
+
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
+            if(this.labelConsecutivo.Text=="")
+            {
+                MessageBox.Show("Ingrese el consecutivo de la Factura");
+            }
+            else
+            {
+                CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturas = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
+                facturas.modificarEstadofact(consecutivo);
+            }
+           
+        }
 
-            string fact = "pendiente";
+        private void dataGridImprimir_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            factEstado = "Pendiente";
             CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturasImprimir = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
             CapaDatos.DataSet1.FACTURASDataTable facturasDatos = new CapaDatos.DataSet1.FACTURASDataTable();
-            facturasDatos = facturasImprimir.VerFacturasImprimirTable(fact);
-            dataGridImprimir.DataSource = facturasDatos;
+            facturasDatos = facturasImprimir.VerFacturasImprimirTable(factEstado);
+            GridImprimir.DataSource = facturasDatos;
+
+            int posicion = GridImprimir.CurrentRow.Index;
+            consecutivo=GridImprimir.CurrentRow.Cells[0].Value.ToString();
+            this.labelConsecutivo.Text = consecutivo;
+            this.labelConsecutivo.Visible = true;
+
+
 
         }
     }

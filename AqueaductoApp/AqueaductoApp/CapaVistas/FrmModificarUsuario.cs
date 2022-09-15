@@ -378,7 +378,7 @@ namespace AqueaductoApp.CapaVistas
 
         private void combotxtRol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboRol.Text == "ADMIN")
+            if (comboRol.Text == "ADMINISTRADOR")
             {
                 rol = 1;
             }
@@ -448,7 +448,7 @@ namespace AqueaductoApp.CapaVistas
             }
         }
 
-       
+     
     }
 
     internal class read

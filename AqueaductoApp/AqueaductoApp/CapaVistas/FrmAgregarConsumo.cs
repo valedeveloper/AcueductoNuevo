@@ -21,7 +21,7 @@ namespace AqueaductoApp.CapaVistas
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter consumoExistencia = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
-            int existenciaFecha = (int)consumoExistencia.validarFechaConsumo(this.txtCatastro.Text);
+            int existenciaFecha = (int)consumoExistencia.validarMesConsumo(this.txtCatastro.Text);
 
             if(existenciaFecha==0)
             {

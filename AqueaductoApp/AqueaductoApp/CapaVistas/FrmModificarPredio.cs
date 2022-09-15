@@ -25,42 +25,49 @@ namespace AqueaductoApp.CapaVistas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (this.txtCatastro.Text == "")
+
+            CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter predioExistencia = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
+            int predioExist = (int)predioExistencia.validarExistenciaCatastro(this.txtCatastro.Text);
+
+            if (predioExist == 0 || this.txtCatastro.Text==catastro )
             {
-                MessageBox.Show("Digite el Catastro del Predio", "Notificaciòn");
-            }
-            else
-            {
-                if (this.txtCedula.Text == "")
+                if (this.txtCatastro.Text == "")
                 {
-                    MessageBox.Show("Digite la Cédula del Propietario", "Notificación");
+                    MessageBox.Show("Digite el Catastro del Predio", "Notificaciòn");
                 }
                 else
                 {
-                    if (this.comboBarrio.Text == "")
+                    if (this.txtCedula.Text == "")
                     {
-                        MessageBox.Show("Digite el Barrio del Predio", "Notificación");
+                        MessageBox.Show("Digite la Cédula del Propietario", "Notificación");
                     }
                     else
                     {
-                        if (this.comboEstrato.Text == "")
+                        if (this.comboBarrio.Text == "")
                         {
-                            MessageBox.Show("Digite el Estrato del Predio", "Notificación");
+                            MessageBox.Show("Digite el Barrio del Predio", "Notificación");
                         }
                         else
                         {
-                            if (this.comboEstado.Text == "")
+                            if (this.comboEstrato.Text == "")
                             {
-                                MessageBox.Show("Digite el Estado del Predio", "Notificación");
+                                MessageBox.Show("Digite el Estrato del Predio", "Notificación");
                             }
                             else
                             {
-                                try
+                                if (this.comboEstado.Text == "")
                                 {
+                                    MessageBox.Show("Digite el Estado del Predio", "Notificación");
+                                }
+                                else
+                                {
+
                                     int cedula = int.Parse(this.txtCedula.Text);
                                     //Casa
                                     CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter TPR = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
-                                    TPR.ModificarPredio(this.txtCatastro.Text, this.comboEstrato.Text, this.comboBarrio.Text, estado, id);
+                                    TPR.ModificarPredio(this.txtCatastro.Text, this.txtCedula.Text, this.comboEstrato.Text, this.comboBarrio.Text, estado, id);
+
+
 
                                     //Recargar DataGrid
                                     CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter Tp = new CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
@@ -70,18 +77,19 @@ namespace AqueaductoApp.CapaVistas
                                     //Mensaje de Modificado Predio, limpia los campos. 
                                     MessageBox.Show("Predio modificado", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.txtCatastro.Text = "";
-                                }
-                                catch
-                                {
-                                    MessageBox.Show("El número de catastro no se puede cambiar,  ya que existe propietario con este predio");
-                                    this.txtCatastro.Text = catastro; 
+
                                 }
                             }
                         }
                     }
                 }
-            }
 
+            }
+            else
+            {
+                MessageBox.Show("Este predio ya existe, por favor ingrese otro número de catastro");
+                this.txtCedula.Focus();
+            }
 
 
 

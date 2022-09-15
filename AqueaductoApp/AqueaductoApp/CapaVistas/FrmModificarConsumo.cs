@@ -45,13 +45,19 @@ namespace AqueaductoApp.CapaVistas
                         int consumo = int.Parse(this.txtConsumo.Text);
 
                         CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter cT = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
-                        cT.ModificarConsumo(this.labelFecha.Text, consumo,mes, id);
+                        cT.ModificarConsumo(this.txtCatastro.Text, this.labelFecha.Text, consumo, mes);
+
+                        //Recargar DataGrid
+                        CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter Tp = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
+                        CapaDatos.DataSet1.CONSUMOSDataTable tp = Tp.GetData();
+                        GridConsumo.DataSource = tp;
 
 
                         //Después de ser modificado
                         MessageBox.Show("Consumo Modificado", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.txtCatastro.Text = "";
                         this.txtConsumo.Text = "";
+                        this.labelFecha.Text = "";
                     }
 
                 }
@@ -63,8 +69,15 @@ namespace AqueaductoApp.CapaVistas
 
             if (MessageBox.Show("¿Desea cancelar el proceso?", "Notificación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+
                 this.txtCatastro.Text = "";
                 this.txtConsumo.Text = "";
+                this.labelFecha.Text = "";
+
+                //Recargar DataGrid
+                CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter Tp = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
+                CapaDatos.DataSet1.CONSUMOSDataTable tp = Tp.GetData();
+                GridConsumo.DataSource = tp;
 
 
             }
@@ -78,44 +91,34 @@ namespace AqueaductoApp.CapaVistas
             GridConsumo.DataSource = ta;
         }
 
-        private void FrmModificarLectura_Load(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void GridConsumo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             id = int.Parse(GridConsumo.CurrentRow.Cells[0].Value.ToString());
             catastro = GridConsumo.CurrentRow.Cells[1].Value.ToString();
             this.txtCatastro.Text = catastro;
+
+
             string fecha = GridConsumo.CurrentRow.Cells[2].Value.ToString();
             this.labelFecha.Text = fecha;
+            this.labelFecha.Visible = true;
+
+
             string consumo = GridConsumo.CurrentRow.Cells[3].Value.ToString();
             this.txtConsumo.Text = consumo;
+            this.txtConsumo.Visible = true;
             mes =(int)GridConsumo.CurrentRow.Cells[4].Value;
 
         }
 
-        private void labelFecha_Click(object sender, EventArgs e)
-        {
+     
 
-        }
-
-        private void dateConsumo_ValueChanged(object sender, EventArgs e)
-        {
-            //    DateTime fecha = new DateTime(2022, 9, 1);
-            //    this.labelFecha.Text = fecha.ToString();
-            //    this.labelFecha.Visible = true;
-        }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DateTime fecha = dateTimePicker1.Value;
             this.labelFecha.Text = fecha.ToString();
             this.labelFecha.Visible = true;
-
-
-
         }
 
         private void txtCatastro_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,5 +177,7 @@ namespace AqueaductoApp.CapaVistas
         {
             e.Handled = true;
         }
+
+      
     }
 }

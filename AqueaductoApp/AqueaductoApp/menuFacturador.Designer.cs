@@ -71,7 +71,7 @@ namespace AqueaductoApp
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReportes.IconChar = FontAwesome.Sharp.IconChar.Registered;
+            this.btnReportes.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
             this.btnReportes.IconColor = System.Drawing.Color.Gainsboro;
             this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportes.IconSize = 30;

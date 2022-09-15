@@ -62,7 +62,7 @@ namespace AqueaductoApp.CapaVistas
 
         {
 
-            if (this.combotxtRol.Text == "ADMIN")
+            if (this.combotxtRol.Text == "ADMINISTRADOR")
             {
                 rol = 1;
             }

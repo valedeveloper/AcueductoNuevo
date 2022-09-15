@@ -31,6 +31,7 @@ namespace AqueaductoApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuDigitador));
             this.panelItem = new System.Windows.Forms.Panel();
+            this.btnReportes = new FontAwesome.Sharp.IconButton();
             this.panelSubmenuConsumo = new System.Windows.Forms.Panel();
             this.btnModificarLectura = new FontAwesome.Sharp.IconButton();
             this.btnNuevaLectura = new FontAwesome.Sharp.IconButton();
@@ -53,6 +54,7 @@ namespace AqueaductoApp
             // panelItem
             // 
             this.panelItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(31)))), ((int)(((byte)(151)))));
+            this.panelItem.Controls.Add(this.btnReportes);
             this.panelItem.Controls.Add(this.panelSubmenuConsumo);
             this.panelItem.Controls.Add(this.btnConsumo);
             this.panelItem.Controls.Add(this.panelUsuario);
@@ -61,6 +63,28 @@ namespace AqueaductoApp
             this.panelItem.Name = "panelItem";
             this.panelItem.Size = new System.Drawing.Size(189, 624);
             this.panelItem.TabIndex = 0;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnReportes.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.btnReportes.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReportes.IconSize = 30;
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(0, 207);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
+            this.btnReportes.Size = new System.Drawing.Size(189, 39);
+            this.btnReportes.TabIndex = 24;
+            this.btnReportes.Text = "Reporte";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportes.UseVisualStyleBackColor = true;
             // 
             // panelSubmenuConsumo
             // 
@@ -254,5 +278,6 @@ namespace AqueaductoApp
         private System.Windows.Forms.Label labelRol;
         private CapaModelos.PictureRound pictureRound1;
         private System.Windows.Forms.Label labelNombre;
+        private FontAwesome.Sharp.IconButton btnReportes;
     }
 }

@@ -27,6 +27,7 @@ namespace AqueaductoApp
 
         }
 
+
         public void hideSubmenu()
         {
 
@@ -146,16 +147,16 @@ namespace AqueaductoApp
 
         private void btnCrearPredio_Click_1(object sender, EventArgs e)
         {
-            //mostrarPanel(new FrmagregarPredio());
+            mostrarPanel(new FrmagregarPredio());
 
-            //hideSubmenu();
+            hideSubmenu();
 
         }
 
         private void btnModificarPredio_Click_1(object sender, EventArgs e)
         {
             mostrarPanel(new FrmModificarPredio());
-            //hideSubmenu();
+            hideSubmenu();
 
         }
 
@@ -184,6 +185,27 @@ namespace AqueaductoApp
         private void menuAdmin_MouseDown(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelsubMenuReportes);
+        }
+
+        private void btnReportUser_Click(object sender, EventArgs e)
+        {
+            Reportes.CrystalReportUser reportUser = new Reportes.CrystalReportUser();
+            hideSubmenu();
+        }
+
+        private void btnReportePropi_Click(object sender, EventArgs e)
+        {
+            hideSubmenu();
+        }
+
+        private void btnReportePredio_Click(object sender, EventArgs e)
+        {
+            hideSubmenu();
         }
     }
 }
