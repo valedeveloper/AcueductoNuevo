@@ -43,7 +43,6 @@ namespace AqueaductoApp.CapaVistas
                         }
                         else
                         {
-                            //VALIDAR QUE SI UN PREDIO TIENE UN CONSUMO EN ESA FECHA NO SE PUEDE AGREGAR DOS CONSUMOS DE UN PREDIO
 
                             //Agregar Consumo
                             int consumo = int.Parse(this.txtConsumo.Text);
@@ -83,7 +82,22 @@ namespace AqueaductoApp.CapaVistas
             int posicion = GridPredio.CurrentRow.Index;
             string catastro = GridPredio.CurrentRow.Cells[1].Value.ToString();
             this.txtCatastro.Text = catastro;
-            ;
+
+            //Fecha del consumo
+            DateTime fecha = DateTime.Now;
+            this.labelFecha.Text = fecha.ToString();
+            this.labelFecha.Visible = true;
+
+            //Mes del consumo
+            DateTime mes = DateTime.Now;
+            month = mes.Month;
+
+            //DateTime fecha = dateTimePicker1.Value;
+            //fechaConsumo = fecha.ToString();
+            //this.labelFecha.Text = fechaConsumo;
+            //this.labelFecha.Visible = true;
+            //Mes del Consumo
+
 
 
         }
@@ -124,16 +138,19 @@ namespace AqueaductoApp.CapaVistas
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             {
-               
+
+                //DateTime fecha = DateTime.Now;
+                //this.labelFecha.Text = fecha.Date.ToString();
+                //this.labelFecha.Visible = true;
               
-                DateTime fecha = dateTimePicker1.Value;
-                fechaConsumo = fecha.ToString();
-                this.labelFecha.Text = fechaConsumo;
-                this.labelFecha.Visible = true;
-                //Mes del Consumo
-                DateTime currentDateTime = DateTime.Now;
-                month = currentDateTime.Month;
-                
+                ////DateTime fecha = dateTimePicker1.Value;
+                ////fechaConsumo = fecha.ToString();
+                ////this.labelFecha.Text = fechaConsumo;
+                ////this.labelFecha.Visible = true;
+                ////Mes del Consumo
+                //DateTime mes = DateTime.Now;
+                //month = mes.Month;
+
             }
         }
 

@@ -239,14 +239,16 @@ namespace AqueaductoApp.CapaVistas
 
                             else
                             {
-                                if (string.IsNullOrEmpty(this.txtCorreo.Text))
+                    
+
+                                if (string.IsNullOrEmpty(this.txtCorreo.Text) || CapaModelos.ClsValidarCorreo.validarEmail(this.txtCorreo.Text) == false)
                                 {
-                                    MessageBox.Show("Digite el Correo de Usuario", "Notificación");
+                                    MessageBox.Show("Digite el Correo de Usuario, no cumple como correo", "Notificación");
                                     txtCorreo.Focus();
                                 }
                                 else
                                 {
-                                    if (string.IsNullOrEmpty(this.txtPassword.Text))
+                                    if (string.IsNullOrEmpty(this.txtPassword.Text) )
                                     {
                                         MessageBox.Show("Digite la Constraseña de Usuario", "Notificación");
                                         txtPassword.Focus();

@@ -16,14 +16,14 @@ namespace AqueaductoApp.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReportPropietario : ReportClass {
+    public class CrystalReportImpresas : ReportClass {
         
-        public CrystalReportPropietario() {
+        public CrystalReportImpresas() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReportPropietario.rpt";
+                return "CrystalReportImpresas.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace AqueaductoApp.Reportes {
         
         public override string FullResourceName {
             get {
-                return "AqueaductoApp.Reportes.CrystalReportPropietario.rpt";
+                return "AqueaductoApp.Reportes.CrystalReportImpresas.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace AqueaductoApp.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReportPropietario : Component, ICachedReport {
+    public class CachedCrystalReportImpresas : Component, ICachedReport {
         
-        public CachedCrystalReportPropietario() {
+        public CachedCrystalReportImpresas() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace AqueaductoApp.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReportPropietario rpt = new CrystalReportPropietario();
+            CrystalReportImpresas rpt = new CrystalReportImpresas();
             rpt.Site = this.Site;
             return rpt;
         }

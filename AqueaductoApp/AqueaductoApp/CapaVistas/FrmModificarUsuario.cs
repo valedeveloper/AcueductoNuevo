@@ -213,9 +213,10 @@ namespace AqueaductoApp.CapaVistas
 
                             else
                             {
-                                if (string.IsNullOrEmpty(this.txtCorreo.Text))
+                                if (string.IsNullOrEmpty(this.txtCorreo.Text) || CapaModelos.ClsValidarCorreo.validarEmail(this.txtCorreo.Text) == false)
                                 {
-                                    MessageBox.Show("Digite su Correo");
+
+                                    MessageBox.Show("Digite el Correo de Usuario, no cumple como correo", "Notificación");
                                     txtCorreo.Focus();
                                 }
                                 else

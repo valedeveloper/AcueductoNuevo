@@ -29,14 +29,14 @@ namespace AqueaductoApp
         {
 
 
-            if (string.IsNullOrEmpty(this.txtUsuario.Text))
+            if (this.txtUsuario.Text=="Usuario")
             {
                 MessageBox.Show("Ingresar el Usuario");
                 txtUsuario.Focus();
             }
             else
             {
-                if (string.IsNullOrEmpty(this.txtPassword.Text))
+                if (this.txtPassword.Text=="Contraseña")
                 {
                     MessageBox.Show("Ingrese la contraseña");
                 }
@@ -57,7 +57,7 @@ namespace AqueaductoApp
                                 if (rol == 1)
                                 {
                                     this.Hide();
-                                    menuAdmin admi = new menuAdmin();
+                                    menuAdmin admi = new menuAdmin(this.txtUsuario.Text,pass);
                                     admi.Show();
 
                                 }
@@ -65,14 +65,14 @@ namespace AqueaductoApp
                                 {
                                     if (rol == 2)
                                     {
-                                        menuDigitador digitador = new menuDigitador();
+                                        menuDigitador digitador = new menuDigitador(this.txtUsuario.Text, pass);
                                         this.Hide();
                                         digitador.Show();
 
                                     }
                                     else
                                     {
-                                        menuFacturador facturador = new menuFacturador();
+                                        menuFacturador facturador = new menuFacturador(this.txtUsuario.Text, pass);
                                         this.Hide();
                                         facturador.Show();
                                     }

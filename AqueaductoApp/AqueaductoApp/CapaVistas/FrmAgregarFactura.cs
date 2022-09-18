@@ -38,6 +38,13 @@ namespace AqueaductoApp.CapaVistas
             InitializeComponent();
         }
 
+
+
+
+
+
+
+
         private void GridConsumo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -45,7 +52,7 @@ namespace AqueaductoApp.CapaVistas
             string FechaConsumo = GridConsumo.CurrentRow.Cells[2].Value.ToString();
             this.FechaConsumo.Text = FechaConsumo;
             this.FechaConsumo.Visible = true;
-            min = int.Parse(GridConsumo.CurrentRow.Cells[3].Value.ToString());
+            min = int.Parse(GridConsumo.CurrentRow.Cells[4].Value.ToString());
             this.txtMetros.Text = min.ToString();
         }
 
@@ -202,7 +209,7 @@ namespace AqueaductoApp.CapaVistas
 
         private void btnAgregarFact_Click(object sender, EventArgs e)
         {
-            if (this.labelConsecutivo.Text == "" && this.totalFactura.Text == "")
+            if (this.labelConsecutivo.Text == "" || this.totalFactura.Text == "")
             {
                 MessageBox.Show("Faltan datos necesarios para la Factura", "Notificación");
             }
@@ -221,6 +228,7 @@ namespace AqueaductoApp.CapaVistas
                     }
                     else
                     {
+
 
                         Int64 consecutivoFact = Int64.Parse(consec);
 

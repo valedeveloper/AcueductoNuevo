@@ -10,7 +10,7 @@ namespace AqueaductoApp.CapaModelos
 {
     public  class ClsConvertToImage
     {
-        public Image byteArrayToImage(byte[] bytesArr)
+        public static Image byteArrayToImage(byte[] bytesArr)
         {
             using (MemoryStream memstr = new MemoryStream(bytesArr))
             {

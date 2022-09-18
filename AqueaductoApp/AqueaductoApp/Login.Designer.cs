@@ -199,8 +199,6 @@ namespace AqueaductoApp
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.PictureBox pictureClose;
         private System.Windows.Forms.Label labelErrorUsuario;
@@ -221,5 +219,7 @@ namespace AqueaductoApp
         #endregion
 
         private System.Windows.Forms.PictureBox pictureUser;
+        public System.Windows.Forms.TextBox txtUsuario;
+        public System.Windows.Forms.TextBox txtPassword;
     }
 }

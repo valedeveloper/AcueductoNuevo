@@ -16,14 +16,14 @@ namespace AqueaductoApp.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReportFacturasPendi : ReportClass {
+    public class CrystalReportConsumos : ReportClass {
         
-        public CrystalReportFacturasPendi() {
+        public CrystalReportConsumos() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReportFacturasPendi.rpt";
+                return "CrystalReportConsumos.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace AqueaductoApp.Reportes {
         
         public override string FullResourceName {
             get {
-                return "AqueaductoApp.Reportes.CrystalReportFacturasPendi.rpt";
+                return "AqueaductoApp.Reportes.CrystalReportConsumos.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace AqueaductoApp.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReportFacturasPendi : Component, ICachedReport {
+    public class CachedCrystalReportConsumos : Component, ICachedReport {
         
-        public CachedCrystalReportFacturasPendi() {
+        public CachedCrystalReportConsumos() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace AqueaductoApp.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReportFacturasPendi rpt = new CrystalReportFacturasPendi();
+            CrystalReportConsumos rpt = new CrystalReportConsumos();
             rpt.Site = this.Site;
             return rpt;
         }

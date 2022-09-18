@@ -20,7 +20,7 @@ namespace AqueaductoApp
                
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new menuFacturador());
+                Application.Run(new Login());
             }
         }
 

@@ -15,9 +15,15 @@ namespace AqueaductoApp
 {
     public partial class menuDigitador : Form
     {
-        public menuDigitador()
+        public menuDigitador(string User,string Password)
         {
             InitializeComponent();
+            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter fotoUser = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+            byte[] fotoUsuario = (byte[])fotoUser.traerFoto(User, Password);
+
+            Image imagenUsuario = CapaModelos.ClsConvertToImage.byteArrayToImage(fotoUsuario);
+            pictureRound1.Image = imagenUsuario;
+            this.labelNombre.Text = User;
         }
 
         private void hideSubmenu()
@@ -26,10 +32,7 @@ namespace AqueaductoApp
             {
                 panelSubmenuConsumo.Visible = false;
             }
-            else
-            {
-                panelSubmenuConsumo.Visible = true;
-            }
+           
         }
 
         private void showSubmenu(Panel submenu)
@@ -86,6 +89,40 @@ namespace AqueaductoApp
                 Login login = new Login();
                 login.Show();
             }
+        }
+
+        private void cONSUMOSBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cONSUMOSBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.acueductoDataSet);
+
+        }
+
+        private void menuDigitador_Load_1(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'acueductoDataSet.CONSUMOS' Puede moverla o quitarla según sea necesario.
+            this.cONSUMOSTableAdapter.Fill(this.acueductoDataSet.CONSUMOS);
+
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Reportes.CrystalReportConsumos reportDatos = new Reportes.CrystalReportConsumos();
+
+            //Traer los datos
+            this.cONSUMOSTableAdapter.Fill(this.acueductoDataSet.CONSUMOS);
+            reportDatos.SetDataSource(this.acueductoDataSet);
+
+            Cursor.Current = Cursors.Default;
+
+            //Asignamos a reporte View
+            Reportes.FrmReporteConsumo frmReporteConsumo = new Reportes.FrmReporteConsumo();
+            frmReporteConsumo.crystalReportViewer1.ReportSource = reportDatos;
+            frmReporteConsumo.ShowDialog();
+            frmReporteConsumo.Close();
+            hideSubmenu();
         }
     }
 }

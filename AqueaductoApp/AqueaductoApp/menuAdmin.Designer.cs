@@ -29,6 +29,7 @@ namespace AqueaductoApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuAdmin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel = new System.Windows.Forms.Panel();
@@ -50,14 +51,28 @@ namespace AqueaductoApp
             this.btnCrearUsuario = new FontAwesome.Sharp.IconButton();
             this.btnUsuario = new FontAwesome.Sharp.IconButton();
             this.panelUsuario = new System.Windows.Forms.Panel();
-            this.labelRol = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
-            this.pictureRound1 = new AqueaductoApp.CapaModelos.PictureRound();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panelTop = new System.Windows.Forms.Panel();
             this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panelDerecho = new System.Windows.Forms.Panel();
+            this.acueductoDataSet = new AqueaductoApp.AcueductoDataSet();
+            this.uSUARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uSUARIOSTableAdapter = new AqueaductoApp.AcueductoDataSetTableAdapters.USUARIOSTableAdapter();
+            this.tableAdapterManager = new AqueaductoApp.AcueductoDataSetTableAdapters.TableAdapterManager();
+            this.dataSet1 = new AqueaductoApp.CapaDatos.DataSet1();
+            this.pROPIETARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pROPIETARIOSTableAdapter = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter();
+            this.tableAdapterManager1 = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.TableAdapterManager();
+            this.pREDIOSTableAdapter = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter();
+            this.pREDIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pREDIOSBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pREDIOSTableAdapter1 = new AqueaductoApp.AcueductoDataSetTableAdapters.PREDIOSTableAdapter();
+            this.pROPIETARIOSBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pROPIETARIOSTableAdapter1 = new AqueaductoApp.AcueductoDataSetTableAdapters.PROPIETARIOSTableAdapter();
+            this.labelRol = new System.Windows.Forms.Label();
+            this.pictureRound1 = new AqueaductoApp.CapaModelos.PictureRound();
             this.panel1.SuspendLayout();
             this.panel.SuspendLayout();
             this.panelsubMenuReportes.SuspendLayout();
@@ -65,10 +80,17 @@ namespace AqueaductoApp
             this.panelSubmenuCliente.SuspendLayout();
             this.panelSubmenuUsuario.SuspendLayout();
             this.panelUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acueductoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uSUARIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROPIETARIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREDIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREDIOSBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROPIETARIOSBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,7 +105,7 @@ namespace AqueaductoApp
             this.panel1.ForeColor = System.Drawing.Color.LightGray;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 624);
+            this.panel1.Size = new System.Drawing.Size(171, 773);
             this.panel1.TabIndex = 0;
             // 
             // panel
@@ -97,9 +119,9 @@ namespace AqueaductoApp
             this.panel.Controls.Add(this.panelSubmenuCliente);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.ForeColor = System.Drawing.Color.LightGray;
-            this.panel.Location = new System.Drawing.Point(0, 245);
+            this.panel.Location = new System.Drawing.Point(0, 313);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(171, 379);
+            this.panel.Size = new System.Drawing.Size(171, 460);
             this.panel.TabIndex = 3;
             // 
             // panelsubMenuReportes
@@ -134,7 +156,7 @@ namespace AqueaductoApp
             this.btnReportePredio.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnReportePredio.Size = new System.Drawing.Size(171, 39);
             this.btnReportePredio.TabIndex = 20;
-            this.btnReportePredio.Text = "Predio";
+            this.btnReportePredio.Text = "Predios";
             this.btnReportePredio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportePredio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportePredio.UseVisualStyleBackColor = false;
@@ -157,7 +179,7 @@ namespace AqueaductoApp
             this.btnReportePropi.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnReportePropi.Size = new System.Drawing.Size(171, 39);
             this.btnReportePropi.TabIndex = 19;
-            this.btnReportePropi.Text = "Propietario";
+            this.btnReportePropi.Text = "Propietarios";
             this.btnReportePropi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportePropi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportePropi.UseVisualStyleBackColor = false;
@@ -180,7 +202,7 @@ namespace AqueaductoApp
             this.btnReportUser.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnReportUser.Size = new System.Drawing.Size(171, 39);
             this.btnReportUser.TabIndex = 18;
-            this.btnReportUser.Text = "Usuario";
+            this.btnReportUser.Text = "Usuarios";
             this.btnReportUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportUser.UseVisualStyleBackColor = false;
@@ -362,7 +384,7 @@ namespace AqueaductoApp
             this.btnPropietario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPropietario.IconSize = 30;
             this.btnPropietario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPropietario.Location = new System.Drawing.Point(0, 206);
+            this.btnPropietario.Location = new System.Drawing.Point(0, 274);
             this.btnPropietario.Name = "btnPropietario";
             this.btnPropietario.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnPropietario.Size = new System.Drawing.Size(171, 39);
@@ -380,7 +402,7 @@ namespace AqueaductoApp
             this.panelSubmenuUsuario.Controls.Add(this.btnCrearUsuario);
             this.panelSubmenuUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubmenuUsuario.ForeColor = System.Drawing.Color.LightGray;
-            this.panelSubmenuUsuario.Location = new System.Drawing.Point(0, 126);
+            this.panelSubmenuUsuario.Location = new System.Drawing.Point(0, 194);
             this.panelSubmenuUsuario.Name = "panelSubmenuUsuario";
             this.panelSubmenuUsuario.Size = new System.Drawing.Size(171, 80);
             this.panelSubmenuUsuario.TabIndex = 1;
@@ -443,7 +465,7 @@ namespace AqueaductoApp
             this.btnUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUsuario.IconSize = 30;
             this.btnUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuario.Location = new System.Drawing.Point(0, 87);
+            this.btnUsuario.Location = new System.Drawing.Point(0, 155);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnUsuario.Size = new System.Drawing.Size(171, 39);
@@ -464,43 +486,20 @@ namespace AqueaductoApp
             this.panelUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsuario.Location = new System.Drawing.Point(0, 0);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(171, 87);
+            this.panelUsuario.Size = new System.Drawing.Size(171, 155);
             this.panelUsuario.TabIndex = 0;
-            // 
-            // labelRol
-            // 
-            this.labelRol.AutoSize = true;
-            this.labelRol.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRol.Location = new System.Drawing.Point(80, 54);
-            this.labelRol.Name = "labelRol";
-            this.labelRol.Size = new System.Drawing.Size(70, 13);
-            this.labelRol.TabIndex = 1;
-            this.labelRol.Text = "Administrador";
+            this.panelUsuario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUsuario_Paint);
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelNombre.Location = new System.Drawing.Point(91, 41);
+            this.labelNombre.Location = new System.Drawing.Point(56, 114);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.Size = new System.Drawing.Size(47, 15);
             this.labelNombre.TabIndex = 0;
             this.labelNombre.Text = "Nombre";
-            // 
-            // pictureRound1
-            // 
-            this.pictureRound1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pictureRound1.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.pictureRound1.BorderColor2 = System.Drawing.Color.HotPink;
-            this.pictureRound1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pictureRound1.BorderSize = 2;
-            this.pictureRound1.GradientAngle = 50F;
-            this.pictureRound1.Location = new System.Drawing.Point(10, 10);
-            this.pictureRound1.Name = "pictureRound1";
-            this.pictureRound1.Size = new System.Drawing.Size(64, 64);
-            this.pictureRound1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureRound1.TabIndex = 0;
-            this.pictureRound1.TabStop = false;
             // 
             // fileSystemWatcher1
             // 
@@ -514,13 +513,13 @@ namespace AqueaductoApp
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(171, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(587, 43);
+            this.panelTop.Size = new System.Drawing.Size(649, 43);
             this.panelTop.TabIndex = 2;
             // 
             // pictureClose
             // 
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
-            this.pictureClose.Location = new System.Drawing.Point(552, 10);
+            this.pictureClose.Location = new System.Drawing.Point(613, 10);
             this.pictureClose.Name = "pictureClose";
             this.pictureClose.Size = new System.Drawing.Size(24, 22);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -533,14 +532,115 @@ namespace AqueaductoApp
             this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDerecho.Location = new System.Drawing.Point(171, 43);
             this.panelDerecho.Name = "panelDerecho";
-            this.panelDerecho.Size = new System.Drawing.Size(587, 581);
+            this.panelDerecho.Size = new System.Drawing.Size(649, 730);
             this.panelDerecho.TabIndex = 3;
+            // 
+            // acueductoDataSet
+            // 
+            this.acueductoDataSet.DataSetName = "AcueductoDataSet";
+            this.acueductoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // uSUARIOSBindingSource
+            // 
+            this.uSUARIOSBindingSource.DataMember = "USUARIOS";
+            this.uSUARIOSBindingSource.DataSource = this.acueductoDataSet;
+            // 
+            // uSUARIOSTableAdapter
+            // 
+            this.uSUARIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CONSUMOSTableAdapter = null;
+            this.tableAdapterManager.FACTURASTableAdapter = null;
+            this.tableAdapterManager.PREDIOSTableAdapter = null;
+            this.tableAdapterManager.PROPIETARIOSTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = AqueaductoApp.AcueductoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.USUARIOSTableAdapter = this.uSUARIOSTableAdapter;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pROPIETARIOSBindingSource
+            // 
+            this.pROPIETARIOSBindingSource.DataMember = "PROPIETARIOS";
+            this.pROPIETARIOSBindingSource.DataSource = this.dataSet1;
+            // 
+            // pROPIETARIOSTableAdapter
+            // 
+            this.pROPIETARIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.CONSUMOSTableAdapter = null;
+            this.tableAdapterManager1.FACTURASTableAdapter = null;
+            this.tableAdapterManager1.PREDIOSTableAdapter = this.pREDIOSTableAdapter;
+            this.tableAdapterManager1.PROPIETARIOSTableAdapter = this.pROPIETARIOSTableAdapter;
+            this.tableAdapterManager1.UpdateOrder = AqueaductoApp.CapaDatos.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.USUARIOSTableAdapter = null;
+            // 
+            // pREDIOSTableAdapter
+            // 
+            this.pREDIOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // pREDIOSBindingSource
+            // 
+            this.pREDIOSBindingSource.DataMember = "PREDIOS";
+            this.pREDIOSBindingSource.DataSource = this.dataSet1;
+            // 
+            // pREDIOSBindingSource1
+            // 
+            this.pREDIOSBindingSource1.DataMember = "PREDIOS";
+            this.pREDIOSBindingSource1.DataSource = this.acueductoDataSet;
+            // 
+            // pREDIOSTableAdapter1
+            // 
+            this.pREDIOSTableAdapter1.ClearBeforeFill = true;
+            // 
+            // pROPIETARIOSBindingSource1
+            // 
+            this.pROPIETARIOSBindingSource1.DataMember = "PROPIETARIOS";
+            this.pROPIETARIOSBindingSource1.DataSource = this.acueductoDataSet;
+            // 
+            // pROPIETARIOSTableAdapter1
+            // 
+            this.pROPIETARIOSTableAdapter1.ClearBeforeFill = true;
+            // 
+            // labelRol
+            // 
+            this.labelRol.AutoSize = true;
+            this.labelRol.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRol.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelRol.Location = new System.Drawing.Point(41, 128);
+            this.labelRol.Name = "labelRol";
+            this.labelRol.Size = new System.Drawing.Size(81, 16);
+            this.labelRol.TabIndex = 26;
+            this.labelRol.Text = "Administrador";
+            // 
+            // pictureRound1
+            // 
+            this.pictureRound1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pictureRound1.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pictureRound1.BorderColor2 = System.Drawing.Color.HotPink;
+            this.pictureRound1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pictureRound1.BorderSize = 2;
+            this.pictureRound1.GradientAngle = 50F;
+            this.pictureRound1.Location = new System.Drawing.Point(29, 10);
+            this.pictureRound1.Name = "pictureRound1";
+            this.pictureRound1.Size = new System.Drawing.Size(101, 101);
+            this.pictureRound1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureRound1.TabIndex = 0;
+            this.pictureRound1.TabStop = false;
             // 
             // menuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 624);
+            this.ClientSize = new System.Drawing.Size(820, 773);
             this.Controls.Add(this.panelDerecho);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panel1);
@@ -548,6 +648,7 @@ namespace AqueaductoApp
             this.Name = "menuAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
+            this.Load += new System.EventHandler(this.menuAdmin_Load);
             this.panel1.ResumeLayout(false);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
@@ -557,10 +658,17 @@ namespace AqueaductoApp
             this.panelSubmenuUsuario.ResumeLayout(false);
             this.panelUsuario.ResumeLayout(false);
             this.panelUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acueductoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uSUARIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROPIETARIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREDIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREDIOSBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pROPIETARIOSBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -588,13 +696,27 @@ namespace AqueaductoApp
         private System.Windows.Forms.Panel panelTop;
         private CapaModelos.PictureRound pictureRound1;
         private System.Windows.Forms.PictureBox pictureClose;
-        private System.Windows.Forms.Label labelRol;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Panel panelsubMenuReportes;
         private FontAwesome.Sharp.IconButton btnReportePredio;
         private FontAwesome.Sharp.IconButton btnReportePropi;
         private FontAwesome.Sharp.IconButton btnReportUser;
         private FontAwesome.Sharp.IconButton btnReportes;
+        private System.Windows.Forms.BindingSource uSUARIOSBindingSource;
+        private AcueductoDataSet acueductoDataSet;
+        private AcueductoDataSetTableAdapters.USUARIOSTableAdapter uSUARIOSTableAdapter;
+        private AcueductoDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private CapaDatos.DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource pROPIETARIOSBindingSource;
+        private CapaDatos.DataSet1TableAdapters.PROPIETARIOSTableAdapter pROPIETARIOSTableAdapter;
+        private CapaDatos.DataSet1TableAdapters.TableAdapterManager tableAdapterManager1;
+        private CapaDatos.DataSet1TableAdapters.PREDIOSTableAdapter pREDIOSTableAdapter;
+        private System.Windows.Forms.BindingSource pREDIOSBindingSource;
+        private System.Windows.Forms.BindingSource pREDIOSBindingSource1;
+        private AcueductoDataSetTableAdapters.PREDIOSTableAdapter pREDIOSTableAdapter1;
+        private System.Windows.Forms.BindingSource pROPIETARIOSBindingSource1;
+        private AcueductoDataSetTableAdapters.PROPIETARIOSTableAdapter pROPIETARIOSTableAdapter1;
+        private System.Windows.Forms.Label labelRol;
     }
 }
 

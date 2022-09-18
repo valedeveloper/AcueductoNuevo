@@ -29,6 +29,7 @@ namespace AqueaductoApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuDigitador));
             this.panelItem = new System.Windows.Forms.Panel();
             this.btnReportes = new FontAwesome.Sharp.IconButton();
@@ -43,12 +44,18 @@ namespace AqueaductoApp
             this.panelTop = new System.Windows.Forms.Panel();
             this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panelDerecho = new System.Windows.Forms.Panel();
+            this.acueductoDataSet = new AqueaductoApp.AcueductoDataSet();
+            this.cONSUMOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cONSUMOSTableAdapter = new AqueaductoApp.AcueductoDataSetTableAdapters.CONSUMOSTableAdapter();
+            this.tableAdapterManager = new AqueaductoApp.AcueductoDataSetTableAdapters.TableAdapterManager();
             this.panelItem.SuspendLayout();
             this.panelSubmenuConsumo.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acueductoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cONSUMOSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelItem
@@ -76,7 +83,7 @@ namespace AqueaductoApp
             this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportes.IconSize = 32;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 207);
+            this.btnReportes.Location = new System.Drawing.Point(0, 275);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnReportes.Size = new System.Drawing.Size(189, 39);
@@ -85,6 +92,7 @@ namespace AqueaductoApp
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // panelSubmenuConsumo
             // 
@@ -92,7 +100,7 @@ namespace AqueaductoApp
             this.panelSubmenuConsumo.Controls.Add(this.btnModificarLectura);
             this.panelSubmenuConsumo.Controls.Add(this.btnNuevaLectura);
             this.panelSubmenuConsumo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenuConsumo.Location = new System.Drawing.Point(0, 126);
+            this.panelSubmenuConsumo.Location = new System.Drawing.Point(0, 194);
             this.panelSubmenuConsumo.Name = "panelSubmenuConsumo";
             this.panelSubmenuConsumo.Size = new System.Drawing.Size(189, 81);
             this.panelSubmenuConsumo.TabIndex = 0;
@@ -103,7 +111,7 @@ namespace AqueaductoApp
             this.btnModificarLectura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnModificarLectura.FlatAppearance.BorderSize = 0;
             this.btnModificarLectura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarLectura.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnModificarLectura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnModificarLectura.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnModificarLectura.IconChar = FontAwesome.Sharp.IconChar.FilePen;
             this.btnModificarLectura.IconColor = System.Drawing.Color.Gainsboro;
@@ -112,7 +120,7 @@ namespace AqueaductoApp
             this.btnModificarLectura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificarLectura.Location = new System.Drawing.Point(0, 39);
             this.btnModificarLectura.Name = "btnModificarLectura";
-            this.btnModificarLectura.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
+            this.btnModificarLectura.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnModificarLectura.Size = new System.Drawing.Size(189, 42);
             this.btnModificarLectura.TabIndex = 5;
             this.btnModificarLectura.Text = "Modificar Lectura";
@@ -126,7 +134,7 @@ namespace AqueaductoApp
             this.btnNuevaLectura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNuevaLectura.FlatAppearance.BorderSize = 0;
             this.btnNuevaLectura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaLectura.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnNuevaLectura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnNuevaLectura.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnNuevaLectura.IconChar = FontAwesome.Sharp.IconChar.FileCircleCheck;
             this.btnNuevaLectura.IconColor = System.Drawing.Color.Gainsboro;
@@ -135,7 +143,7 @@ namespace AqueaductoApp
             this.btnNuevaLectura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaLectura.Location = new System.Drawing.Point(0, 0);
             this.btnNuevaLectura.Name = "btnNuevaLectura";
-            this.btnNuevaLectura.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
+            this.btnNuevaLectura.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnNuevaLectura.Size = new System.Drawing.Size(189, 39);
             this.btnNuevaLectura.TabIndex = 4;
             this.btnNuevaLectura.Text = "Nueva Lectura";
@@ -156,7 +164,7 @@ namespace AqueaductoApp
             this.btnConsumo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConsumo.IconSize = 30;
             this.btnConsumo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsumo.Location = new System.Drawing.Point(0, 87);
+            this.btnConsumo.Location = new System.Drawing.Point(0, 155);
             this.btnConsumo.Name = "btnConsumo";
             this.btnConsumo.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnConsumo.Size = new System.Drawing.Size(189, 39);
@@ -176,15 +184,16 @@ namespace AqueaductoApp
             this.panelUsuario.ForeColor = System.Drawing.Color.Gainsboro;
             this.panelUsuario.Location = new System.Drawing.Point(0, 0);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(189, 87);
+            this.panelUsuario.Size = new System.Drawing.Size(189, 155);
             this.panelUsuario.TabIndex = 1;
             // 
             // labelRol
             // 
             this.labelRol.AutoSize = true;
-            this.labelRol.Location = new System.Drawing.Point(91, 54);
+            this.labelRol.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRol.Location = new System.Drawing.Point(51, 125);
             this.labelRol.Name = "labelRol";
-            this.labelRol.Size = new System.Drawing.Size(49, 13);
+            this.labelRol.Size = new System.Drawing.Size(61, 16);
             this.labelRol.TabIndex = 5;
             this.labelRol.Text = "Digitador";
             // 
@@ -196,9 +205,9 @@ namespace AqueaductoApp
             this.pictureRound1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.pictureRound1.BorderSize = 2;
             this.pictureRound1.GradientAngle = 50F;
-            this.pictureRound1.Location = new System.Drawing.Point(10, 10);
+            this.pictureRound1.Location = new System.Drawing.Point(29, 10);
             this.pictureRound1.Name = "pictureRound1";
-            this.pictureRound1.Size = new System.Drawing.Size(64, 64);
+            this.pictureRound1.Size = new System.Drawing.Size(101, 101);
             this.pictureRound1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureRound1.TabIndex = 4;
             this.pictureRound1.TabStop = false;
@@ -206,9 +215,10 @@ namespace AqueaductoApp
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(91, 41);
+            this.labelNombre.Font = new System.Drawing.Font("Comic Sans MS", 8.25F);
+            this.labelNombre.Location = new System.Drawing.Point(55, 111);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.Size = new System.Drawing.Size(47, 15);
             this.labelNombre.TabIndex = 3;
             this.labelNombre.Text = "Nombre";
             // 
@@ -241,6 +251,30 @@ namespace AqueaductoApp
             this.panelDerecho.Size = new System.Drawing.Size(569, 581);
             this.panelDerecho.TabIndex = 2;
             // 
+            // acueductoDataSet
+            // 
+            this.acueductoDataSet.DataSetName = "AcueductoDataSet";
+            this.acueductoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cONSUMOSBindingSource
+            // 
+            this.cONSUMOSBindingSource.DataMember = "CONSUMOS";
+            this.cONSUMOSBindingSource.DataSource = this.acueductoDataSet;
+            // 
+            // cONSUMOSTableAdapter
+            // 
+            this.cONSUMOSTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CONSUMOSTableAdapter = this.cONSUMOSTableAdapter;
+            this.tableAdapterManager.FACTURASTableAdapter = null;
+            this.tableAdapterManager.PREDIOSTableAdapter = null;
+            this.tableAdapterManager.PROPIETARIOSTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = AqueaductoApp.AcueductoDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.USUARIOSTableAdapter = null;
+            // 
             // menuDigitador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +287,7 @@ namespace AqueaductoApp
             this.Name = "menuDigitador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Digitador";
+            this.Load += new System.EventHandler(this.menuDigitador_Load_1);
             this.panelItem.ResumeLayout(false);
             this.panelSubmenuConsumo.ResumeLayout(false);
             this.panelUsuario.ResumeLayout(false);
@@ -260,6 +295,8 @@ namespace AqueaductoApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).EndInit();
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acueductoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cONSUMOSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,9 +312,13 @@ namespace AqueaductoApp
         private FontAwesome.Sharp.IconButton btnNuevaLectura;
         private FontAwesome.Sharp.IconButton btnModificarLectura;
         private System.Windows.Forms.PictureBox pictureClose;
+        private FontAwesome.Sharp.IconButton btnReportes;
+        private AcueductoDataSet acueductoDataSet;
+        private System.Windows.Forms.BindingSource cONSUMOSBindingSource;
+        private AcueductoDataSetTableAdapters.CONSUMOSTableAdapter cONSUMOSTableAdapter;
+        private AcueductoDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label labelRol;
         private CapaModelos.PictureRound pictureRound1;
         private System.Windows.Forms.Label labelNombre;
-        private FontAwesome.Sharp.IconButton btnReportes;
     }
 }

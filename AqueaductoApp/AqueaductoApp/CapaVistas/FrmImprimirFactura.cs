@@ -34,12 +34,20 @@ namespace AqueaductoApp.CapaVistas
              
                 CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturas = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
                 facturas.modificarEstadofact(consecutivo);
+
+
+
             }
            
         }
 
         private void dataGridImprimir_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int posicion = GridImprimir.CurrentRow.Index;
+            consecutivo= GridImprimir.CurrentRow.Cells[0].Value.ToString();
+            this.labelConsecutivo.Text = consecutivo;
+            this.labelConsecutivo.Visible = true;
+
 
         }
 
@@ -51,10 +59,8 @@ namespace AqueaductoApp.CapaVistas
             facturasDatos = facturasImprimir.VerFacturasImprimirTable(factEstado);
             GridImprimir.DataSource = facturasDatos;
 
-            int posicion = GridImprimir.CurrentRow.Index;
-            consecutivo=GridImprimir.CurrentRow.Cells[0].Value.ToString();
-            this.labelConsecutivo.Text = consecutivo;
-            this.labelConsecutivo.Visible = true;
+      
+
 
 
 

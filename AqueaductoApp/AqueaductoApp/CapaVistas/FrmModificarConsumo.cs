@@ -19,9 +19,10 @@ namespace AqueaductoApp.CapaVistas
 
         int id;
         string catastro;
-        int mes;
+        int month;
         private void btnModificar_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrEmpty(this.txtCatastro.Text))
             {
                 MessageBox.Show("Digite el número de catastro");
@@ -45,7 +46,7 @@ namespace AqueaductoApp.CapaVistas
                         int consumo = int.Parse(this.txtConsumo.Text);
 
                         CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter cT = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
-                        cT.ModificarConsumo(this.txtCatastro.Text, this.labelFecha.Text, consumo, mes);
+                        cT.ModificarConsumo(this.txtCatastro.Text, this.labelFecha.Text, consumo, month);
 
                         //Recargar DataGrid
                         CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter Tp = new CapaDatos.DataSet1TableAdapters.CONSUMOSTableAdapter();
@@ -107,7 +108,7 @@ namespace AqueaductoApp.CapaVistas
             string consumo = GridConsumo.CurrentRow.Cells[3].Value.ToString();
             this.txtConsumo.Text = consumo;
             this.txtConsumo.Visible = true;
-            mes =(int)GridConsumo.CurrentRow.Cells[4].Value;
+           month =(int)GridConsumo.CurrentRow.Cells[4].Value;
 
         }
 

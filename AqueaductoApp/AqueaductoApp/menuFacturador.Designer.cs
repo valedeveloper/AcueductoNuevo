@@ -29,8 +29,12 @@ namespace AqueaductoApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menuFacturador));
             this.panelItem = new System.Windows.Forms.Panel();
+            this.panelSubmenuReportes = new System.Windows.Forms.Panel();
+            this.btnImpresas = new FontAwesome.Sharp.IconButton();
+            this.btnReportePendi = new FontAwesome.Sharp.IconButton();
             this.btnReportes = new FontAwesome.Sharp.IconButton();
             this.panelSubmenuFactura = new System.Windows.Forms.Panel();
             this.btnImprimirFactura = new FontAwesome.Sharp.IconButton();
@@ -43,16 +47,19 @@ namespace AqueaductoApp
             this.panelTop = new System.Windows.Forms.Panel();
             this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panelDerecho = new System.Windows.Forms.Panel();
-            this.panelSubmenuReportes = new System.Windows.Forms.Panel();
-            this.btnImpresas = new FontAwesome.Sharp.IconButton();
-            this.btnReportePendi = new FontAwesome.Sharp.IconButton();
+            this.fACTURASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new AqueaductoApp.CapaDatos.DataSet1();
+            this.fACTURASTableAdapter = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
+            this.tableAdapterManager = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.TableAdapterManager();
             this.panelItem.SuspendLayout();
+            this.panelSubmenuReportes.SuspendLayout();
             this.panelSubmenuFactura.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
-            this.panelSubmenuReportes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fACTURASBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelItem
@@ -69,6 +76,64 @@ namespace AqueaductoApp
             this.panelItem.Size = new System.Drawing.Size(195, 624);
             this.panelItem.TabIndex = 1;
             // 
+            // panelSubmenuReportes
+            // 
+            this.panelSubmenuReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(39)))), ((int)(((byte)(205)))));
+            this.panelSubmenuReportes.Controls.Add(this.btnImpresas);
+            this.panelSubmenuReportes.Controls.Add(this.btnReportePendi);
+            this.panelSubmenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubmenuReportes.Location = new System.Drawing.Point(0, 314);
+            this.panelSubmenuReportes.Name = "panelSubmenuReportes";
+            this.panelSubmenuReportes.Size = new System.Drawing.Size(195, 81);
+            this.panelSubmenuReportes.TabIndex = 25;
+            this.panelSubmenuReportes.Visible = false;
+            // 
+            // btnImpresas
+            // 
+            this.btnImpresas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnImpresas.FlatAppearance.BorderSize = 0;
+            this.btnImpresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpresas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnImpresas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnImpresas.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.btnImpresas.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnImpresas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnImpresas.IconSize = 30;
+            this.btnImpresas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImpresas.Location = new System.Drawing.Point(0, 39);
+            this.btnImpresas.Name = "btnImpresas";
+            this.btnImpresas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnImpresas.Size = new System.Drawing.Size(195, 39);
+            this.btnImpresas.TabIndex = 5;
+            this.btnImpresas.Text = "Generadas";
+            this.btnImpresas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImpresas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImpresas.UseVisualStyleBackColor = true;
+            this.btnImpresas.Click += new System.EventHandler(this.btnImpresas_Click_1);
+            // 
+            // btnReportePendi
+            // 
+            this.btnReportePendi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportePendi.FlatAppearance.BorderSize = 0;
+            this.btnReportePendi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportePendi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnReportePendi.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnReportePendi.IconChar = FontAwesome.Sharp.IconChar.CalendarTimes;
+            this.btnReportePendi.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReportePendi.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReportePendi.IconSize = 30;
+            this.btnReportePendi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportePendi.Location = new System.Drawing.Point(0, 0);
+            this.btnReportePendi.Name = "btnReportePendi";
+            this.btnReportePendi.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReportePendi.Size = new System.Drawing.Size(195, 39);
+            this.btnReportePendi.TabIndex = 4;
+            this.btnReportePendi.Text = "Pendientes";
+            this.btnReportePendi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportePendi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportePendi.UseVisualStyleBackColor = true;
+            this.btnReportePendi.Click += new System.EventHandler(this.btnReportePendi_Click);
+            // 
             // btnReportes
             // 
             this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
@@ -81,7 +146,7 @@ namespace AqueaductoApp
             this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportes.IconSize = 32;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 207);
+            this.btnReportes.Location = new System.Drawing.Point(0, 275);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnReportes.Size = new System.Drawing.Size(195, 39);
@@ -98,7 +163,7 @@ namespace AqueaductoApp
             this.panelSubmenuFactura.Controls.Add(this.btnImprimirFactura);
             this.panelSubmenuFactura.Controls.Add(this.btnNuevaFactura);
             this.panelSubmenuFactura.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenuFactura.Location = new System.Drawing.Point(0, 126);
+            this.panelSubmenuFactura.Location = new System.Drawing.Point(0, 194);
             this.panelSubmenuFactura.Name = "panelSubmenuFactura";
             this.panelSubmenuFactura.Size = new System.Drawing.Size(195, 81);
             this.panelSubmenuFactura.TabIndex = 0;
@@ -109,7 +174,7 @@ namespace AqueaductoApp
             this.btnImprimirFactura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnImprimirFactura.FlatAppearance.BorderSize = 0;
             this.btnImprimirFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirFactura.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnImprimirFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnImprimirFactura.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnImprimirFactura.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
             this.btnImprimirFactura.IconColor = System.Drawing.Color.Gainsboro;
@@ -118,7 +183,7 @@ namespace AqueaductoApp
             this.btnImprimirFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirFactura.Location = new System.Drawing.Point(0, 39);
             this.btnImprimirFactura.Name = "btnImprimirFactura";
-            this.btnImprimirFactura.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
+            this.btnImprimirFactura.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnImprimirFactura.Size = new System.Drawing.Size(195, 39);
             this.btnImprimirFactura.TabIndex = 5;
             this.btnImprimirFactura.Text = "Imprimir Factura";
@@ -132,7 +197,7 @@ namespace AqueaductoApp
             this.btnNuevaFactura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNuevaFactura.FlatAppearance.BorderSize = 0;
             this.btnNuevaFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaFactura.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnNuevaFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnNuevaFactura.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnNuevaFactura.IconChar = FontAwesome.Sharp.IconChar.FileCircleCheck;
             this.btnNuevaFactura.IconColor = System.Drawing.Color.Gainsboro;
@@ -141,7 +206,7 @@ namespace AqueaductoApp
             this.btnNuevaFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaFactura.Location = new System.Drawing.Point(0, 0);
             this.btnNuevaFactura.Name = "btnNuevaFactura";
-            this.btnNuevaFactura.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
+            this.btnNuevaFactura.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnNuevaFactura.Size = new System.Drawing.Size(195, 39);
             this.btnNuevaFactura.TabIndex = 4;
             this.btnNuevaFactura.Text = "Nueva Factura";
@@ -162,7 +227,7 @@ namespace AqueaductoApp
             this.btnFactura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFactura.IconSize = 25;
             this.btnFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFactura.Location = new System.Drawing.Point(0, 87);
+            this.btnFactura.Location = new System.Drawing.Point(0, 155);
             this.btnFactura.Name = "btnFactura";
             this.btnFactura.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
             this.btnFactura.Size = new System.Drawing.Size(195, 39);
@@ -181,26 +246,28 @@ namespace AqueaductoApp
             this.panelUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsuario.Location = new System.Drawing.Point(0, 0);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(195, 87);
+            this.panelUsuario.Size = new System.Drawing.Size(195, 155);
             this.panelUsuario.TabIndex = 1;
             // 
             // labelRol
             // 
             this.labelRol.AutoSize = true;
+            this.labelRol.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRol.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRol.Location = new System.Drawing.Point(87, 56);
+            this.labelRol.Location = new System.Drawing.Point(47, 124);
             this.labelRol.Name = "labelRol";
-            this.labelRol.Size = new System.Drawing.Size(58, 13);
+            this.labelRol.Size = new System.Drawing.Size(72, 16);
             this.labelRol.TabIndex = 4;
             this.labelRol.Text = "Facturador";
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Comic Sans MS", 8.25F);
             this.labelNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelNombre.Location = new System.Drawing.Point(93, 43);
+            this.labelNombre.Location = new System.Drawing.Point(57, 111);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.Size = new System.Drawing.Size(47, 15);
             this.labelNombre.TabIndex = 2;
             this.labelNombre.Text = "Nombre";
             // 
@@ -212,9 +279,9 @@ namespace AqueaductoApp
             this.pictureRound1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.pictureRound1.BorderSize = 2;
             this.pictureRound1.GradientAngle = 50F;
-            this.pictureRound1.Location = new System.Drawing.Point(15, 11);
+            this.pictureRound1.Location = new System.Drawing.Point(29, 10);
             this.pictureRound1.Name = "pictureRound1";
-            this.pictureRound1.Size = new System.Drawing.Size(64, 64);
+            this.pictureRound1.Size = new System.Drawing.Size(101, 101);
             this.pictureRound1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureRound1.TabIndex = 3;
             this.pictureRound1.TabStop = false;
@@ -248,61 +315,29 @@ namespace AqueaductoApp
             this.panelDerecho.Size = new System.Drawing.Size(563, 581);
             this.panelDerecho.TabIndex = 3;
             // 
-            // panelSubmenuReportes
+            // fACTURASBindingSource
             // 
-            this.panelSubmenuReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(39)))), ((int)(((byte)(205)))));
-            this.panelSubmenuReportes.Controls.Add(this.btnImpresas);
-            this.panelSubmenuReportes.Controls.Add(this.btnReportePendi);
-            this.panelSubmenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenuReportes.Location = new System.Drawing.Point(0, 246);
-            this.panelSubmenuReportes.Name = "panelSubmenuReportes";
-            this.panelSubmenuReportes.Size = new System.Drawing.Size(195, 81);
-            this.panelSubmenuReportes.TabIndex = 25;
-            this.panelSubmenuReportes.Visible = false;
+            this.fACTURASBindingSource.DataMember = "FACTURAS";
+            this.fACTURASBindingSource.DataSource = this.dataSet1;
             // 
-            // btnImpresas
+            // dataSet1
             // 
-            this.btnImpresas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnImpresas.FlatAppearance.BorderSize = 0;
-            this.btnImpresas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImpresas.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnImpresas.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnImpresas.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnImpresas.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnImpresas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnImpresas.IconSize = 30;
-            this.btnImpresas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpresas.Location = new System.Drawing.Point(0, 39);
-            this.btnImpresas.Name = "btnImpresas";
-            this.btnImpresas.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
-            this.btnImpresas.Size = new System.Drawing.Size(195, 39);
-            this.btnImpresas.TabIndex = 5;
-            this.btnImpresas.Text = "Impresas";
-            this.btnImpresas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpresas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnImpresas.UseVisualStyleBackColor = true;
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnReportePendi
+            // fACTURASTableAdapter
             // 
-            this.btnReportePendi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportePendi.FlatAppearance.BorderSize = 0;
-            this.btnReportePendi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportePendi.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportePendi.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReportePendi.IconChar = FontAwesome.Sharp.IconChar.CalendarTimes;
-            this.btnReportePendi.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnReportePendi.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReportePendi.IconSize = 30;
-            this.btnReportePendi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportePendi.Location = new System.Drawing.Point(0, 0);
-            this.btnReportePendi.Name = "btnReportePendi";
-            this.btnReportePendi.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
-            this.btnReportePendi.Size = new System.Drawing.Size(195, 39);
-            this.btnReportePendi.TabIndex = 4;
-            this.btnReportePendi.Text = "Pendientes";
-            this.btnReportePendi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportePendi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReportePendi.UseVisualStyleBackColor = true;
+            this.fACTURASTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CONSUMOSTableAdapter = null;
+            this.tableAdapterManager.FACTURASTableAdapter = this.fACTURASTableAdapter;
+            this.tableAdapterManager.PREDIOSTableAdapter = null;
+            this.tableAdapterManager.PROPIETARIOSTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = AqueaductoApp.CapaDatos.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.USUARIOSTableAdapter = null;
             // 
             // menuFacturador
             // 
@@ -317,13 +352,15 @@ namespace AqueaductoApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturador";
             this.panelItem.ResumeLayout(false);
+            this.panelSubmenuReportes.ResumeLayout(false);
             this.panelSubmenuFactura.ResumeLayout(false);
             this.panelUsuario.ResumeLayout(false);
             this.panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).EndInit();
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
-            this.panelSubmenuReportes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fACTURASBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,5 +383,9 @@ namespace AqueaductoApp
         private System.Windows.Forms.Panel panelSubmenuReportes;
         private FontAwesome.Sharp.IconButton btnImpresas;
         private FontAwesome.Sharp.IconButton btnReportePendi;
+        private CapaDatos.DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource fACTURASBindingSource;
+        private CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter fACTURASTableAdapter;
+        private CapaDatos.DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

@@ -77,6 +77,7 @@ namespace AqueaductoApp.CapaVistas
                                     //Mensaje de Modificado Predio, limpia los campos. 
                                     MessageBox.Show("Predio modificado", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.txtCatastro.Text = "";
+                                    this.txtCedula.Text = "";
 
                                 }
                             }
