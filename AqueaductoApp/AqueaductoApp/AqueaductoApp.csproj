@@ -225,6 +225,12 @@
     <Compile Include="Reportes\FrmFacPendi.Designer.cs">
       <DependentUpon>FrmFacPendi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmFactura.Designer.cs">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\FrmReporteConsumo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmFacPendi.resx">
       <DependentUpon>FrmFacPendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmFactura.resx">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmReporteConsumo.resx">
       <DependentUpon>FrmReporteConsumo.cs</DependentUpon>

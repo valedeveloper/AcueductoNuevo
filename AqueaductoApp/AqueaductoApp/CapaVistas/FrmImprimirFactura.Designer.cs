@@ -29,6 +29,7 @@ namespace AqueaductoApp.CapaVistas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.GridImprimir = new System.Windows.Forms.DataGridView();
@@ -36,7 +37,13 @@ namespace AqueaductoApp.CapaVistas
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.labelConsecutivo = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
+            this.dataSet1 = new AqueaductoApp.CapaDatos.DataSet1();
+            this.fACTURASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fACTURASTableAdapter = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
+            this.tableAdapterManager = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.GridImprimir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fACTURASBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -131,12 +138,36 @@ namespace AqueaductoApp.CapaVistas
             this.label.TabIndex = 85;
             this.label.Text = "Consecutivo:";
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // fACTURASBindingSource
+            // 
+            this.fACTURASBindingSource.DataMember = "FACTURAS";
+            this.fACTURASBindingSource.DataSource = this.dataSet1;
+            // 
+            // fACTURASTableAdapter
+            // 
+            this.fACTURASTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CONSUMOSTableAdapter = null;
+            this.tableAdapterManager.FACTURASTableAdapter = this.fACTURASTableAdapter;
+            this.tableAdapterManager.PREDIOSTableAdapter = null;
+            this.tableAdapterManager.PROPIETARIOSTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = AqueaductoApp.CapaDatos.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.USUARIOSTableAdapter = null;
+            // 
             // FrmImprimirFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(15)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(586, 581);
+            this.ClientSize = new System.Drawing.Size(703, 581);
             this.Controls.Add(this.labelConsecutivo);
             this.Controls.Add(this.label);
             this.Controls.Add(this.btnBuscar);
@@ -148,7 +179,10 @@ namespace AqueaductoApp.CapaVistas
             this.Location = new System.Drawing.Point(195, 43);
             this.Name = "FrmImprimirFactura";
             this.Text = "Imprimir_Factura";
+            this.Load += new System.EventHandler(this.FrmImprimirFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridImprimir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fACTURASBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +196,9 @@ namespace AqueaductoApp.CapaVistas
         private FontAwesome.Sharp.IconButton btnBuscar;
         private System.Windows.Forms.Label labelConsecutivo;
         private System.Windows.Forms.Label label;
+        private CapaDatos.DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource fACTURASBindingSource;
+        private CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter fACTURASTableAdapter;
+        private CapaDatos.DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

@@ -195,3 +195,4 @@ C:\Users\PC01AQ\Desktop\AqueaductoApp2\AqueaductoApp\AqueaductoApp\obj\Debug\Aqu
 C:\Users\PC01AQ\Desktop\AqueaductoApp2\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.Reportes.FrmReportesFacImpresas.resources
 C:\Users\PC01AQ\Desktop\AqueaductoApp2\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.Reportes.FrmReporteUsuarios.resources
 C:\Users\PC01AQ\Desktop\AqueaductoApp2\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.Reportes.FrmReportPredio.resources
+C:\Users\PC01AQ\Desktop\AqueaductoApp2\AqueaductoApp\AqueaductoApp\obj\Debug\AqueaductoApp.Reportes.FrmFactura.resources

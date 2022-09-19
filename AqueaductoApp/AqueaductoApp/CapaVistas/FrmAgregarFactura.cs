@@ -32,6 +32,7 @@ namespace AqueaductoApp.CapaVistas
         BigInteger consecutivo;
         byte[] ms;
         byte[] mQr;
+        int mesConusmo;
 
         public FrmAgregarFactura()
         {
@@ -51,6 +52,7 @@ namespace AqueaductoApp.CapaVistas
             id = int.Parse(GridConsumo.CurrentRow.Cells[0].Value.ToString());
             string FechaConsumo = GridConsumo.CurrentRow.Cells[2].Value.ToString();
             this.FechaConsumo.Text = FechaConsumo;
+             mesConusmo= int.Parse(GridConsumo.CurrentRow.Cells[3].Value.ToString());
             this.FechaConsumo.Visible = true;
             min = int.Parse(GridConsumo.CurrentRow.Cells[4].Value.ToString());
             this.txtMetros.Text = min.ToString();
@@ -209,49 +211,59 @@ namespace AqueaductoApp.CapaVistas
 
         private void btnAgregarFact_Click(object sender, EventArgs e)
         {
-            if (this.labelConsecutivo.Text == "" || this.totalFactura.Text == "")
+            //Validar factura del primer mes
+            CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturas = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
+           if ((int)facturas.validarExistenciaFactura(this.txtCatastro.Text)==0)
             {
-                MessageBox.Show("Faltan datos necesarios para la Factura", "Notificación");
-            }
-            else
-            {
-
-                if (this.CodigoDeBarras.Image == null)
+                if (this.labelConsecutivo.Text == "" || this.totalFactura.Text == "")
                 {
-                    MessageBox.Show("Falta Código de Barras");
+                    MessageBox.Show("Faltan datos necesarios para la Factura", "Notificación");
                 }
                 else
                 {
-                    if (this.pictureQr.Image == null)
+
+                    if (this.CodigoDeBarras.Image == null)
                     {
-                        MessageBox.Show("Falta Código QR");
+                        MessageBox.Show("Falta Código de Barras");
                     }
                     else
                     {
+                        if (this.pictureQr.Image == null)
+                        {
+                            MessageBox.Show("Falta Código QR");
+                        }
+                        else
+                        {
 
 
-                        Int64 consecutivoFact = Int64.Parse(consec);
+                            Int64 consecutivoFact = Int64.Parse(consec);
 
 
-                        CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturas = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
-                        facturas.InsertarFactura(consec, this.txtCatastro.Text, this.FechaConsumo.Text, cedula, namePropietario, celular, correo, strato, barrio, id, int.Parse(this.totalFactura.Text), estado, ms, mQr);
+                            facturas.InsertarFactura(consec, this.txtCatastro.Text, this.FechaConsumo.Text, cedula, namePropietario, celular, correo, strato, barrio, id, int.Parse(this.totalFactura.Text), estado, ms, mQr, mesConusmo);
 
 
 
-                        //Acción luego de ser creada la factura
-                        MessageBox.Show("Factura Agregada", "Notiicación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.labelConsecutivo.Visible = false; ;
-                        this.txtCatastro.Text = "";
-                        this.txtEstrato.Text = "";
-                        this.txtMetros.Text = "";
-                        this.FechaConsumo.Text = "";
-                        this.pictureQr.Image = null;
-                        this.CodigoDeBarras.Image = null;
-                        this.totalFactura.Text = "";
+                            //Acción luego de ser creada la factura
+                            MessageBox.Show("Factura Agregada", "Notiicación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.labelConsecutivo.Visible = false; ;
+                            this.txtCatastro.Text = "";
+                            this.txtEstrato.Text = "";
+                            this.txtMetros.Text = "";
+                            this.FechaConsumo.Text = "";
+                            this.pictureQr.Image = null;
+                            this.CodigoDeBarras.Image = null;
+                            this.totalFactura.Text = "";
 
+                        }
                     }
                 }
+
             }
+           else
+            {
+                MessageBox.Show("Ya existe Factura para este Predio");
+            }
+
 
         }
 

@@ -31,14 +31,42 @@ namespace AqueaductoApp.CapaVistas
             }
             else
             {
-             
+                //Modifica el estado de la Factura de Pendiente a Generada
                 CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturas = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
                 facturas.modificarEstadofact(consecutivo);
+                ////////////////////////////////////////
+                ///
+                //Generar Factura////
+                //Traigo el reporte
+                Cursor.Current = Cursors.WaitCursor;//Aparece Icono de esperar
+                Reportes.CrystalReportFactura reporteFactura = new Reportes.CrystalReportFactura();
+
+                //Lleno el reporte
+                this.fACTURASTableAdapter.crearFactura(this.dataSet1.FACTURAS, consecutivo); //Traigo el procedimiento almenacedo, entra por parámetro el dataset y el consecutivo
+                reporteFactura.SetDataSource(this.dataSet1); 
+                Cursor.Current = Cursors.Default;
+
+                //Muestro Reportes
+                Reportes.FrmFactura frmFactura = new Reportes.FrmFactura();
+                frmFactura.crystalReportViewer1.ReportSource = reporteFactura;
+                frmFactura.ShowDialog();
+                frmFactura.Close();
+
+                //Actualizo el datagrid
+
+                CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter facturasImprimir = new CapaDatos.DataSet1TableAdapters.FACTURASTableAdapter();
+                CapaDatos.DataSet1.FACTURASDataTable facturasDatos = new CapaDatos.DataSet1.FACTURASDataTable();
+                facturasDatos = facturasImprimir.VerFacturasImprimirTable(factEstado);
+                GridImprimir.DataSource = facturasDatos;
+
+
+
+
 
 
 
             }
-           
+
         }
 
         private void dataGridImprimir_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -63,6 +91,21 @@ namespace AqueaductoApp.CapaVistas
 
 
 
+
+        }
+
+        private void fACTURASBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.fACTURASBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dataSet1);
+
+        }
+
+        private void FrmImprimirFactura_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.FACTURAS' Puede moverla o quitarla según sea necesario.
+            this.fACTURASTableAdapter.Fill(this.dataSet1.FACTURAS);
 
         }
     }
