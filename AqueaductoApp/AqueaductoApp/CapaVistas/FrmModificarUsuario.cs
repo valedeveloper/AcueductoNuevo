@@ -61,9 +61,9 @@ namespace AqueaductoApp.CapaVistas
             //leer la primera posicion del la celda del grid llamado gridUser***///
             posicion = GridUser.CurrentRow.Index;
             id = int.Parse(GridUser.CurrentRow.Cells[0].Value.ToString());
-            photo2 = (byte[])GridUser.CurrentRow.Cells[7].Value;
+            photo = (byte[])GridUser.CurrentRow.Cells[7].Value;
             //Para colocar imagen en el circulo
-            Image newImage = byteArrayToImage(photo2);
+            Image newImage = byteArrayToImage(photo);
             pictureUser.Image = newImage;
              cedula = GridUser.CurrentRow.Cells[1].Value.ToString();
             this.txtCedula.Text = cedula;
@@ -76,7 +76,7 @@ namespace AqueaductoApp.CapaVistas
             string telefono = GridUser.CurrentRow.Cells[5].Value.ToString();
             this.txtTelefono.Text = telefono;
           
-            password = GridUser.CurrentRow.Cells[6].Value.ToString();
+            pass = GridUser.CurrentRow.Cells[6].Value.ToString();
             this.txtPassword.Text = "Cambiar contraseña si así lo desea, de lo contrario, NO.";
           
              direccionImg = GridUser.CurrentRow.Cells[10].Value.ToString();
@@ -137,10 +137,12 @@ namespace AqueaductoApp.CapaVistas
             {
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    //Traer Dirección de la foto
                     this.txtFile.Text = "";
                     txtFile.Text = dialog.FileName;
                     pictureUser.Image = Image.FromFile(this.txtFile.Text);
                     FileStream stream = new FileStream(this.txtFile.Text, FileMode.Open, FileAccess.Read);
+
                     /// Leer Archivo stream y convertilo en binario
                     /// 
                     BinaryReader read = new BinaryReader(stream);
@@ -221,47 +223,19 @@ namespace AqueaductoApp.CapaVistas
                                 }
                                 else
                                 {
-
-                                    if (this.txtFile.Text == direccionImg)
+                                    if(this.txtPassword.Text!= "Cambiar contraseña si así lo desea, de lo contrario, NO.")
                                     {
-                                        if (this.txtPassword.Text != "Cambiar contraseña si así lo desea, de lo contrario, NO.")
-                                        {
-                                            //Encripto de nuevo la contraseña
-                                            pass = Encript.GetSHA256(this.txtPassword.Text);
-
-
-                                            //Query
-                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo2, rol, estado, this.txtFile.Text, id);
-
-                                        }
-                                        else
-                                        {
-                                            pass = password;
-                                            //Query
-                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo2, rol, estado, this.txtFile.Text, id);
-                                        }
+                                        pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text);
                                     }
                                     else
-                                    {
-                                        if (this.txtPassword.Text != "Cambiar contraseña si así lo desea, de lo contrario, NO.")
-                                        {
-                                            pass = Encript.GetSHA256(this.txtPassword.Text);
-                                            //Conexión Casa
-                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo, rol, estado, this.txtFile.Text, id);
+                                     {
+                                        CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter modificar = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                                        modificar.ModificarUsuario(this.txtCedula.Text,this.txtName.Text,this.txtLastName.Text,this.txtCorreo.Text,this.txtTelefono.Text,pass,photo,rol,estado,this.txtFile.Text,id);
 
-                                        }
-                                        else
-                                        {
-                                            pass = password;
-                                            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-                                            tU.ModificarUsuario(this.txtCedula.Text, this.txtName.Text, this.txtLastName.Text, this.txtCorreo.Text, this.txtTelefono.Text, pass, photo, rol, estado, this.txtFile.Text, id);
-
-                                        }
 
                                     }
+
+                                   
 
                                     //Recargar DataGrid
                                     CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter TU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();

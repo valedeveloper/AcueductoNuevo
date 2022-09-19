@@ -15,6 +15,7 @@ namespace AqueaductoApp
 
     public partial class menuFacturador : Form
     {
+        string estadoFactura ;
         public menuFacturador(string User,string Password)
         {
             InitializeComponent();
@@ -104,10 +105,16 @@ namespace AqueaductoApp
 
         private void btnReportePendi_Click(object sender, EventArgs e)
         {
+            estadoFactura = "Pendiente";
             Cursor.Current = Cursors.WaitCursor;
-            Reportes.CrystalReportFacPendientes facPendientes = new Reportes.CrystalReportFacPendientes();
+            Reportes.CrystalReportFactPendientes facPendientes = new Reportes.CrystalReportFactPendientes();
             Cursor.Current = Cursors.Default;
 
+
+            //Traigo los datos
+
+            this.fACTURASTableAdapter.FacturasPendiente(this.dataSet1.FACTURAS, estadoFactura);
+            facPendientes.SetDataSource(dataSet1);
             //Asignamos a reporte View
             Reportes.FrmFacPendi facIm = new Reportes.FrmFacPendi();
             facIm.crystalReportViewer1.ReportSource = facPendientes;
@@ -137,9 +144,15 @@ namespace AqueaductoApp
 
         private void btnImpresas_Click_1(object sender, EventArgs e)
         {
+            estadoFactura = "Generada";
+
             Cursor.Current = Cursors.WaitCursor;
-            Reportes.CrystalReportImpresas facImpresas = new Reportes.CrystalReportImpresas();
+            Reportes.CrystalReportFactGeneradas facImpresas = new Reportes.CrystalReportFactGeneradas();
             Cursor.Current = Cursors.Default;
+
+            //Traer Datos
+            this.fACTURASTableAdapter.FacturaGenerada(this.dataSet1.FACTURAS, estadoFactura);
+            facImpresas.SetDataSource(this.dataSet1);
 
             //Asignamos a reporte View
             Reportes.FrmReportesFacImpresas facIm = new Reportes.FrmReportesFacImpresas();

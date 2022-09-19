@@ -5769,12 +5769,16 @@ SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consecutivo_Factura", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = new global::System.Data.SqlClient.SqlConnection(global::AqueaductoApp.Properties.Settings.Default.AcueductoConnectionString);
-            this._commandCollection[2].CommandText = @"SELECT Barrio_Predio, Cedula_Propietario, Celular_Propietario, Consecutivo_Factura, Correo_Propietario, Estado_Factura, Estrato_Predio, Fecha_Consumo, Id_Consumo, Mes_Factura, Nombre_Propietario, Numero_Catastro, Valor_Factura, codigo_Barras, codigo_Qr,Mes_Factura FROM FACTURAS WHERE (Estado_Factura = 'Pendiente')";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].CommandText = "dbo.traerFacturasImpresas";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Factura", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = new global::System.Data.SqlClient.SqlConnection(global::AqueaductoApp.Properties.Settings.Default.AcueductoConnectionString);
-            this._commandCollection[3].CommandText = @"SELECT Barrio_Predio, Cedula_Propietario, Celular_Propietario, Consecutivo_Factura, Correo_Propietario, Estado_Factura, Estrato_Predio, Fecha_Consumo, Id_Consumo, Mes_Factura, Nombre_Propietario, Numero_Catastro, Valor_Factura, codigo_Barras, codigo_Qr,Mes_Factura FROM FACTURAS WHERE (Estado_Factura = 'Generada')";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].CommandText = "dbo.traerFacturasPendientes";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Factura", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"INSERT INTO [FACTURAS] ([Consecutivo_Factura], [Numero_Catastro], [Fecha_Consumo], [Cedula_Propietario], [Nombre_Propietario], [Celular_Propietario], [Correo_Propietario], [Estrato_Predio], [Barrio_Predio], [Id_Consumo], [Valor_Factura], [Estado_Factura], [codigo_Barras], [codigo_Qr], [Mes_Factura]) VALUES (@Consecutivo_Factura, @Numero_Catastro, @Fecha_Consumo, @Cedula_Propietario, @Nombre_Propietario, @Celular_Propietario, @Correo_Propietario, @Estrato_Predio, @Barrio_Predio, @Id_Consumo, @Valor_Factura, @Estado_Factura, @codigo_Barras, @codigo_Qr, @Mes_Factura);
@@ -5878,48 +5882,38 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DataSet1.FACTURASDataTable dataTable) {
+        public virtual int FacturaGenerada(DataSet1.FACTURASDataTable dataTable, string Estado_Factura) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Estado_Factura == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Estado_Factura));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet1.FACTURASDataTable FacturasPendientes() {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            DataSet1.FACTURASDataTable dataTable = new DataSet1.FACTURASDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(DataSet1.FACTURASDataTable dataTable) {
+        public virtual int FacturasPendiente(DataSet1.FACTURASDataTable dataTable, string Estado_Factura) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Estado_Factura == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Estado_Factura));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet1.FACTURASDataTable FacturasGeneradas() {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            DataSet1.FACTURASDataTable dataTable = new DataSet1.FACTURASDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
