@@ -345,6 +345,7 @@ namespace AqueaductoApp.CapaVistas
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAgregarFactura";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Factura";
             this.Load += new System.EventHandler(this.FrmAgregarFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridConsumo)).EndInit();

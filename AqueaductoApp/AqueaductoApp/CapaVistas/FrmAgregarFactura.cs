@@ -32,8 +32,8 @@ namespace AqueaductoApp.CapaVistas
         BigInteger consecutivo;
         byte[] ms;
         byte[] mQr;
-        int mesConusmo;
-
+        int mesConsumo;
+        int metrosConsumo;
         public FrmAgregarFactura()
         {
             InitializeComponent();
@@ -52,10 +52,11 @@ namespace AqueaductoApp.CapaVistas
             id = int.Parse(GridConsumo.CurrentRow.Cells[0].Value.ToString());
             string FechaConsumo = GridConsumo.CurrentRow.Cells[2].Value.ToString();
             this.FechaConsumo.Text = FechaConsumo;
-             mesConusmo= int.Parse(GridConsumo.CurrentRow.Cells[3].Value.ToString());
+             mesConsumo= int.Parse(GridConsumo.CurrentRow.Cells[3].Value.ToString());
             this.FechaConsumo.Visible = true;
             min = int.Parse(GridConsumo.CurrentRow.Cells[4].Value.ToString());
             this.txtMetros.Text = min.ToString();
+         metrosConsumo= int.Parse(GridConsumo.CurrentRow.Cells[4].Value.ToString());
         }
 
 
@@ -239,7 +240,7 @@ namespace AqueaductoApp.CapaVistas
                             Int64 consecutivoFact = Int64.Parse(consec);
 
 
-                            facturas.InsertarFactura(consec, this.txtCatastro.Text, this.FechaConsumo.Text, cedula, namePropietario, celular, correo, strato, barrio, id, int.Parse(this.totalFactura.Text), estado, ms, mQr, mesConusmo);
+                            facturas.InsertarFactura(consec, this.txtCatastro.Text, this.FechaConsumo.Text, cedula, namePropietario, celular, correo, strato, barrio, id, int.Parse(this.totalFactura.Text), estado, ms, mQr,mesConsumo,metrosConsumo);
 
 
 
@@ -261,7 +262,7 @@ namespace AqueaductoApp.CapaVistas
             }
            else
             {
-                MessageBox.Show("Ya existe Factura para este Predio");
+                MessageBox.Show("Ya existe Factura en este mes para el catastro:"+this.txtCatastro.Text);
             }
 
 

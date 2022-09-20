@@ -1588,6 +1588,8 @@ namespace AqueaductoApp.CapaDatos {
             
             private global::System.Data.DataColumn columnMes_Factura;
             
+            private global::System.Data.DataColumn columnConsumo_Metros;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public FACTURASDataTable() {
@@ -1743,6 +1745,14 @@ namespace AqueaductoApp.CapaDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Consumo_MetrosColumn {
+                get {
+                    return this.columnConsumo_Metros;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1778,7 +1788,23 @@ namespace AqueaductoApp.CapaDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public FACTURASRow AddFACTURASRow(string Consecutivo_Factura, string Numero_Catastro, System.DateTime Fecha_Consumo, string Cedula_Propietario, string Nombre_Propietario, string Celular_Propietario, string Correo_Propietario, string Estrato_Predio, string Barrio_Predio, CONSUMOSRow parentCONSUMOSRowByFK_FACTURAS_CONSUMOS, int Valor_Factura, string Estado_Factura, byte[] codigo_Barras, byte[] codigo_Qr, int Mes_Factura) {
+            public FACTURASRow AddFACTURASRow(
+                        string Consecutivo_Factura, 
+                        string Numero_Catastro, 
+                        System.DateTime Fecha_Consumo, 
+                        string Cedula_Propietario, 
+                        string Nombre_Propietario, 
+                        string Celular_Propietario, 
+                        string Correo_Propietario, 
+                        string Estrato_Predio, 
+                        string Barrio_Predio, 
+                        CONSUMOSRow parentCONSUMOSRowByFK_FACTURAS_CONSUMOS, 
+                        int Valor_Factura, 
+                        string Estado_Factura, 
+                        byte[] codigo_Barras, 
+                        byte[] codigo_Qr, 
+                        int Mes_Factura, 
+                        int Consumo_Metros) {
                 FACTURASRow rowFACTURASRow = ((FACTURASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Consecutivo_Factura,
@@ -1795,7 +1821,8 @@ namespace AqueaductoApp.CapaDatos {
                         Estado_Factura,
                         codigo_Barras,
                         codigo_Qr,
-                        Mes_Factura};
+                        Mes_Factura,
+                        Consumo_Metros};
                 if ((parentCONSUMOSRowByFK_FACTURAS_CONSUMOS != null)) {
                     columnValuesArray[9] = parentCONSUMOSRowByFK_FACTURAS_CONSUMOS[0];
                 }
@@ -1843,6 +1870,7 @@ namespace AqueaductoApp.CapaDatos {
                 this.columncodigo_Barras = base.Columns["codigo_Barras"];
                 this.columncodigo_Qr = base.Columns["codigo_Qr"];
                 this.columnMes_Factura = base.Columns["Mes_Factura"];
+                this.columnConsumo_Metros = base.Columns["Consumo_Metros"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1878,6 +1906,8 @@ namespace AqueaductoApp.CapaDatos {
                 base.Columns.Add(this.columncodigo_Qr);
                 this.columnMes_Factura = new global::System.Data.DataColumn("Mes_Factura", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMes_Factura);
+                this.columnConsumo_Metros = new global::System.Data.DataColumn("Consumo_Metros", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsumo_Metros);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnConsecutivo_Factura}, true));
                 this.columnConsecutivo_Factura.AllowDBNull = false;
@@ -2918,6 +2948,22 @@ namespace AqueaductoApp.CapaDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Consumo_Metros {
+                get {
+                    try {
+                        return ((int)(this[this.tableFACTURAS.Consumo_MetrosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Consumo_Metros\' de la tabla \'FACTURAS\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFACTURAS.Consumo_MetrosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CONSUMOSRow CONSUMOSRow {
                 get {
                     return ((CONSUMOSRow)(this.GetParentRow(this.Table.ParentRelations["FK_FACTURAS_CONSUMOS"])));
@@ -2937,6 +2983,18 @@ namespace AqueaductoApp.CapaDatos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetMes_FacturaNull() {
                 this[this.tableFACTURAS.Mes_FacturaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsumo_MetrosNull() {
+                return this.IsNull(this.tableFACTURAS.Consumo_MetrosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsumo_MetrosNull() {
+                this[this.tableFACTURAS.Consumo_MetrosColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5652,10 +5710,11 @@ WHERE (Id_Propietario=@Id_Propietario)";
             tableMapping.ColumnMappings.Add("codigo_Barras", "codigo_Barras");
             tableMapping.ColumnMappings.Add("codigo_Qr", "codigo_Qr");
             tableMapping.ColumnMappings.Add("Mes_Factura", "Mes_Factura");
+            tableMapping.ColumnMappings.Add("Consumo_Metros", "Consumo_Metros");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [FACTURAS] WHERE (([Consecutivo_Factura] = @Original_Consecutivo_Factura) AND ([Numero_Catastro] = @Original_Numero_Catastro) AND ([Fecha_Consumo] = @Original_Fecha_Consumo) AND ([Cedula_Propietario] = @Original_Cedula_Propietario) AND ([Nombre_Propietario] = @Original_Nombre_Propietario) AND ([Celular_Propietario] = @Original_Celular_Propietario) AND ([Correo_Propietario] = @Original_Correo_Propietario) AND ([Estrato_Predio] = @Original_Estrato_Predio) AND ([Barrio_Predio] = @Original_Barrio_Predio) AND ([Id_Consumo] = @Original_Id_Consumo) AND ([Valor_Factura] = @Original_Valor_Factura) AND ([Estado_Factura] = @Original_Estado_Factura) AND ((@IsNull_Mes_Factura = 1 AND [Mes_Factura] IS NULL) OR ([Mes_Factura] = @Original_Mes_Factura)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [FACTURAS] WHERE (([Consecutivo_Factura] = @Original_Consecutivo_Factura) AND ([Numero_Catastro] = @Original_Numero_Catastro) AND ([Fecha_Consumo] = @Original_Fecha_Consumo) AND ([Cedula_Propietario] = @Original_Cedula_Propietario) AND ([Nombre_Propietario] = @Original_Nombre_Propietario) AND ([Celular_Propietario] = @Original_Celular_Propietario) AND ([Correo_Propietario] = @Original_Correo_Propietario) AND ([Estrato_Predio] = @Original_Estrato_Predio) AND ([Barrio_Predio] = @Original_Barrio_Predio) AND ([Id_Consumo] = @Original_Id_Consumo) AND ([Valor_Factura] = @Original_Valor_Factura) AND ([Estado_Factura] = @Original_Estado_Factura) AND ((@IsNull_Mes_Factura = 1 AND [Mes_Factura] IS NULL) OR ([Mes_Factura] = @Original_Mes_Factura)) AND ((@IsNull_Consumo_Metros = 1 AND [Consumo_Metros] IS NULL) OR ([Consumo_Metros] = @Original_Consumo_Metros)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Consecutivo_Factura", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo_Factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numero_Catastro", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5671,10 +5730,12 @@ WHERE (Id_Propietario=@Id_Propietario)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Factura", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Mes_Factura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Factura", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Mes_Factura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Consumo_Metros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consumo_Metros", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Consumo_Metros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consumo_Metros", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [FACTURAS] ([Consecutivo_Factura], [Numero_Catastro], [Fecha_Consumo], [Cedula_Propietario], [Nombre_Propietario], [Celular_Propietario], [Correo_Propietario], [Estrato_Predio], [Barrio_Predio], [Id_Consumo], [Valor_Factura], [Estado_Factura], [codigo_Barras], [codigo_Qr], [Mes_Factura]) VALUES (@Consecutivo_Factura, @Numero_Catastro, @Fecha_Consumo, @Cedula_Propietario, @Nombre_Propietario, @Celular_Propietario, @Correo_Propietario, @Estrato_Predio, @Barrio_Predio, @Id_Consumo, @Valor_Factura, @Estado_Factura, @codigo_Barras, @codigo_Qr, @Mes_Factura);
-SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo_Propietario, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_Factura, codigo_Barras, codigo_Qr, Mes_Factura FROM FACTURAS WHERE (Consecutivo_Factura = @Consecutivo_Factura)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [FACTURAS] ([Consecutivo_Factura], [Numero_Catastro], [Fecha_Consumo], [Cedula_Propietario], [Nombre_Propietario], [Celular_Propietario], [Correo_Propietario], [Estrato_Predio], [Barrio_Predio], [Id_Consumo], [Valor_Factura], [Estado_Factura], [codigo_Barras], [codigo_Qr], [Mes_Factura], [Consumo_Metros]) VALUES (@Consecutivo_Factura, @Numero_Catastro, @Fecha_Consumo, @Cedula_Propietario, @Nombre_Propietario, @Celular_Propietario, @Correo_Propietario, @Estrato_Predio, @Barrio_Predio, @Id_Consumo, @Valor_Factura, @Estado_Factura, @codigo_Barras, @codigo_Qr, @Mes_Factura, @Consumo_Metros);
+SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo_Propietario, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_Factura, codigo_Barras, codigo_Qr, Mes_Factura, Consumo_Metros FROM FACTURAS WHERE (Consecutivo_Factura = @Consecutivo_Factura)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consecutivo_Factura", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo_Factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5691,6 +5752,7 @@ SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo_Barras", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_Barras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo_Qr", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_Qr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mes_Factura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consumo_Metros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consumo_Metros", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [FACTURAS] SET [Consecutivo_Factura] = @Consecutivo_Factura, [Numero_Catas" +
@@ -5700,20 +5762,22 @@ SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, 
                 "trato_Predio] = @Estrato_Predio, [Barrio_Predio] = @Barrio_Predio, [Id_Consumo] " +
                 "= @Id_Consumo, [Valor_Factura] = @Valor_Factura, [Estado_Factura] = @Estado_Fact" +
                 "ura, [codigo_Barras] = @codigo_Barras, [codigo_Qr] = @codigo_Qr, [Mes_Factura] =" +
-                " @Mes_Factura WHERE (([Consecutivo_Factura] = @Original_Consecutivo_Factura) AND" +
-                " ([Numero_Catastro] = @Original_Numero_Catastro) AND ([Fecha_Consumo] = @Origina" +
-                "l_Fecha_Consumo) AND ([Cedula_Propietario] = @Original_Cedula_Propietario) AND (" +
-                "[Nombre_Propietario] = @Original_Nombre_Propietario) AND ([Celular_Propietario] " +
-                "= @Original_Celular_Propietario) AND ([Correo_Propietario] = @Original_Correo_Pr" +
-                "opietario) AND ([Estrato_Predio] = @Original_Estrato_Predio) AND ([Barrio_Predio" +
-                "] = @Original_Barrio_Predio) AND ([Id_Consumo] = @Original_Id_Consumo) AND ([Val" +
-                "or_Factura] = @Original_Valor_Factura) AND ([Estado_Factura] = @Original_Estado_" +
-                "Factura) AND ((@IsNull_Mes_Factura = 1 AND [Mes_Factura] IS NULL) OR ([Mes_Factu" +
-                "ra] = @Original_Mes_Factura)));\r\nSELECT Consecutivo_Factura, Numero_Catastro, Fe" +
-                "cha_Consumo, Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo" +
-                "_Propietario, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_F" +
-                "actura, codigo_Barras, codigo_Qr, Mes_Factura FROM FACTURAS WHERE (Consecutivo_F" +
-                "actura = @Consecutivo_Factura)";
+                " @Mes_Factura, [Consumo_Metros] = @Consumo_Metros WHERE (([Consecutivo_Factura] " +
+                "= @Original_Consecutivo_Factura) AND ([Numero_Catastro] = @Original_Numero_Catas" +
+                "tro) AND ([Fecha_Consumo] = @Original_Fecha_Consumo) AND ([Cedula_Propietario] =" +
+                " @Original_Cedula_Propietario) AND ([Nombre_Propietario] = @Original_Nombre_Prop" +
+                "ietario) AND ([Celular_Propietario] = @Original_Celular_Propietario) AND ([Corre" +
+                "o_Propietario] = @Original_Correo_Propietario) AND ([Estrato_Predio] = @Original" +
+                "_Estrato_Predio) AND ([Barrio_Predio] = @Original_Barrio_Predio) AND ([Id_Consum" +
+                "o] = @Original_Id_Consumo) AND ([Valor_Factura] = @Original_Valor_Factura) AND (" +
+                "[Estado_Factura] = @Original_Estado_Factura) AND ((@IsNull_Mes_Factura = 1 AND [" +
+                "Mes_Factura] IS NULL) OR ([Mes_Factura] = @Original_Mes_Factura)) AND ((@IsNull_" +
+                "Consumo_Metros = 1 AND [Consumo_Metros] IS NULL) OR ([Consumo_Metros] = @Origina" +
+                "l_Consumo_Metros)));\r\nSELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo" +
+                ", Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo_Propietari" +
+                "o, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_Factura, cod" +
+                "igo_Barras, codigo_Qr, Mes_Factura, Consumo_Metros FROM FACTURAS WHERE (Consecut" +
+                "ivo_Factura = @Consecutivo_Factura)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consecutivo_Factura", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo_Factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5730,6 +5794,7 @@ SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo_Barras", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_Barras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo_Qr", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_Qr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mes_Factura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consumo_Metros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consumo_Metros", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Consecutivo_Factura", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo_Factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Numero_Catastro", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Consumo", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Consumo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5744,6 +5809,8 @@ SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Estado_Factura", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Mes_Factura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Factura", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Mes_Factura", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Factura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Consumo_Metros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consumo_Metros", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Consumo_Metros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consumo_Metros", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5781,8 +5848,8 @@ SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, 
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Factura", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"INSERT INTO [FACTURAS] ([Consecutivo_Factura], [Numero_Catastro], [Fecha_Consumo], [Cedula_Propietario], [Nombre_Propietario], [Celular_Propietario], [Correo_Propietario], [Estrato_Predio], [Barrio_Predio], [Id_Consumo], [Valor_Factura], [Estado_Factura], [codigo_Barras], [codigo_Qr], [Mes_Factura]) VALUES (@Consecutivo_Factura, @Numero_Catastro, @Fecha_Consumo, @Cedula_Propietario, @Nombre_Propietario, @Celular_Propietario, @Correo_Propietario, @Estrato_Predio, @Barrio_Predio, @Id_Consumo, @Valor_Factura, @Estado_Factura, @codigo_Barras, @codigo_Qr, @Mes_Factura);
-SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo_Propietario, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_Factura, codigo_Barras, codigo_Qr, Mes_Factura FROM FACTURAS WHERE (Consecutivo_Factura = @Consecutivo_Factura)";
+            this._commandCollection[4].CommandText = @"INSERT INTO [FACTURAS] ([Consecutivo_Factura], [Numero_Catastro], [Fecha_Consumo], [Cedula_Propietario], [Nombre_Propietario], [Celular_Propietario], [Correo_Propietario], [Estrato_Predio], [Barrio_Predio], [Id_Consumo], [Valor_Factura], [Estado_Factura], [codigo_Barras], [codigo_Qr], [Mes_Factura],[Consumo_Metros]) VALUES (@Consecutivo_Factura, @Numero_Catastro, @Fecha_Consumo, @Cedula_Propietario, @Nombre_Propietario, @Celular_Propietario, @Correo_Propietario, @Estrato_Predio, @Barrio_Predio, @Id_Consumo, @Valor_Factura, @Estado_Factura, @codigo_Barras, @codigo_Qr, @Mes_Factura,@Consumo_Metros);
+SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo_Propietario, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_Factura, codigo_Barras, codigo_Qr, Mes_Factura, Consumo_Metros FROM FACTURAS WHERE (Consecutivo_Factura = @Consecutivo_Factura)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consecutivo_Factura", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo_Factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Numero_Catastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5799,6 +5866,7 @@ SELECT Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, 
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo_Barras", global::System.Data.SqlDbType.Image, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_Barras", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codigo_Qr", global::System.Data.SqlDbType.Image, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "codigo_Qr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Mes_Factura", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Mes_Factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consumo_Metros", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Consumo_Metros", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = new global::System.Data.SqlClient.SqlConnection(global::AqueaductoApp.Properties.Settings.Default.AcueductoConnectionString);
             this._commandCollection[5].CommandText = "UPDATE [FACTURAS] SET Estado_Factura=\'Generada\' where Consecutivo_Factura=@Consec" +
@@ -5830,7 +5898,7 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Numero_Catastro", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = new global::System.Data.SqlClient.SqlConnection(global::AqueaductoApp.Properties.Settings.Default.AcueductoConnectionString);
-            this._commandCollection[8].CommandText = @"SELECT Barrio_Predio, Cedula_Propietario, Celular_Propietario, Consecutivo_Factura, Correo_Propietario, Estado_Factura, Estrato_Predio, Fecha_Consumo, Id_Consumo, Mes_Factura, Nombre_Propietario, Numero_Catastro, Valor_Factura, codigo_Barras, codigo_Qr FROM FACTURAS WHERE (Estado_Factura = @Estado_Factura)";
+            this._commandCollection[8].CommandText = @"SELECT Barrio_Predio, Cedula_Propietario, Celular_Propietario, Consecutivo_Factura, Consumo_Metros, Correo_Propietario, Estado_Factura, Estrato_Predio, Fecha_Consumo, Id_Consumo, Mes_Factura, Nombre_Propietario, Numero_Catastro, Valor_Factura, codigo_Barras, codigo_Qr FROM FACTURAS WHERE (Estado_Factura = @Estado_Factura)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado_Factura", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Estado_Factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -5985,7 +6053,7 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Consecutivo_Factura, string Original_Numero_Catastro, System.DateTime Original_Fecha_Consumo, string Original_Cedula_Propietario, string Original_Nombre_Propietario, string Original_Celular_Propietario, string Original_Correo_Propietario, string Original_Estrato_Predio, string Original_Barrio_Predio, int Original_Id_Consumo, int Original_Valor_Factura, string Original_Estado_Factura, global::System.Nullable<int> Original_Mes_Factura) {
+        public virtual int Delete(string Original_Consecutivo_Factura, string Original_Numero_Catastro, System.DateTime Original_Fecha_Consumo, string Original_Cedula_Propietario, string Original_Nombre_Propietario, string Original_Celular_Propietario, string Original_Correo_Propietario, string Original_Estrato_Predio, string Original_Barrio_Predio, int Original_Id_Consumo, int Original_Valor_Factura, string Original_Estado_Factura, global::System.Nullable<int> Original_Mes_Factura, global::System.Nullable<int> Original_Consumo_Metros) {
             if ((Original_Consecutivo_Factura == null)) {
                 throw new global::System.ArgumentNullException("Original_Consecutivo_Factura");
             }
@@ -6051,6 +6119,14 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
+            if ((Original_Consumo_Metros.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_Consumo_Metros.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6071,7 +6147,23 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Consecutivo_Factura, string Numero_Catastro, System.DateTime Fecha_Consumo, string Cedula_Propietario, string Nombre_Propietario, string Celular_Propietario, string Correo_Propietario, string Estrato_Predio, string Barrio_Predio, int Id_Consumo, int Valor_Factura, string Estado_Factura, byte[] codigo_Barras, byte[] codigo_Qr, global::System.Nullable<int> Mes_Factura) {
+        public virtual int Insert(
+                    string Consecutivo_Factura, 
+                    string Numero_Catastro, 
+                    System.DateTime Fecha_Consumo, 
+                    string Cedula_Propietario, 
+                    string Nombre_Propietario, 
+                    string Celular_Propietario, 
+                    string Correo_Propietario, 
+                    string Estrato_Predio, 
+                    string Barrio_Predio, 
+                    int Id_Consumo, 
+                    int Valor_Factura, 
+                    string Estado_Factura, 
+                    byte[] codigo_Barras, 
+                    byte[] codigo_Qr, 
+                    global::System.Nullable<int> Mes_Factura, 
+                    global::System.Nullable<int> Consumo_Metros) {
             if ((Consecutivo_Factura == null)) {
                 throw new global::System.ArgumentNullException("Consecutivo_Factura");
             }
@@ -6147,6 +6239,12 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
             else {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
+            if ((Consumo_Metros.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((int)(Consumo_Metros.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6183,6 +6281,7 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
                     byte[] codigo_Barras, 
                     byte[] codigo_Qr, 
                     global::System.Nullable<int> Mes_Factura, 
+                    global::System.Nullable<int> Consumo_Metros, 
                     string Original_Consecutivo_Factura, 
                     string Original_Numero_Catastro, 
                     System.DateTime Original_Fecha_Consumo, 
@@ -6195,7 +6294,8 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
                     int Original_Id_Consumo, 
                     int Original_Valor_Factura, 
                     string Original_Estado_Factura, 
-                    global::System.Nullable<int> Original_Mes_Factura) {
+                    global::System.Nullable<int> Original_Mes_Factura, 
+                    global::System.Nullable<int> Original_Consumo_Metros) {
             if ((Consecutivo_Factura == null)) {
                 throw new global::System.ArgumentNullException("Consecutivo_Factura");
             }
@@ -6271,70 +6371,84 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
+            if ((Consumo_Metros.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Consumo_Metros.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             if ((Original_Consecutivo_Factura == null)) {
                 throw new global::System.ArgumentNullException("Original_Consecutivo_Factura");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Consecutivo_Factura));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Consecutivo_Factura));
             }
             if ((Original_Numero_Catastro == null)) {
                 throw new global::System.ArgumentNullException("Original_Numero_Catastro");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Numero_Catastro));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Numero_Catastro));
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_Fecha_Consumo));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_Fecha_Consumo));
             if ((Original_Cedula_Propietario == null)) {
                 throw new global::System.ArgumentNullException("Original_Cedula_Propietario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Cedula_Propietario));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Cedula_Propietario));
             }
             if ((Original_Nombre_Propietario == null)) {
                 throw new global::System.ArgumentNullException("Original_Nombre_Propietario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Nombre_Propietario));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Nombre_Propietario));
             }
             if ((Original_Celular_Propietario == null)) {
                 throw new global::System.ArgumentNullException("Original_Celular_Propietario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Celular_Propietario));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Celular_Propietario));
             }
             if ((Original_Correo_Propietario == null)) {
                 throw new global::System.ArgumentNullException("Original_Correo_Propietario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Correo_Propietario));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Correo_Propietario));
             }
             if ((Original_Estrato_Predio == null)) {
                 throw new global::System.ArgumentNullException("Original_Estrato_Predio");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Estrato_Predio));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Estrato_Predio));
             }
             if ((Original_Barrio_Predio == null)) {
                 throw new global::System.ArgumentNullException("Original_Barrio_Predio");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Barrio_Predio));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Barrio_Predio));
             }
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_Id_Consumo));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Valor_Factura));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Id_Consumo));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_Valor_Factura));
             if ((Original_Estado_Factura == null)) {
                 throw new global::System.ArgumentNullException("Original_Estado_Factura");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Estado_Factura));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Estado_Factura));
             }
             if ((Original_Mes_Factura.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_Mes_Factura.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_Mes_Factura.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Consumo_Metros.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_Consumo_Metros.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6371,6 +6485,7 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
                     byte[] codigo_Barras, 
                     byte[] codigo_Qr, 
                     global::System.Nullable<int> Mes_Factura, 
+                    global::System.Nullable<int> Consumo_Metros, 
                     string Original_Consecutivo_Factura, 
                     string Original_Numero_Catastro, 
                     System.DateTime Original_Fecha_Consumo, 
@@ -6383,15 +6498,32 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
                     int Original_Id_Consumo, 
                     int Original_Valor_Factura, 
                     string Original_Estado_Factura, 
-                    global::System.Nullable<int> Original_Mes_Factura) {
-            return this.Update(Original_Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo_Propietario, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_Factura, codigo_Barras, codigo_Qr, Mes_Factura, Original_Consecutivo_Factura, Original_Numero_Catastro, Original_Fecha_Consumo, Original_Cedula_Propietario, Original_Nombre_Propietario, Original_Celular_Propietario, Original_Correo_Propietario, Original_Estrato_Predio, Original_Barrio_Predio, Original_Id_Consumo, Original_Valor_Factura, Original_Estado_Factura, Original_Mes_Factura);
+                    global::System.Nullable<int> Original_Mes_Factura, 
+                    global::System.Nullable<int> Original_Consumo_Metros) {
+            return this.Update(Original_Consecutivo_Factura, Numero_Catastro, Fecha_Consumo, Cedula_Propietario, Nombre_Propietario, Celular_Propietario, Correo_Propietario, Estrato_Predio, Barrio_Predio, Id_Consumo, Valor_Factura, Estado_Factura, codigo_Barras, codigo_Qr, Mes_Factura, Consumo_Metros, Original_Consecutivo_Factura, Original_Numero_Catastro, Original_Fecha_Consumo, Original_Cedula_Propietario, Original_Nombre_Propietario, Original_Celular_Propietario, Original_Correo_Propietario, Original_Estrato_Predio, Original_Barrio_Predio, Original_Id_Consumo, Original_Valor_Factura, Original_Estado_Factura, Original_Mes_Factura, Original_Consumo_Metros);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertarFactura(string Consecutivo_Factura, string Numero_Catastro, string Fecha_Consumo, string Cedula_Propietario, string Nombre_Propietario, string Celular_Propietario, string Correo_Propietario, string Estrato_Predio, string Barrio_Predio, int Id_Consumo, int Valor_Factura, string Estado_Factura, byte[] codigo_Barras, byte[] codigo_Qr, global::System.Nullable<int> Mes_Factura) {
+        public virtual int InsertarFactura(
+                    string Consecutivo_Factura, 
+                    string Numero_Catastro, 
+                    string Fecha_Consumo, 
+                    string Cedula_Propietario, 
+                    string Nombre_Propietario, 
+                    string Celular_Propietario, 
+                    string Correo_Propietario, 
+                    string Estrato_Predio, 
+                    string Barrio_Predio, 
+                    int Id_Consumo, 
+                    int Valor_Factura, 
+                    string Estado_Factura, 
+                    byte[] codigo_Barras, 
+                    byte[] codigo_Qr, 
+                    global::System.Nullable<int> Mes_Factura, 
+                    global::System.Nullable<int> Consumo_Metros) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((Consecutivo_Factura == null)) {
                 throw new global::System.ArgumentNullException("Consecutivo_Factura");
@@ -6472,6 +6604,12 @@ SET Numero_Catastro=@Numero_Catastro,Fecha_Consumo=@Fecha_Consumo,Cedula_Propiet
             }
             else {
                 command.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Consumo_Metros.HasValue == true)) {
+                command.Parameters[15].Value = ((int)(Consumo_Metros.Value));
+            }
+            else {
+                command.Parameters[15].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
