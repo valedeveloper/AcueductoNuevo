@@ -73,7 +73,7 @@ namespace AqueaductoApp
             this.panelItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelItem.Location = new System.Drawing.Point(0, 0);
             this.panelItem.Name = "panelItem";
-            this.panelItem.Size = new System.Drawing.Size(195, 624);
+            this.panelItem.Size = new System.Drawing.Size(195, 690);
             this.panelItem.TabIndex = 1;
             // 
             // panelSubmenuReportes
@@ -293,7 +293,7 @@ namespace AqueaductoApp
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(195, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(563, 43);
+            this.panelTop.Size = new System.Drawing.Size(573, 43);
             this.panelTop.TabIndex = 2;
             // 
             // pictureClose
@@ -312,7 +312,7 @@ namespace AqueaductoApp
             this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDerecho.Location = new System.Drawing.Point(195, 43);
             this.panelDerecho.Name = "panelDerecho";
-            this.panelDerecho.Size = new System.Drawing.Size(563, 581);
+            this.panelDerecho.Size = new System.Drawing.Size(573, 647);
             this.panelDerecho.TabIndex = 3;
             // 
             // fACTURASBindingSource
@@ -343,7 +343,7 @@ namespace AqueaductoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 624);
+            this.ClientSize = new System.Drawing.Size(768, 690);
             this.Controls.Add(this.panelDerecho);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelItem);

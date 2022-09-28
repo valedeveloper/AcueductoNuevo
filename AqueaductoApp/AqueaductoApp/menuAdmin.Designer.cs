@@ -51,6 +51,7 @@ namespace AqueaductoApp
             this.btnCrearUsuario = new FontAwesome.Sharp.IconButton();
             this.btnUsuario = new FontAwesome.Sharp.IconButton();
             this.panelUsuario = new System.Windows.Forms.Panel();
+            this.labelRol = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
@@ -71,7 +72,6 @@ namespace AqueaductoApp
             this.pREDIOSTableAdapter1 = new AqueaductoApp.AcueductoDataSetTableAdapters.PREDIOSTableAdapter();
             this.pROPIETARIOSBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pROPIETARIOSTableAdapter1 = new AqueaductoApp.AcueductoDataSetTableAdapters.PROPIETARIOSTableAdapter();
-            this.labelRol = new System.Windows.Forms.Label();
             this.pictureRound1 = new AqueaductoApp.CapaModelos.PictureRound();
             this.panel1.SuspendLayout();
             this.panel.SuspendLayout();
@@ -105,7 +105,7 @@ namespace AqueaductoApp
             this.panel1.ForeColor = System.Drawing.Color.LightGray;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 773);
+            this.panel1.Size = new System.Drawing.Size(171, 690);
             this.panel1.TabIndex = 0;
             // 
             // panel
@@ -121,7 +121,7 @@ namespace AqueaductoApp
             this.panel.ForeColor = System.Drawing.Color.LightGray;
             this.panel.Location = new System.Drawing.Point(0, 313);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(171, 460);
+            this.panel.Size = new System.Drawing.Size(171, 377);
             this.panel.TabIndex = 3;
             // 
             // panelsubMenuReportes
@@ -490,6 +490,17 @@ namespace AqueaductoApp
             this.panelUsuario.TabIndex = 0;
             this.panelUsuario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUsuario_Paint);
             // 
+            // labelRol
+            // 
+            this.labelRol.AutoSize = true;
+            this.labelRol.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRol.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelRol.Location = new System.Drawing.Point(41, 128);
+            this.labelRol.Name = "labelRol";
+            this.labelRol.Size = new System.Drawing.Size(81, 16);
+            this.labelRol.TabIndex = 26;
+            this.labelRol.Text = "Administrador";
+            // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
@@ -513,13 +524,13 @@ namespace AqueaductoApp
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(171, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(649, 43);
+            this.panelTop.Size = new System.Drawing.Size(597, 43);
             this.panelTop.TabIndex = 2;
             // 
             // pictureClose
             // 
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
-            this.pictureClose.Location = new System.Drawing.Point(613, 10);
+            this.pictureClose.Location = new System.Drawing.Point(561, 10);
             this.pictureClose.Name = "pictureClose";
             this.pictureClose.Size = new System.Drawing.Size(24, 22);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -532,7 +543,7 @@ namespace AqueaductoApp
             this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDerecho.Location = new System.Drawing.Point(171, 43);
             this.panelDerecho.Name = "panelDerecho";
-            this.panelDerecho.Size = new System.Drawing.Size(649, 730);
+            this.panelDerecho.Size = new System.Drawing.Size(597, 647);
             this.panelDerecho.TabIndex = 3;
             // 
             // acueductoDataSet
@@ -610,17 +621,6 @@ namespace AqueaductoApp
             // 
             this.pROPIETARIOSTableAdapter1.ClearBeforeFill = true;
             // 
-            // labelRol
-            // 
-            this.labelRol.AutoSize = true;
-            this.labelRol.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRol.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRol.Location = new System.Drawing.Point(41, 128);
-            this.labelRol.Name = "labelRol";
-            this.labelRol.Size = new System.Drawing.Size(81, 16);
-            this.labelRol.TabIndex = 26;
-            this.labelRol.Text = "Administrador";
-            // 
             // pictureRound1
             // 
             this.pictureRound1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
@@ -640,7 +640,7 @@ namespace AqueaductoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 773);
+            this.ClientSize = new System.Drawing.Size(768, 690);
             this.Controls.Add(this.panelDerecho);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panel1);

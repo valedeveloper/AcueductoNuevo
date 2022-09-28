@@ -169,7 +169,7 @@ namespace AqueaductoApp.CapaVistas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(15)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(600, 614);
+            this.ClientSize = new System.Drawing.Size(609, 678);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuscar);

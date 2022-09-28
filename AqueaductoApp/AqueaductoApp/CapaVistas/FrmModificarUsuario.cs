@@ -38,10 +38,20 @@ namespace AqueaductoApp.CapaVistas
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            ////Conexión Casa
-            CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-            CapaDatos.DataSet1.USUARIOSDataTable ta = tU.GetData();
-            GridUser.DataSource = ta;
+            if(this.txtCedula.Text=="")
+                {
+                MessageBox.Show("Digite cédula");
+            }
+            else
+            {
+
+                ////Conexión Casa
+                CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter tU = new CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
+                CapaDatos.DataSet1.USUARIOSDataTable usuariosDatos = tU.buscarCedulaTable(this.txtCedula.Text);
+                GridUser.DataSource = usuariosDatos;
+            }
+
+        
         }
         public Image byteArrayToImage(byte[] bytesArr)
         {
@@ -77,7 +87,6 @@ namespace AqueaductoApp.CapaVistas
             this.txtTelefono.Text = telefono;
           
             pass = GridUser.CurrentRow.Cells[6].Value.ToString();
-            this.txtPassword.Text = "Cambiar contraseña si así lo desea, de lo contrario, NO.";
           
              direccionImg = GridUser.CurrentRow.Cells[10].Value.ToString();
             this.txtFile.Text = direccionImg;
@@ -223,7 +232,7 @@ namespace AqueaductoApp.CapaVistas
                                 }
                                 else
                                 {
-                                    if(this.txtPassword.Text!= "Cambiar contraseña si así lo desea, de lo contrario, NO.")
+                                    if(this.txtPassword.Text != "")
                                     {
                                         pass = CapaModelos.Encript.GetSHA256(this.txtPassword.Text);
                                     }
@@ -353,19 +362,19 @@ namespace AqueaductoApp.CapaVistas
 
         private void combotxtRol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboRol.Text == "ADMINISTRADOR")
+            if (comboRol.Text == "Administrador")
             {
                 rol = 1;
             }
             else
             {
-                if (comboRol.Text == "DIGITADOR")
+                if (comboRol.Text == "Digitador")
                 {
                     rol = 2;
                 }
                 else
                 {
-                    if (comboRol.Text == "FACTURADOR")
+                    if (comboRol.Text == "Facturador")
                     {
                         rol = 3;
                     }
@@ -423,7 +432,17 @@ namespace AqueaductoApp.CapaVistas
             }
         }
 
-     
+        private void FrmModificarUsuario_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.USUARIOS' Puede moverla o quitarla según sea necesario.
+            this.uSUARIOSTableAdapter.Fill(this.dataSet1.USUARIOS);
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     internal class read

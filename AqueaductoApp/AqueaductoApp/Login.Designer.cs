@@ -53,9 +53,9 @@ namespace AqueaductoApp
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Verdana", 12F);
             this.txtUsuario.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtUsuario.Location = new System.Drawing.Point(45, 189);
+            this.txtUsuario.Location = new System.Drawing.Point(62, 183);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(198, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(181, 20);
             this.txtUsuario.TabIndex = 6;
             this.txtUsuario.Text = "Usuario";
             this.txtUsuario.Click += new System.EventHandler(this.txtUsuario_Click);
@@ -67,9 +67,9 @@ namespace AqueaductoApp
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Verdana", 12F);
             this.txtPassword.ForeColor = System.Drawing.Color.White;
-            this.txtPassword.Location = new System.Drawing.Point(45, 246);
+            this.txtPassword.Location = new System.Drawing.Point(62, 241);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(198, 20);
+            this.txtPassword.Size = new System.Drawing.Size(181, 20);
             this.txtPassword.TabIndex = 20;
             this.txtPassword.Text = "Contraseña";
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
@@ -81,7 +81,7 @@ namespace AqueaductoApp
             this.btnIngresar.FlatAppearance.BorderSize = 0;
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnIngresar.Location = new System.Drawing.Point(15, 287);
+            this.btnIngresar.Location = new System.Drawing.Point(15, 297);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(229, 29);
             this.btnIngresar.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace AqueaductoApp
             // 
             this.labelErrorUsuario.AutoSize = true;
             this.labelErrorUsuario.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.labelErrorUsuario.Location = new System.Drawing.Point(45, 318);
+            this.labelErrorUsuario.Location = new System.Drawing.Point(44, 333);
             this.labelErrorUsuario.Name = "labelErrorUsuario";
             this.labelErrorUsuario.Size = new System.Drawing.Size(170, 13);
             this.labelErrorUsuario.TabIndex = 6;
@@ -132,7 +132,7 @@ namespace AqueaductoApp
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(15, 269);
+            this.panel3.Location = new System.Drawing.Point(15, 265);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(229, 2);
             this.panel3.TabIndex = 11;
@@ -140,7 +140,7 @@ namespace AqueaductoApp
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(15, 211);
+            this.panel2.Location = new System.Drawing.Point(15, 206);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(229, 2);
             this.panel2.TabIndex = 10;
@@ -148,10 +148,10 @@ namespace AqueaductoApp
             // picturePass
             // 
             this.picturePass.Image = ((System.Drawing.Image)(resources.GetObject("picturePass.Image")));
-            this.picturePass.Location = new System.Drawing.Point(9, 240);
+            this.picturePass.Location = new System.Drawing.Point(15, 229);
             this.picturePass.Name = "picturePass";
-            this.picturePass.Size = new System.Drawing.Size(26, 26);
-            this.picturePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picturePass.Size = new System.Drawing.Size(36, 35);
+            this.picturePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picturePass.TabIndex = 9;
             this.picturePass.TabStop = false;
             // 
@@ -159,9 +159,9 @@ namespace AqueaductoApp
             // 
             this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
             this.pictureUser.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureUser.InitialImage")));
-            this.pictureUser.Location = new System.Drawing.Point(13, 184);
+            this.pictureUser.Location = new System.Drawing.Point(15, 170);
             this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(26, 26);
+            this.pictureUser.Size = new System.Drawing.Size(35, 35);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureUser.TabIndex = 8;
             this.pictureUser.TabStop = false;
@@ -171,7 +171,7 @@ namespace AqueaductoApp
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Bauhaus 93", 24F);
             this.labelLogin.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelLogin.Location = new System.Drawing.Point(80, 130);
+            this.labelLogin.Location = new System.Drawing.Point(80, 119);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(100, 36);
             this.labelLogin.TabIndex = 1;

@@ -303,5 +303,10 @@ namespace AqueaductoApp.CapaVistas
             }
 
         }
+
+        private void FrmAgregarUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
