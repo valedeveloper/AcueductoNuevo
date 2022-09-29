@@ -160,5 +160,10 @@ namespace AqueaductoApp
             facIm.ShowDialog();
             facIm.Close();
         }
+
+        private void pictureMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

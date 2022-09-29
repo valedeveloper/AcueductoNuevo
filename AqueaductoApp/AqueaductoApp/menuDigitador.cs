@@ -124,5 +124,10 @@ namespace AqueaductoApp
             frmReporteConsumo.Close();
             hideSubmenu();
         }
+
+        private void pictureMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

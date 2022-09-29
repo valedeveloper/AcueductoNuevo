@@ -42,6 +42,7 @@ namespace AqueaductoApp
             this.pictureRound1 = new AqueaductoApp.CapaModelos.PictureRound();
             this.labelNombre = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.pictureMinimize = new System.Windows.Forms.PictureBox();
             this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panelDerecho = new System.Windows.Forms.Panel();
             this.acueductoDataSet = new AqueaductoApp.AcueductoDataSet();
@@ -53,6 +54,7 @@ namespace AqueaductoApp
             this.panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).BeginInit();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acueductoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cONSUMOSBindingSource)).BeginInit();
@@ -60,7 +62,7 @@ namespace AqueaductoApp
             // 
             // panelItem
             // 
-            this.panelItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(31)))), ((int)(((byte)(151)))));
+            this.panelItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(133)))), ((int)(((byte)(183)))));
             this.panelItem.Controls.Add(this.btnReportes);
             this.panelItem.Controls.Add(this.panelSubmenuConsumo);
             this.panelItem.Controls.Add(this.btnConsumo);
@@ -68,7 +70,7 @@ namespace AqueaductoApp
             this.panelItem.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelItem.Location = new System.Drawing.Point(0, 0);
             this.panelItem.Name = "panelItem";
-            this.panelItem.Size = new System.Drawing.Size(189, 690);
+            this.panelItem.Size = new System.Drawing.Size(215, 690);
             this.panelItem.TabIndex = 0;
             // 
             // btnReportes
@@ -76,17 +78,17 @@ namespace AqueaductoApp
             this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnReportes.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.SystemColors.Window;
             this.btnReportes.IconChar = FontAwesome.Sharp.IconChar.Registered;
-            this.btnReportes.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReportes.IconColor = System.Drawing.SystemColors.Window;
             this.btnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReportes.IconSize = 32;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 275);
+            this.btnReportes.Location = new System.Drawing.Point(0, 310);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
-            this.btnReportes.Size = new System.Drawing.Size(189, 39);
+            this.btnReportes.Size = new System.Drawing.Size(215, 45);
             this.btnReportes.TabIndex = 24;
             this.btnReportes.Text = "Reporte\r\n";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -100,56 +102,58 @@ namespace AqueaductoApp
             this.panelSubmenuConsumo.Controls.Add(this.btnModificarLectura);
             this.panelSubmenuConsumo.Controls.Add(this.btnNuevaLectura);
             this.panelSubmenuConsumo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubmenuConsumo.Location = new System.Drawing.Point(0, 194);
+            this.panelSubmenuConsumo.Location = new System.Drawing.Point(0, 220);
             this.panelSubmenuConsumo.Name = "panelSubmenuConsumo";
-            this.panelSubmenuConsumo.Size = new System.Drawing.Size(189, 81);
+            this.panelSubmenuConsumo.Size = new System.Drawing.Size(215, 90);
             this.panelSubmenuConsumo.TabIndex = 0;
             this.panelSubmenuConsumo.Visible = false;
             // 
             // btnModificarLectura
             // 
+            this.btnModificarLectura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(200)))), ((int)(((byte)(223)))));
             this.btnModificarLectura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnModificarLectura.FlatAppearance.BorderSize = 0;
             this.btnModificarLectura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarLectura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnModificarLectura.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnModificarLectura.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarLectura.ForeColor = System.Drawing.SystemColors.Window;
             this.btnModificarLectura.IconChar = FontAwesome.Sharp.IconChar.FilePen;
-            this.btnModificarLectura.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnModificarLectura.IconColor = System.Drawing.SystemColors.Window;
             this.btnModificarLectura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnModificarLectura.IconSize = 30;
             this.btnModificarLectura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarLectura.Location = new System.Drawing.Point(0, 39);
+            this.btnModificarLectura.Location = new System.Drawing.Point(0, 45);
             this.btnModificarLectura.Name = "btnModificarLectura";
             this.btnModificarLectura.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnModificarLectura.Size = new System.Drawing.Size(189, 42);
+            this.btnModificarLectura.Size = new System.Drawing.Size(215, 45);
             this.btnModificarLectura.TabIndex = 5;
             this.btnModificarLectura.Text = "Modificar Lectura";
             this.btnModificarLectura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModificarLectura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnModificarLectura.UseVisualStyleBackColor = true;
+            this.btnModificarLectura.UseVisualStyleBackColor = false;
             this.btnModificarLectura.Click += new System.EventHandler(this.btnModificarLectura_Click);
             // 
             // btnNuevaLectura
             // 
+            this.btnNuevaLectura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(200)))), ((int)(((byte)(223)))));
             this.btnNuevaLectura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNuevaLectura.FlatAppearance.BorderSize = 0;
             this.btnNuevaLectura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaLectura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnNuevaLectura.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNuevaLectura.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaLectura.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNuevaLectura.IconChar = FontAwesome.Sharp.IconChar.FileCircleCheck;
-            this.btnNuevaLectura.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnNuevaLectura.IconColor = System.Drawing.SystemColors.Window;
             this.btnNuevaLectura.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNuevaLectura.IconSize = 30;
             this.btnNuevaLectura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaLectura.Location = new System.Drawing.Point(0, 0);
             this.btnNuevaLectura.Name = "btnNuevaLectura";
             this.btnNuevaLectura.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnNuevaLectura.Size = new System.Drawing.Size(189, 39);
+            this.btnNuevaLectura.Size = new System.Drawing.Size(215, 45);
             this.btnNuevaLectura.TabIndex = 4;
             this.btnNuevaLectura.Text = "Nueva Lectura";
             this.btnNuevaLectura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaLectura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevaLectura.UseVisualStyleBackColor = true;
+            this.btnNuevaLectura.UseVisualStyleBackColor = false;
             this.btnNuevaLectura.Click += new System.EventHandler(this.btnNuevaLectura_Click);
             // 
             // btnConsumo
@@ -157,17 +161,17 @@ namespace AqueaductoApp
             this.btnConsumo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnConsumo.FlatAppearance.BorderSize = 0;
             this.btnConsumo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsumo.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnConsumo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnConsumo.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsumo.ForeColor = System.Drawing.SystemColors.Window;
             this.btnConsumo.IconChar = FontAwesome.Sharp.IconChar.FaucetDrip;
-            this.btnConsumo.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnConsumo.IconColor = System.Drawing.SystemColors.Window;
             this.btnConsumo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnConsumo.IconSize = 30;
             this.btnConsumo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsumo.Location = new System.Drawing.Point(0, 155);
+            this.btnConsumo.Location = new System.Drawing.Point(0, 175);
             this.btnConsumo.Name = "btnConsumo";
             this.btnConsumo.Padding = new System.Windows.Forms.Padding(9, 0, 17, 0);
-            this.btnConsumo.Size = new System.Drawing.Size(189, 39);
+            this.btnConsumo.Size = new System.Drawing.Size(215, 45);
             this.btnConsumo.TabIndex = 2;
             this.btnConsumo.Text = "Consumo";
             this.btnConsumo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,37 +181,38 @@ namespace AqueaductoApp
             // 
             // panelUsuario
             // 
+            this.panelUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(133)))), ((int)(((byte)(183)))));
             this.panelUsuario.Controls.Add(this.labelRol);
             this.panelUsuario.Controls.Add(this.pictureRound1);
             this.panelUsuario.Controls.Add(this.labelNombre);
             this.panelUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.panelUsuario.ForeColor = System.Drawing.SystemColors.Window;
             this.panelUsuario.Location = new System.Drawing.Point(0, 0);
             this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(189, 155);
+            this.panelUsuario.Size = new System.Drawing.Size(215, 175);
             this.panelUsuario.TabIndex = 1;
             // 
             // labelRol
             // 
             this.labelRol.AutoSize = true;
-            this.labelRol.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRol.Location = new System.Drawing.Point(51, 125);
+            this.labelRol.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRol.Location = new System.Drawing.Point(62, 147);
             this.labelRol.Name = "labelRol";
-            this.labelRol.Size = new System.Drawing.Size(61, 16);
+            this.labelRol.Size = new System.Drawing.Size(74, 16);
             this.labelRol.TabIndex = 5;
             this.labelRol.Text = "Digitador";
             // 
             // pictureRound1
             // 
             this.pictureRound1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pictureRound1.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pictureRound1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(245)))), ((int)(((byte)(172)))));
             this.pictureRound1.BorderColor2 = System.Drawing.Color.HotPink;
             this.pictureRound1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.pictureRound1.BorderSize = 2;
             this.pictureRound1.GradientAngle = 50F;
-            this.pictureRound1.Location = new System.Drawing.Point(29, 10);
+            this.pictureRound1.Location = new System.Drawing.Point(37, 6);
             this.pictureRound1.Name = "pictureRound1";
-            this.pictureRound1.Size = new System.Drawing.Size(101, 101);
+            this.pictureRound1.Size = new System.Drawing.Size(120, 120);
             this.pictureRound1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureRound1.TabIndex = 4;
             this.pictureRound1.TabStop = false;
@@ -215,29 +220,43 @@ namespace AqueaductoApp
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Font = new System.Drawing.Font("Comic Sans MS", 8.25F);
-            this.labelNombre.Location = new System.Drawing.Point(55, 111);
+            this.labelNombre.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.Location = new System.Drawing.Point(70, 128);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(47, 15);
+            this.labelNombre.Size = new System.Drawing.Size(57, 16);
             this.labelNombre.TabIndex = 3;
             this.labelNombre.Text = "Nombre";
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(27)))), ((int)(((byte)(146)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(133)))), ((int)(((byte)(183)))));
+            this.panelTop.Controls.Add(this.pictureMinimize);
             this.panelTop.Controls.Add(this.pictureClose);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(189, 0);
+            this.panelTop.Location = new System.Drawing.Point(215, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(579, 43);
+            this.panelTop.Size = new System.Drawing.Size(553, 43);
             this.panelTop.TabIndex = 1;
+            // 
+            // pictureMinimize
+            // 
+            this.pictureMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
+            this.pictureMinimize.Location = new System.Drawing.Point(436, 6);
+            this.pictureMinimize.Name = "pictureMinimize";
+            this.pictureMinimize.Size = new System.Drawing.Size(30, 28);
+            this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureMinimize.TabIndex = 10;
+            this.pictureMinimize.TabStop = false;
+            this.pictureMinimize.Click += new System.EventHandler(this.pictureMinimize_Click);
             // 
             // pictureClose
             // 
+            this.pictureClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
-            this.pictureClose.Location = new System.Drawing.Point(543, 10);
+            this.pictureClose.Location = new System.Drawing.Point(511, 6);
             this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(24, 22);
+            this.pictureClose.Size = new System.Drawing.Size(30, 30);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureClose.TabIndex = 2;
             this.pictureClose.TabStop = false;
@@ -246,9 +265,9 @@ namespace AqueaductoApp
             // panelDerecho
             // 
             this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDerecho.Location = new System.Drawing.Point(189, 43);
+            this.panelDerecho.Location = new System.Drawing.Point(215, 43);
             this.panelDerecho.Name = "panelDerecho";
-            this.panelDerecho.Size = new System.Drawing.Size(579, 647);
+            this.panelDerecho.Size = new System.Drawing.Size(553, 647);
             this.panelDerecho.TabIndex = 2;
             // 
             // acueductoDataSet
@@ -294,6 +313,7 @@ namespace AqueaductoApp
             this.panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRound1)).EndInit();
             this.panelTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acueductoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cONSUMOSBindingSource)).EndInit();
@@ -320,5 +340,6 @@ namespace AqueaductoApp
         private System.Windows.Forms.Label labelRol;
         private CapaModelos.PictureRound pictureRound1;
         private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.PictureBox pictureMinimize;
     }
 }

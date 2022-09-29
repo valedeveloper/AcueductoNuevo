@@ -32,17 +32,31 @@ namespace AqueaductoApp.CapaVistas
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModificarUsuario));
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.GridUser = new System.Windows.Forms.DataGridView();
+            this.Id_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedulaUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.celularUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.photoUsuarioDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.idRolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direcciónImagenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSUARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new AqueaductoApp.CapaDatos.DataSet1();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,25 +78,12 @@ namespace AqueaductoApp.CapaVistas
             this.label12 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.labelID = new System.Windows.Forms.Label();
-            this.pictureUser = new AqueaductoApp.CapaModelos.PictureRound();
-            this.dataSet1 = new AqueaductoApp.CapaDatos.DataSet1();
-            this.uSUARIOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uSUARIOSTableAdapter = new AqueaductoApp.CapaDatos.DataSet1TableAdapters.USUARIOSTableAdapter();
-            this.Id_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedulaUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.celularUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.photoUsuarioDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idRolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direcciónImagenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureUser = new AqueaductoApp.CapaModelos.PictureRound();
             ((System.ComponentModel.ISupportInitialize)(this.GridUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -131,7 +132,7 @@ namespace AqueaductoApp.CapaVistas
             this.GridUser.AutoGenerateColumns = false;
             this.GridUser.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(224)))));
             this.GridUser.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.GridUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
+            this.GridUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridUser.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.GridUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -157,14 +158,14 @@ namespace AqueaductoApp.CapaVistas
             this.estadoUsuarioDataGridViewTextBoxColumn,
             this.direcciónImagenDataGridViewTextBoxColumn});
             this.GridUser.DataSource = this.uSUARIOSBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(31)))), ((int)(((byte)(151)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridUser.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(31)))), ((int)(((byte)(151)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridUser.DefaultCellStyle = dataGridViewCellStyle9;
             this.GridUser.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.GridUser.GridColor = System.Drawing.SystemColors.Window;
             this.GridUser.Location = new System.Drawing.Point(25, 178);
@@ -172,11 +173,136 @@ namespace AqueaductoApp.CapaVistas
             this.GridUser.ReadOnly = true;
             this.GridUser.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.GridUser.RowHeadersVisible = false;
-            this.GridUser.RowHeadersWidth = 40;
+            this.GridUser.RowHeadersWidth = 42;
             this.GridUser.RowTemplate.Height = 25;
-            this.GridUser.Size = new System.Drawing.Size(545, 116);
+            this.GridUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.GridUser.Size = new System.Drawing.Size(540, 116);
             this.GridUser.TabIndex = 42;
             this.GridUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridUser_CellContentClick);
+            // 
+            // Id_Usuario
+            // 
+            this.Id_Usuario.DataPropertyName = "Id_Usuario";
+            this.Id_Usuario.DividerWidth = 50;
+            this.Id_Usuario.HeaderText = "Id_Usuario";
+            this.Id_Usuario.Name = "Id_Usuario";
+            this.Id_Usuario.ReadOnly = true;
+            this.Id_Usuario.Visible = false;
+            // 
+            // cedulaUsuarioDataGridViewTextBoxColumn
+            // 
+            this.cedulaUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Cedula_Usuario";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.cedulaUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cedulaUsuarioDataGridViewTextBoxColumn.HeaderText = "Cédula";
+            this.cedulaUsuarioDataGridViewTextBoxColumn.Name = "cedulaUsuarioDataGridViewTextBoxColumn";
+            this.cedulaUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cedulaUsuarioDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // nombreUsuarioDataGridViewTextBoxColumn
+            // 
+            this.nombreUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Nombre_Usuario";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.nombreUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.nombreUsuarioDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreUsuarioDataGridViewTextBoxColumn.Name = "nombreUsuarioDataGridViewTextBoxColumn";
+            this.nombreUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreUsuarioDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // apellidoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.apellidoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Apellido_Usuario";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.apellidoUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.apellidoUsuarioDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Name = "apellidoUsuarioDataGridViewTextBoxColumn";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // correoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.correoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Correo_Usuario";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.correoUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.correoUsuarioDataGridViewTextBoxColumn.HeaderText = "Correo";
+            this.correoUsuarioDataGridViewTextBoxColumn.Name = "correoUsuarioDataGridViewTextBoxColumn";
+            this.correoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // celularUsuarioDataGridViewTextBoxColumn
+            // 
+            this.celularUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Celular_Usuario";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.celularUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.celularUsuarioDataGridViewTextBoxColumn.HeaderText = "Celular";
+            this.celularUsuarioDataGridViewTextBoxColumn.Name = "celularUsuarioDataGridViewTextBoxColumn";
+            this.celularUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.celularUsuarioDataGridViewTextBoxColumn.Width = 105;
+            // 
+            // passwordUsuarioDataGridViewTextBoxColumn
+            // 
+            this.passwordUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Password_Usuario";
+            this.passwordUsuarioDataGridViewTextBoxColumn.HeaderText = "Password_Usuario";
+            this.passwordUsuarioDataGridViewTextBoxColumn.Name = "passwordUsuarioDataGridViewTextBoxColumn";
+            this.passwordUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passwordUsuarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // photoUsuarioDataGridViewImageColumn
+            // 
+            this.photoUsuarioDataGridViewImageColumn.DataPropertyName = "Photo_Usuario";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle8.NullValue")));
+            this.photoUsuarioDataGridViewImageColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.photoUsuarioDataGridViewImageColumn.FillWeight = 50F;
+            this.photoUsuarioDataGridViewImageColumn.HeaderText = "Foto";
+            this.photoUsuarioDataGridViewImageColumn.Name = "photoUsuarioDataGridViewImageColumn";
+            this.photoUsuarioDataGridViewImageColumn.ReadOnly = true;
+            this.photoUsuarioDataGridViewImageColumn.Visible = false;
+            this.photoUsuarioDataGridViewImageColumn.Width = 105;
+            // 
+            // idRolDataGridViewTextBoxColumn
+            // 
+            this.idRolDataGridViewTextBoxColumn.DataPropertyName = "Id_Rol";
+            this.idRolDataGridViewTextBoxColumn.HeaderText = "Id_Rol";
+            this.idRolDataGridViewTextBoxColumn.Name = "idRolDataGridViewTextBoxColumn";
+            this.idRolDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idRolDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // estadoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.estadoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Estado_Usuario";
+            this.estadoUsuarioDataGridViewTextBoxColumn.HeaderText = "Estado_Usuario";
+            this.estadoUsuarioDataGridViewTextBoxColumn.Name = "estadoUsuarioDataGridViewTextBoxColumn";
+            this.estadoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoUsuarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // direcciónImagenDataGridViewTextBoxColumn
+            // 
+            this.direcciónImagenDataGridViewTextBoxColumn.DataPropertyName = "Dirección_Imagen";
+            this.direcciónImagenDataGridViewTextBoxColumn.HeaderText = "Dirección_Imagen";
+            this.direcciónImagenDataGridViewTextBoxColumn.Name = "direcciónImagenDataGridViewTextBoxColumn";
+            this.direcciónImagenDataGridViewTextBoxColumn.ReadOnly = true;
+            this.direcciónImagenDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // uSUARIOSBindingSource
+            // 
+            this.uSUARIOSBindingSource.DataMember = "USUARIOS";
+            this.uSUARIOSBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -432,6 +558,10 @@ namespace AqueaductoApp.CapaVistas
             this.labelID.Size = new System.Drawing.Size(0, 13);
             this.labelID.TabIndex = 67;
             // 
+            // uSUARIOSTableAdapter
+            // 
+            this.uSUARIOSTableAdapter.ClearBeforeFill = true;
+            // 
             // pictureUser
             // 
             this.pictureUser.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
@@ -447,131 +577,6 @@ namespace AqueaductoApp.CapaVistas
             this.pictureUser.TabIndex = 43;
             this.pictureUser.TabStop = false;
             this.pictureUser.Click += new System.EventHandler(this.pictureUser_Click);
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // uSUARIOSBindingSource
-            // 
-            this.uSUARIOSBindingSource.DataMember = "USUARIOS";
-            this.uSUARIOSBindingSource.DataSource = this.dataSet1;
-            // 
-            // uSUARIOSTableAdapter
-            // 
-            this.uSUARIOSTableAdapter.ClearBeforeFill = true;
-            // 
-            // Id_Usuario
-            // 
-            this.Id_Usuario.DataPropertyName = "Id_Usuario";
-            this.Id_Usuario.DividerWidth = 50;
-            this.Id_Usuario.HeaderText = "Id_Usuario";
-            this.Id_Usuario.Name = "Id_Usuario";
-            this.Id_Usuario.ReadOnly = true;
-            this.Id_Usuario.Visible = false;
-            // 
-            // cedulaUsuarioDataGridViewTextBoxColumn
-            // 
-            this.cedulaUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Cedula_Usuario";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.cedulaUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cedulaUsuarioDataGridViewTextBoxColumn.HeaderText = "Cédula";
-            this.cedulaUsuarioDataGridViewTextBoxColumn.Name = "cedulaUsuarioDataGridViewTextBoxColumn";
-            this.cedulaUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cedulaUsuarioDataGridViewTextBoxColumn.Width = 105;
-            // 
-            // nombreUsuarioDataGridViewTextBoxColumn
-            // 
-            this.nombreUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Nombre_Usuario";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.nombreUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.nombreUsuarioDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreUsuarioDataGridViewTextBoxColumn.Name = "nombreUsuarioDataGridViewTextBoxColumn";
-            this.nombreUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreUsuarioDataGridViewTextBoxColumn.Width = 105;
-            // 
-            // apellidoUsuarioDataGridViewTextBoxColumn
-            // 
-            this.apellidoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Apellido_Usuario";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.apellidoUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.apellidoUsuarioDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.Name = "apellidoUsuarioDataGridViewTextBoxColumn";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.apellidoUsuarioDataGridViewTextBoxColumn.Width = 105;
-            // 
-            // correoUsuarioDataGridViewTextBoxColumn
-            // 
-            this.correoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Correo_Usuario";
-            this.correoUsuarioDataGridViewTextBoxColumn.HeaderText = "Correo_Usuario";
-            this.correoUsuarioDataGridViewTextBoxColumn.Name = "correoUsuarioDataGridViewTextBoxColumn";
-            this.correoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.correoUsuarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // celularUsuarioDataGridViewTextBoxColumn
-            // 
-            this.celularUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Celular_Usuario";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.celularUsuarioDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.celularUsuarioDataGridViewTextBoxColumn.HeaderText = "Celular";
-            this.celularUsuarioDataGridViewTextBoxColumn.Name = "celularUsuarioDataGridViewTextBoxColumn";
-            this.celularUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.celularUsuarioDataGridViewTextBoxColumn.Width = 105;
-            // 
-            // passwordUsuarioDataGridViewTextBoxColumn
-            // 
-            this.passwordUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Password_Usuario";
-            this.passwordUsuarioDataGridViewTextBoxColumn.HeaderText = "Password_Usuario";
-            this.passwordUsuarioDataGridViewTextBoxColumn.Name = "passwordUsuarioDataGridViewTextBoxColumn";
-            this.passwordUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordUsuarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // photoUsuarioDataGridViewImageColumn
-            // 
-            this.photoUsuarioDataGridViewImageColumn.DataPropertyName = "Photo_Usuario";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
-            this.photoUsuarioDataGridViewImageColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.photoUsuarioDataGridViewImageColumn.FillWeight = 50F;
-            this.photoUsuarioDataGridViewImageColumn.HeaderText = "Foto";
-            this.photoUsuarioDataGridViewImageColumn.Name = "photoUsuarioDataGridViewImageColumn";
-            this.photoUsuarioDataGridViewImageColumn.ReadOnly = true;
-            this.photoUsuarioDataGridViewImageColumn.Width = 105;
-            // 
-            // idRolDataGridViewTextBoxColumn
-            // 
-            this.idRolDataGridViewTextBoxColumn.DataPropertyName = "Id_Rol";
-            this.idRolDataGridViewTextBoxColumn.HeaderText = "Id_Rol";
-            this.idRolDataGridViewTextBoxColumn.Name = "idRolDataGridViewTextBoxColumn";
-            this.idRolDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idRolDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // estadoUsuarioDataGridViewTextBoxColumn
-            // 
-            this.estadoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "Estado_Usuario";
-            this.estadoUsuarioDataGridViewTextBoxColumn.HeaderText = "Estado_Usuario";
-            this.estadoUsuarioDataGridViewTextBoxColumn.Name = "estadoUsuarioDataGridViewTextBoxColumn";
-            this.estadoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoUsuarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // direcciónImagenDataGridViewTextBoxColumn
-            // 
-            this.direcciónImagenDataGridViewTextBoxColumn.DataPropertyName = "Dirección_Imagen";
-            this.direcciónImagenDataGridViewTextBoxColumn.HeaderText = "Dirección_Imagen";
-            this.direcciónImagenDataGridViewTextBoxColumn.Name = "direcciónImagenDataGridViewTextBoxColumn";
-            this.direcciónImagenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direcciónImagenDataGridViewTextBoxColumn.Visible = false;
             // 
             // FrmModificarUsuario
             // 
@@ -605,15 +610,15 @@ namespace AqueaductoApp.CapaVistas
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.label1);
-            this.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ForeColor = System.Drawing.SystemColors.Window;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModificarUsuario";
             this.Text = "Modificar Usuario";
             this.Load += new System.EventHandler(this.FrmModificarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

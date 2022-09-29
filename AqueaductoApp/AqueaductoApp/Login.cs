@@ -156,5 +156,10 @@ namespace AqueaductoApp
         {
 
         }
+
+        private void pictureMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

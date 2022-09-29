@@ -302,5 +302,15 @@ namespace AqueaductoApp
         {
 
         }
+
+        private void pictureMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureNormal_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+        }
     }
 }
